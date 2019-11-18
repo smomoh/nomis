@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.GenderNormCohortAttendance" table="GENDERNORMCOHORTATTENDANCE">
+      <id column="RECORDID" name="recordId" type="int">
+        <generator class="identity"/>
+    </id>
+    <property name="clientId" column="CLIENTID" type="string" />
+    <property name="dateOfAttendance" column="DATEOFATTENDANCE" type="string"/>
+    <property name="endorsedBy" column="ENDORSEDBY" type="string"/>
+    <property name="lastModifiedBy" column="LASTMODIFIEDBY" type="string"/>
+    <property name="lastModifiedDate" column="LASTMODIFIEDDATE" type="string"/>
+    <property name="sessionNumber" column="SESSIONNUMBER" type="int"/>
+    <property name="numberOfSessions" column="NUMBEROFSESSIONS" type="int"/>
+    <property name="targetGroup" column="TARGETGROUP" type="string"/>
+  </class>
+</hibernate-mapping>

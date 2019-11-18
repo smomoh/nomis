@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.DhisDataExport" table="DHISDATAEXPORT">
+    <id column="id" name="id" type="int">
+      <generator class="identity"/>
+    </id>
+    <property column="STATE" name="state" type="string"/>
+    <property column="LGA" name="lga" type="string"/>
+    <property column="ORGUNITID" name="orgUnitId" type="string"/>
+    <property column="ORGUNITNAME" name="orgUnitName" type="string"/>
+    <property column="DATAELEMENTID" name="dataElementId" type="string"/>
+    <property column="DATAELEMENTNAME" name="dataElementName" type="string"/>
+    <property column="CATEGORYOPTIONCOMBOID" name="categoryOptionComboId" type="string"/>
+    <property column="CATEORYCOMBOOPTIONNAME" name="categoryComboOptionName" type="string"/>
+    <property column="DATASET" name="dataset" type="string"/>
+    <property column="STARTDATE" name="startDate" type="string"/>
+    <property column="VALUE" name="value" type="int"/>
+    <property column="DHISINSTANCE" name="dhisInstance" type="string"/>
+  </class>
+</hibernate-mapping>

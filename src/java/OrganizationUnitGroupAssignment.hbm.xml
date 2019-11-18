@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.OrganizationUnitGroupAssignment" table="ORGANIZATIONUNITGROUPASSIGNMENT">
+    <id column="RECORDID" name="recordId" type="integer">
+      <generator class="identity"/>
+    </id>
+    <property column="PARENTORGUNITGROUPID" name="parentOrgUnitGroupId" type="string"/>
+    <property column="ORGUNITGROUPID" name="orgUnitGroupId" type="string"/>
+    <property column="ORGUNITID" name="orgunitid" type="string"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.CustomDataElement" table="CUSTOMDATAELEMENT">
+    <id column="CUSTOMDEID" name="customDeId" type="string"/>
+    <property column="CUSTOMDENAME" name="customDeName" type="string"/>
+    <property column="CUSTOMDEDESCRIPTION" name="customDeDescription" type="string"/>
+    <property column="CATEGORYCOMBOID" name="categoryComboId" type="string"/>
+    <property column="STDDEID" name="stdDeId" type="string"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class lazy="false" name="com.fhi.kidmap.business.States" table="state">
+    <id column="state_code" name="state_code" type="string">
+          </id>
+    <property column="name" name="name" type="string"/>
+  </class>
+</hibernate-mapping>

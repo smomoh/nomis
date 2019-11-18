@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class lazy="false" name="com.fhi.kidmap.business.DomainServices" table="servicedomains">
+    <id column="domainCode" name="domainCode" type="string">    </id>
+    <property column="domainName" name="domainName" type="string"/>
+    <property column="serviceName" name="serviceName" type="string"/>
+  </class>
+</hibernate-mapping>

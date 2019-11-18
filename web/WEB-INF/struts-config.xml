@@ -1,0 +1,1046 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="DatimGeneratedDataDownloadForm" type="com.fhi.kidmap.report.controller.DatimGeneratedDataDownloadForm"/>
+        <form-bean name="DatimDataGeneratorForm" type="com.fhi.kidmap.report.controller.DatimDataGeneratorForm"/>
+        <form-bean name="OptionForm" type="com.fhi.kidmap.controller.OptionForm"/>
+        <form-bean name="NationalHivRiskAssessmentForm" type="com.fhi.kidmap.controller.NationalHivRiskAssessmentForm"/>
+        <form-bean name="CustomIndicatorReportForm" type="com.fhi.kidmap.report.controller.CustomIndicatorReportForm"/>
+        <form-bean name="DatimReportForm" type="com.fhi.kidmap.report.controller.DatimReportForm"/>
+        <form-bean name="CustomIndicatorValueGeneratorForm" type="com.fhi.kidmap.report.controller.CustomIndicatorValueGeneratorForm"/>
+        <form-bean name="RevisedHouseholdFollowupAssessmentForm" type="com.fhi.kidmap.controller.RevisedHouseholdFollowupAssessmentForm"/>
+        <form-bean name="RevisedHouseholdVulnerabilityAssessmentForm" type="com.fhi.kidmap.controller.RevisedHouseholdVulnerabilityAssessmentForm"/>
+        <form-bean name="HouseholdServiceSpecialOperationForm" type="com.fhi.kidmap.report.controller.HouseholdServiceSpecialOperationForm"/>
+        <form-bean name="OVCServiceSpecialOperationsForm" type="com.fhi.kidmap.report.controller.OVCServiceSpecialOperationsForm"/>
+        <form-bean name="BulkDeleteOperationForm" type="com.fhi.kidmap.controller.BulkDeleteOperationForm"/>
+        <form-bean name="OptionForm" type="com.fhi.kidmap.controller.OptionForm"/>
+        <form-bean name="SummaryStatisticsReportForm" type="com.fhi.kidmap.report.controller.SummaryStatisticsReportForm"/>
+        <form-bean name="PartnerChangeForm" type="com.fhi.kidmap.controller.PartnerChangeForm"/>
+        <form-bean name="WelcomeForm" type="com.fhi.kidmap.controller.WelcomeForm"/>
+        <form-bean name="CaregiverExpReportForm" type="com.fhi.kidmap.report.controller.CaregiverExpReportForm"/>
+        <form-bean name="CaregiverExpenditureAndSchoolAttendanceForm" type="com.fhi.kidmap.controller.CaregiverExpenditureAndSchoolAttendanceForm"/>
+        <form-bean name="CareAndSupportReportForm" type="com.fhi.kidmap.report.controller.CareAndSupportReportForm"/>
+        <form-bean name="CareAndSupportForm" type="com.fhi.kidmap.controller.CareAndSupportForm"/>
+        <form-bean name="DeletedRecordsReportForm" type="com.fhi.kidmap.report.DeletedRecordsReportForm"/>
+        <form-bean name="HouseholdMultipleQueryReportForm" type="com.fhi.kidmap.report.controller.HouseholdMultipleQueryReportForm"/>
+        <form-bean name="MultipleReportForm" type="com.fhi.kidmap.report.controller.MultipleReportForm"/>
+        <form-bean name="GenderNormCohortAttendanceReportForm" type="com.fhi.kidmap.report.controller.GenderNormCohortAttendanceReportForm"/>
+        <form-bean name="GenderNormCohortAttendanceForm" type="com.fhi.kidmap.controller.GenderNormCohortAttendanceForm"/>
+        <form-bean name="CareplanAchievementReportForm" type="com.fhi.kidmap.report.controller.CareplanAchievementReportForm"/>
+        <form-bean name="CareplanAchievementForm" type="com.fhi.kidmap.controller.CareplanAchievementForm"/>
+        <form-bean name="DashboardForm" type="com.nomis.chart.controller.DashboardForm"/>
+        <form-bean name="NewChartForm" type="com.nomis.chart.controller.NewChartForm"/>
+        <form-bean name="HomeForm" type="com.fhi.kidmap.controller.HomeForm"/>
+        <form-bean name="CommunityChangeForm" type="com.fhi.kidmap.controller.CommunityChangeForm"/>
+        <form-bean name="HivRiskAssessmentReportForm" type="com.fhi.kidmap.report.controller.HivRiskAssessmentReportForm"/>
+        <form-bean name="HivRiskAssessmentForm" type="com.fhi.kidmap.controller.HivRiskAssessmentForm"/>
+        <form-bean name="SummStatReportForm" type="com.fhi.kidmap.report.controller.SummStatReportForm"/>
+        <form-bean name="DataExchangeOrganizationUnitForm" type="com.nomis.dataexchange.controller.DataExchangeOrganizationUnitForm"/>
+        <form-bean name="DhisInstanceForm" type="com.nomis.dataexchange.controller.DhisInstanceForm"/>
+        <form-bean name="UserGroupForm" type="com.fhi.kidmap.controller.UserGroupForm"/>
+        <form-bean name="ReferralDirectoryForm" type="com.fhi.kidmap.controller.ReferralDirectoryForm"/>
+        <form-bean name="InterceptingFilterForm" type="com.fhi.kidmap.controller.InterceptingFilterForm"/>
+        <form-bean name="HouseholdChangeOperationForm" type="com.fhi.kidmap.controller.HouseholdChangeOperationForm"/>
+        <form-bean name="OrganizationUnitForm" type="com.fhi.kidmap.controller.OrganizationUnitForm"/>
+        <form-bean name="OrganizationUnitHirachyForm" type="com.fhi.kidmap.controller.OrganizationUnitHirachyForm"/>
+        <form-bean name="SiteTransitionForm" type="com.fhi.kidmap.controller.SiteTransitionForm"/>
+        <form-bean name="GraduationCheckListReportForm" type="com.fhi.kidmap.report.controller.GraduationCheckListReportForm"/>
+        <form-bean name="GraduationCheckListForm" type="com.fhi.kidmap.controller.GraduationCheckListForm"/>
+        <form-bean name="ChildTbHivReportForm" type="com.fhi.kidmap.report.controller.ChildTbHivReportForm"/>
+        <form-bean name="CaregiverTBHIVScreeningForm" type="com.fhi.kidmap.controller.CaregiverTBHIVScreeningForm"/>
+        <form-bean name="OVCTBHIVScreeningForm" type="com.fhi.kidmap.controller.OVCTBHIVScreeningForm"/>
+        <form-bean name="HouseholdMergeForm" type="com.fhi.kidmap.controller.HouseholdMergeForm"/>
+        <form-bean name="HivStatusUpdateForm" type="com.fhi.kidmap.controller.HivStatusUpdateForm"/>
+        <form-bean name="CohortAnalysisReportForm" type="com.fhi.kidmap.report.controller.CohortAnalysisReportForm"/>
+        <form-bean name="DatabaseCleanupForm" type="com.fhi.kidmap.controller.DatabaseCleanupForm"/>
+        <form-bean name="ChartGeneratorForm" type="com.fhi.kidmap.chart.controller.ChartGeneratorForm"/>
+        <form-bean name="ReportDownloadForm" type="com.fhi.kidmap.report.controller.ReportDownloadForm"/>
+        <form-bean name="ReportDownload" type="com.fhi.kidmap.report.controller.ReportDownload"/>
+        <form-bean name="CompatibilityForm" type="com.fhi.kidmap.controller.CompatibilityForm"/>
+        <form-bean name="OvcFollowupSurveyReportForm" type="com.fhi.kidmap.report.controller.OvcFollowupSurveyReportForm"/>
+        <form-bean name="CaregiverForm" type="com.fhi.kidmap.controller.CaregiverForm"/>
+        <form-bean name="DatabaseImportTrackerReportForm" type="com.fhi.kidmap.report.controller.DatabaseImportTrackerReportForm"/>
+        <form-bean name="ChangePasswordForm" type="com.fhi.kidmap.controller.ChangePasswordForm"/>
+        <form-bean name="DatabaseExportForm" type="com.fhi.kidmap.controller.DatabaseExportForm"/>
+        <form-bean name="DatabaseUploadForm" type="com.fhi.kidmap.controller.DatabaseUploadForm"/>
+        <form-bean name="DiskDefragmenterForm" type="com.fhi.kidmap.controller.DiskDefragmenterForm"/>
+        <form-bean name="DatabaseManagementForm" type="com.fhi.kidmap.controller.DatabaseManagementForm"/>
+        <form-bean name="DatavalueGeneratorForm" type="com.fhi.kidmap.report.controller.DatavalueGeneratorForm"/>
+        <form-bean name="OrganizationUnitGroupAssignmentForm" type="com.fhi.kidmap.controller.OrganizationUnitGroupAssignmentForm"/>
+        <form-bean name="OrganizationUnitGroupForm" type="com.fhi.kidmap.controller.OrganizationUnitGroupForm"/>
+        <form-bean name="ReportQueryManagerForm" type="com.fhi.kidmap.controller.ReportQueryManagerForm"/>
+        <form-bean name="IndicatorManagerForm" type="com.fhi.kidmap.controller.IndicatorManagerForm"/>
+        <form-bean name="IndicatorForm" type="com.fhi.kidmap.controller.IndicatorForm"/>
+        <form-bean name="AgeAnalysisReportForm" type="com.fhi.kidmap.report.controller.AgeAnalysisReportForm"/>
+        <form-bean name="CurrentAgeUpdateForm" type="com.fhi.kidmap.controller.CurrentAgeUpdateForm"/>
+        <form-bean name="MetadataMgtForm" type="com.fhi.kidmap.controller.MetadataMgtForm"/>
+        <form-bean name="UmbrellaOrganizationForm" type="com.fhi.kidmap.controller.UmbrellaOrganizationForm"/>
+        <form-bean name="CustomReportForm" type="com.fhi.kidmap.report.controller.CustomReportForm"/>
+        <form-bean name="HouseholdFollowupAssessmentReportForm" type="com.fhi.kidmap.report.controller.HouseholdFollowupAssessmentReportForm"/>
+        <form-bean name="HouseholdFollowupAssessmentForm" type="com.fhi.kidmap.controller.HouseholdFollowupAssessmentForm"/>
+        <form-bean name="TrainingReportForm" type="com.fhi.kidmap.report.controller.TrainingReportForm"/>
+        <form-bean name="TrainingStatusSetupForm" type="com.fhi.kidmap.controller.TrainingStatusSetupForm"/>
+        <form-bean name="TrainingInformationSetupForm" type="com.fhi.kidmap.controller.TrainingInformationSetupForm"/>
+        <form-bean name="TrainingDesignationForm" type="com.fhi.kidmap.controller.TrainingDesignationForm"/>
+        <form-bean name="TrainingCategoryForm" type="com.fhi.kidmap.controller.TrainingCategoryForm"/>
+        <form-bean name="TrainingForm" type="com.fhi.kidmap.controller.TrainingForm"/>
+        <form-bean name="DataExportToExcelForm" type="com.fhi.kidmap.report.controller.DataExportToExcelForm"/>
+        <form-bean name="CategoryForm" type="com.fhi.kidmap.controller.CategoryForm"/>
+        <form-bean name="CategoryCombinationForm" type="com.fhi.kidmap.controller.CategoryCombinationForm"/>
+        <form-bean name="CustomDataElementsForm" type="com.fhi.kidmap.controller.CustomDataElementsForm"/>
+        <form-bean name="CategoryOptionForm" type="com.fhi.kidmap.controller.CategoryOptionForm"/>
+        <form-bean name="ReportQueryForm" type="com.fhi.kidmap.report.controller.ReportQueryForm"/>
+        <form-bean name="ServiceReportGeneratorForm" type="com.fhi.kidmap.report.controller.ServiceReportGeneratorForm"/>
+        <form-bean name="NutritionAssessmentReportForm" type="com.fhi.kidmap.report.controller.NutritionAssessmentReportForm"/>
+        <form-bean name="NutritionAssessmentForm" type="com.fhi.kidmap.controller.NutritionAssessmentForm"/>
+        <form-bean name="PartnerUpdateForm" type="com.fhi.kidmap.controller.PartnerUpdateForm"/>
+        <form-bean name="UserRoleForm" type="com.fhi.kidmap.controller.UserRoleForm"/>
+        <form-bean name="HVAAnalysisReportForm" type="com.fhi.kidmap.report.controller.HVAAnalysisReportForm"/>
+        <form-bean name="VulnerableHouseholdReferralReportForm" type="com.fhi.kidmap.report.controller.VulnerableHouseholdReferralReportForm"/>
+        <form-bean name="OvcServiceForm" type="com.fhi.kidmap.controller.OvcServiceForm"/>
+        <form-bean name="HouseholdServiceForm" type="com.fhi.kidmap.controller.HouseholdServiceForm"/>
+        <form-bean name="HouseholdVulnerabilityIndexForm" type="com.fhi.kidmap.controller.HouseholdVulnerabilityIndexForm"/>
+        <form-bean name="HVIServiceReportForm" type="com.fhi.kidmap.report.controller.HVIServiceReportForm"/>
+        <form-bean name="HouseholdVulnerabilityIndexReportForm" type="com.fhi.kidmap.report.controller.HouseholdVulnerabilityIndexReportForm"/>
+        <form-bean name="HouseholdServiceForm" type="com.fhi.kidmap.controller.HouseholdServiceForm"/>
+        <form-bean name="HouseholdVulnerabilityIndexForm" type="com.fhi.kidmap.controller.HouseholdVulnerabilityIndexForm"/>
+        <form-bean name="DataElementsImportForm" type="com.fhi.kidmap.controller.DataElementsImportForm"/>
+        <form-bean name="IndicatorsForm" type="com.fhi.kidmap.controller.IndicatorsForm"/>
+        <form-bean name="SiteSetupReportForm" type="com.fhi.kidmap.report.controller.SiteSetupReportForm"/>
+        <form-bean name="OrganizationalRecordsReportForm" type="com.fhi.kidmap.report.controller.OrganizationalRecordsReportForm"/>
+        <form-bean name="DatabaseUpdateForm" type="com.fhi.kidmap.controller.DatabaseUpdateForm"/>
+        <form-bean name="CVIReportForm" type="com.fhi.kidmap.report.controller.CVIReportForm"/>
+        <form-bean name="FileUploadForm" type="com.fhi.kidmap.controller.FileUploadForm"/>
+        <form-bean name="TestAction" type="com.fhi.kidmap.controller.TestAction"/>
+        <form-bean name="ChildVulnerabilityIndexForm" type="com.fhi.kidmap.controller.ChildVulnerabilityIndexForm"/>
+        <form-bean name="DomainServicesForm" type="com.fhi.kidmap.controller.DomainServicesForm"/>
+        <form-bean name="OvcReferralServiceForm" type="com.fhi.kidmap.controller.OvcReferralServiceForm"/>
+        <form-bean name="OrganizationalCapacityAssessmentForm" type="com.fhi.kidmap.controller.OrganizationalCapacityAssessmentForm"/>
+        <form-bean name="DhisExportForm" type="com.fhi.kidmap.report.controller.DhisExportForm"/>
+        <form-bean name="ChartForm" type="com.fhi.kidmap.chart.controller.ChartForm"/>
+        <form-bean name="OrganizationRecordsForm" type="com.fhi.kidmap.controller.OrganizationRecordsForm"/>
+        <form-bean name="CaregiverListForm" type="com.fhi.kidmap.report.controller.CaregiverListForm"/>
+        <form-bean name="EligibilityCriteriaForm" type="com.fhi.kidmap.controller.EligibilityCriteriaForm"/>
+        <form-bean name="PartnersForm" type="com.fhi.kidmap.controller.PartnersForm"/>
+        <form-bean name="DatabaseMgtBean" type="com.fhi.kidmap.controller.DatabaseMgtBean"/>
+        <form-bean name="OvcMthlySummaryForm" type="com.fhi.kidmap.report.controller.OvcMthlySummaryForm"/>
+        <form-bean name="EnrollmentRegisterForm" type="com.fhi.kidmap.report.controller.EnrollmentRegisterForm"/>
+        <form-bean name="OvcWithdrawalReportForm" type="com.fhi.kidmap.report.controller.OvcWithdrawalReportForm"/>
+        <form-bean name="MthlyServiceReportForm" type="com.fhi.kidmap.report.controller.MthlyServiceReportForm"/>
+        <form-bean name="ovcserviceForm" type="com.fhi.kidmap.controller.OvcServiceForm"/>
+        <!--<form-bean name="SummStatReportForm" type="com.fhi.kidmap.report.controller.SummStatReportForm"/>-->
+        <form-bean name="DqaReportForm" type="com.fhi.kidmap.report.controller.DqaReportForm"/>
+        <form-bean name="SchoolAttendanceForm" type="com.fhi.kidmap.report.controller.SchoolAttendanceForm"/>
+        <form-bean name="CsiReportForm" type="com.fhi.kidmap.report.controller.CsiReportForm"/>
+        <form-bean name="EnrollmentReportForm" type="com.fhi.kidmap.report.controller.EnrollmentReportForm"/>
+        <form-bean name="UserSetupForm" type="com.fhi.kidmap.controller.UserSetupForm"/>
+        <form-bean name="CboSetupForm" type="com.fhi.kidmap.controller.CboSetupForm"/>
+        <form-bean name="AjaxActionForm" type="xhrstruts.AjaxActionForm"/>
+        <form-bean name="WardActionForm" type="com.fhi.kidmap.controller.WardActionForm"/>
+        <form-bean name="CbosActionForm" type="com.fhi.kidmap.controller.CbosActionForm"/>
+        <form-bean name="LgasActionForm" type="com.fhi.kidmap.controller.LgasActionForm"/>
+        <form-bean name="StatesActionForm" type="com.fhi.kidmap.controller.StatesActionForm"/>
+        <form-bean name="loginForm" type="com.fhi.kidmap.controller.LoginForm"/>
+        <form-bean name="ovcForm" type="com.fhi.kidmap.controller.OvcForm" />
+        <form-bean name="ovcfollowupsurveyForm" type="com.fhi.kidmap.controller.OvcFollowupSurveyForm"/>
+        <form-bean name="ovcschoolForm" type="com.fhi.kidmap.controller.OvcSchoolForm"/>
+        <form-bean name="mainreportspageForm" type="com.fhi.kidmap.controller.MainReportsPageForm"/>
+        
+
+
+    </form-beans>
+
+    <global-exceptions>
+
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="welcome"  path="/Welcome.do"/>
+        <forward name="login" path="/login.jsp"/>
+        
+        <forward name="accessDenied" path="/ErrorPage.jsp"/>
+    </global-forwards>
+
+    <action-mappings type="com.fhi.kidmap.controller.OvcActionMapping">
+        <action input="/login.jsp" name="loginForm" path="/Login" scope="request" type="com.fhi.kidmap.controller.LoginAction">
+            <!--<forward name="success" path="/Nomis.jsp"/>-->
+            
+            <forward name="success" path="/homeaction.do"/>
+            <forward name="createaccount" path="/AdminUserSetup.jsp"/>
+            
+        </action>
+        <action path="/OvcList" type="com.fhi.kidmap.controller.OvcListAction">
+            <forward name="success" path="/ovclist.jsp"/>
+            <!--<forward name="success" path="/welcomeStruts.jsp"/>-->
+        </action>
+
+        <action path="/OvcFollowupSurveyList" type="com.fhi.kidmap.controller.OvcFollowupSurveyListAction_1">
+            <forward name="success" path="/ovcfollowupsurveylist.jsp"/>
+            <!--<forward name="success" path="/welcomeStruts.jsp"/>-->
+        </action>
+
+        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+       
+        <action path="/Add"
+                type="com.fhi.kidmap.controller.AddOvcAction"
+                name="ovcForm"
+                attribute="ovc"
+                scope="request"
+                input="/DataEntry/Enrollment.jsp"
+                validate="true" >
+            <!--<set-property property="loginRequired" value="true"/>-->
+            <forward name="success" path="/DataEntry/Enrollment.jsp"/>
+            <forward name="error" path="/DataEntry/Enrollment.jsp"/>
+        </action>
+
+        <action path="/EditOvcLink"
+                type="com.fhi.kidmap.controller.GetOvcAction"
+                name="ovcForm"
+                attribute="ovc"
+                scope="request"
+                validate="false" >
+            <!--<set-property property="loginRequired" value="true"/>-->
+            <forward name="success" path="/editovc.jsp"/>
+            <forward name="error" path="/OvcList.do"/>
+        </action>
+
+        <action path="/EditOvc"
+                type="com.fhi.kidmap.controller.EditOvcAction"
+                name="ovcForm"
+                attribute="ovc"
+                scope="request"
+                input="/editovc.jsp"
+                validate="true" >
+            <!--<set-property property="loginRequired" value="true"/>-->
+            <forward name="success" path="/OvcList.do"/>
+            <forward name="error" path="/editovc.jsp"/>
+        </action>
+
+        <action path="/DeleteOvcLink"
+                type="com.fhi.kidmap.controller.DeleteOvcAction"
+                scope="request"
+                validate="false" >
+            <!--<set-property property="loginRequired" value="true"/>-->
+            <forward name="success" path="/OvcList.do"/>
+            <forward name="error" path="/OvcList.do"/>
+        </action>
+
+        <action path="/EditOvcTextField"
+                type="com.fhi.kidmap.controller.GetOvcAction"
+                name="ovcForm"
+                attribute="ovc"
+                scope="request"
+                input="/ovclist.jsp"
+                validate="true" >
+            <!--<set-property property="loginRequired" value="true" goa2/>-->
+            <forward name="success" path="/editovc.jsp"/>
+            <forward name="error" path="/OvcList.do"/>
+        </action>
+
+
+        <action path="/DeleteOvcTextField"
+                type="com.fhi.kidmap.controller.DeleteOvcAction"
+                name="ovcForm"
+                attribute="ovc"
+                scope="request"
+                input="/ovclist.jsp"
+                validate="true" >
+            <!--<set-property property="loginRequired" value="true"/>-->
+            <forward name="success" path="/OvcList.do"/>
+            <forward name="error" path="/OvcList.do"/>
+        </action>
+
+        <action path="/AddOvcFollowupSurvey"
+                type="com.fhi.kidmap.controller.AddOvcFollowupSurveyAction_1"
+                name="ovcfollowupsurveyForm"
+                attribute="ovcfollowup"
+                scope="request"
+                input="/followupsurvey.jsp"
+                validate="true" >
+            <!--<set-property property="loginRequired" value="true"/>-->
+            <forward name="success" path="/followupsurvey.jsp"/>
+            <forward name="error" path="/followupsurvey.jsp"/>
+        </action>
+
+
+        <action path="/EditOvcFollowupSurveyLink"
+                type="com.fhi.kidmap.controller.GetOvcFollowupSurveyAction_1"
+                name="ovcfollowupsurveyForm"
+                attribute="ovcfollowupsurvey"
+                scope="request"
+                validate="false" >
+            <!--<set-property property="loginRequired" value="true"/>-->
+            <forward name="success" path="/editovcfollowupsurvey.jsp"/>
+            <forward name="error" path="/OvcFollowupSurveyList.do"/>
+        </action>
+
+        <action path="/EditOvcFollowupSurvey"
+                type="com.fhi.kidmap.controller.EditOvcFollowupSurveyAction_1"
+                name="ovcfollowupsurveyForm"
+                attribute="ovcfollowupsurvey"
+                scope="request"
+                input="/editovcfollowupsurvey.jsp"
+                validate="true" >
+            <!--<set-property property="loginRequired" value="true"/>-->
+            <forward name="success" path="/OvcFollowupSurveyList.do"/>
+            <forward name="error" path="/editovcfollowupsurvey.jsp"/>
+        </action>
+
+        <action path="/DeleteOvcFollowupSurveyLink"
+                type="com.fhi.kidmap.controller.DeleteOvcFollowupSurveyAction_1"
+                scope="request"
+                validate="false" >
+            <!--<set-property property="loginRequired" value="true"/>-->
+            <forward name="success" path="/OvcFollowupSurveyList.do"/>
+            <forward name="error" path="/OvcFollowupSurveyList.do"/>
+        </action>
+
+        <action path="/EditOvcFollowupSurveyTextField"
+                type="com.fhi.kidmap.controller.GetOvcFollowupSurveyAction_1"
+                name="ovcfollowupsurveyForm"
+                attribute="ovcfollowupsurvey"
+                scope="request"
+                input="/ovcfollowupsurveylist.jsp"
+                validate="true" >
+            <!--<set-property property="loginRequired" value="true"/>-->
+            <forward name="success" path="/editovcfollowupsurvey.jsp"/>
+            <forward name="error" path="/OvcFollowupSurveyList.do"/>
+        </action>
+
+
+        <action path="/DeleteOvcFollowupSurveyTextField"
+                type="com.fhi.kidmap.controller.DeleteOvcFollowupSurveyAction_1"
+                name="ovcfollowupsurveyForm"
+                attribute="ovcfollowupsurvey"
+                scope="request"
+                input="/ovcfollowupsurveylist.jsp"
+                validate="true" >
+            <!--<set-property property="loginRequired" value="true"/>-->
+            <forward name="success" path="/OvcFollowupSurveyList.do"/>
+            <forward name="error" path="/OvcFollowupSurveyList.do"/>
+        </action>
+
+        <action path="/AddOvcSchool"
+                type="com.fhi.kidmap.controller.AddOvcSchoolAction_1"
+                name="ovcschoolForm"
+                scope="request"
+                input="/EnvironmentSetup/SchoolSetup.jsp"
+                validate="true">
+                <forward name="success" path="/EnvironmentSetup/SchoolSetup.jsp"/>
+            <forward name="error" path="/EnvironmentSetup/SchoolSetup.jsp"/>
+            <forward name="Nouserpriviledge" path="/NoUserPriviledge.jsp"/>
+            </action>
+
+        <action name="StatesActionForm" input="/OrganizationUnit/StateSetup.jsp" path="/statesAction" scope="session" type="com.fhi.kidmap.controller.StatesAction" validate="true">
+            <forward name="success" path="/OrganizationUnit/StateSetup.jsp"/>
+            <forward name="failure" path="/OrganizationUnit/StateSetup.jsp"/>
+            <forward name="Nouserpriviledge" path="/NoUserPriviledge.jsp"/>
+        </action>
+            <action name="LgasActionForm" input="/OrganizationUnit/LgaSetup.jsp" path="/addLga" scope="session" type="com.fhi.kidmap.controller.LgasAction" validate="true">
+               <forward name="success" path="/OrganizationUnit/LgaSetup.jsp"/>
+                <forward name="failure" path="/OrganizationUnit/LgaSetup.jsp"/>
+            <forward name="Nouserpriviledge" path="/NoUserPriviledge.jsp"/>
+                </action>
+                <action name="CbosActionForm" path="/addCbo" input="/CboLookup.jsp" scope="session" type="com.fhi.kidmap.controller.CboAction" validate="true">
+                    <forward name="success" path="/CboLookup.jsp"/>
+                    <forward name="failure" path="/CboLookup.jsp"/>
+                    </action>
+                    <action name="WardActionForm" input="/OrganizationUnit/WardSetup.jsp" path="/addWard" scope="session" type="com.fhi.kidmap.controller.WardAction" validate="true">
+                        <forward name="success" path="/OrganizationUnit/WardSetup.jsp"/>
+                        <forward name="failure" path="/OrganizationUnit/WardSetup.jsp"/>
+                        <forward name="Nouserpriviledge" path="/NoUserPriviledge.jsp"/>
+                    </action>
+                        <action name="AjaxActionForm" path="/addcbo" scope="request" type="xhrstruts.StrutsAjaxAction" validate="false">
+                            <forward name="success" path="/cboAjaxServlet"/>
+                            <forward name="failure" path="/cboAjaxServlet"/>
+                        </action>
+                        <action name="CboSetupForm" path="/cboSetup" input="/EnvironmentSetup/SiteSetup.jsp" scope="session" type="com.fhi.kidmap.controller.CboSetupAction" validate="true">
+                            <forward name="success" path="/EnvironmentSetup/SiteSetup.jsp"/>
+                            <forward name="failure" path="/EnvironmentSetup/SiteSetup.jsp"/>
+                            <forward name="Nouserpriviledge" path="/NoUserPriviledge.jsp"/>
+                        </action>
+                            <action name="UserSetupForm" input="/UserAccountManagement/UserSetup.jsp" path="/userSetup" scope="session" type="com.fhi.kidmap.controller.UserSetupAction" validate="true">
+                                <forward name="success" path="/UserAccountManagement/UserSetup.jsp"/>
+                                <forward name="failure" path="/UserAccountManagement/UserSetup.jsp"/>
+                                <forward name="changePassword" path="/UserAccountManagement/ChangePassword.jsp"/>
+                                <forward name="Nouserpriviledge" path="/NoUserPriviledge.jsp"/>
+                            </action>
+                            
+                            <action input="/" name="EnrollmentReportForm" path="/enrollmentReport" scope="session" type="com.fhi.kidmap.report.controller.EnrollmentReportAction" validate="false">
+                                <forward name="success" path="/Reports/EnrollmentReport.jsp"/>
+                                <forward name="critriaPage" path="/Reports/EnrollmentRecord.jsp"/>
+                                <forward name="exceldownload" path="/Reports/DatimReportView.jsp"/>
+                                </action>
+                            <action input="/" name="EnrollmentRegisterForm" path="/enrollmentRegister" scope="session" type="com.fhi.kidmap.report.controller.EnrollmentRegisterAction" validate="false">
+                                <forward name="success" path="/Reports/EnrolRegisterDatePage.jsp"/>
+                                <forward name="failure" path="/Reports/EnrolRegisterDatePage.jsp"/>
+                            </action>
+                                <action input="/" name="CsiReportForm" path="/csireport" scope="session" type="com.fhi.kidmap.report.controller.CsiReportAction" validate="false">
+                                    <forward name="success" path="/Reports/CsiAnalysis.jsp"/>
+                                    <forward name="failure" path="/Reports/CsiAnalysis.jsp"/>
+                                    <forward name="csiList" path="/Reports/OvcsPerCsiScore.jsp"/>
+                                </action>
+                                <action input="/" name="SchoolAttendanceForm" path="/schoolAttendance" scope="session" type="com.fhi.kidmap.report.controller.SchoolAttendanceAction" validate="false">
+                                <forward name="success" path="/Reports/SchoolAttendanceCount.jsp"/>
+                                <forward name="failure" path="/Reports/SchoolAttendanceCount.jsp"/>
+                                </action>
+                                <action input="/Reports/DqaParamPage.jsp" name="DqaReportForm" path="/dqareport" scope="session" type="com.fhi.kidmap.report.controller.DqaReportAction" validate="false">
+                                    <forward name="paramPage" path="/Reports/DqaParamPage.jsp"/>
+                                    <forward name="success" path="/Reports/ovcDqa.jsp"/>
+                                <forward name="failure" path="/Reports/DqaParamPage.jsp"/>
+                                </action>
+
+                                
+                                <action input="/Reports/MthlyServiceReportDatePage.jsp" name="MthlyServiceReportForm" path="/mthlyServiceReport" scope="session" type="com.fhi.kidmap.report.controller.MthlyServiceReportAction" validate="true">
+                                    <forward name="success" path="/Reports/MthlyServiceReport.jsp"/>
+                                    <forward name="failure" path="/Reports/MthlyServiceReport.jsp"/>
+                                    <forward name="specialReport" path="/SpecialOperations/OVCServiceSpecialOperation.jsp"/>
+                                </action>
+                                <action name="OvcWithdrawalReportForm" path="/ovcWithdrawal" scope="session" type="com.fhi.kidmap.report.controller.OvcWithdrawalReportAction" validate="false">
+                                    <forward name="success" path="/Reports/OvcWithdrawalList.jsp"/>
+                                    <forward name="failure" path="/Reports/OvcWithdrawalList.jsp"/>
+                                    </action>
+                                 <action input="/" name="OvcMthlySummaryForm" path="/monthlysummaryform" scope="session" type="com.fhi.kidmap.report.controller.OvcMthlySummaryAction" validate="false">
+                                    <forward name="success" path="/Reports/OVCMthlySummaryForm.jsp"/>
+                                    <forward name="failure" path="/Reports/OVCMthlySummaryForm.jsp"/>
+                                    <forward name="newReport" path="/Reports/VCMonthlysummaryformNew.jsp"/>
+                                 </action>
+                                 <action input="/DbMgtSelectionPage.jsp" name="DatabaseMgtBean" path="/databasemgt" scope="session" type="com.fhi.kidmap.controller.DatabaseMgtAction" validate="true">
+                                     <forward name="success" path="/Reports/RestoreDbPage.jsp"/>
+                                     <forward name="dataSize" path="/DatabaseMgt.jsp"/>
+                                     <forward name="fileUploadSelected" path="/FileUpload.jsp"/>
+                                     <forward name="dbImportSelected" path="/ImportFilesSelectionPage.jsp"/>
+                                     <forward name="dbexportSelected" path="/DbExportPage.jsp"/>
+                                     <forward name="selectionPage" path="/DbMgtSelectionPage.jsp"/>
+                                     <forward name="dataElementImportSelected" path="/DataElementsUploadPage.jsp"/>
+                                     <forward name="deFileUploaded" path="/DataElementsImportReadyPage.jsp"/>
+                                     <forward name="dataElementImportFailed" path="/ErrorPage.jsp"/>
+                                     <forward name="dataElementImported" path="/SuccessPage.jsp"/>
+                                                                     
+                                     <!--<forward name="failure" path="/DbMgtSelectionPage.jsp"/>-->
+                                     <forward name="Nouserpriviledge" path="/NoUserPriviledge.jsp"/>
+                                 </action>
+
+                                 <action input="/" name="FileUploadForm" path="/fileuploadpath" scope="session" type="com.fhi.kidmap.controller.FileUploadAction" validate="false">
+                                     <forward name="success" path="/ImportFilesSelectionPage.jsp"/>
+                                     <forward name="failure" path="/FileUpload.jsp"/>
+                                 </action>
+                                 
+                                 <action input="/EnvironmentSetup/PartnerSetup.jsp" name="PartnersForm" path="/addPartners" scope="session" type="com.fhi.kidmap.controller.PartnersAction">
+                                    <forward name="success" path="/EnvironmentSetup/PartnerSetup.jsp"/>
+                                    <forward name="failure" path="/EnvironmentSetup/PartnerSetup.jsp"/>
+                                    <forward name="Nouserpriviledge" path="/NoUserPriviledge.jsp"/>
+                                 </action>
+                                 <action path="/testActionServlet" type="com.fhi.kidmap.report.controller.TestActionServlet">
+                                    <forward name="success" path="/testServlet"/>
+                                    <forward name="failure" path="/testServlet"/>
+                                 </action>
+                                 <action path="/csiExcelData" type="com.fhi.kidmap.controller.CsiExcelDataAction">
+                                    <forward name="success" path="/excelOutputServlet"/>
+                                    <forward name="failure" path="/excelOutputServlet"/>
+                                 </action>
+                                 <action path="/schAttendanceExcelData" type="com.fhi.kidmap.report.controller.SchAttendanceExcelDataAction">
+                                     <forward name="success" path="/excelOutputServlet"/>
+                                    <forward name="failure" path="/excelOutputServlet"/>
+                                 </action>
+                                 <action path="/getEnrollmentRegister" type="xhrstruts.GetEnrollmentRegisterAction" />
+                                
+                                
+        <action path="/OvcService"
+                type="com.fhi.kidmap.controller.OvcServiceAction"
+                name="ovcserviceForm"
+                attribute="service"
+                input="/DataEntry/serviceform.jsp">
+            <forward name="success" path="/DataEntry/serviceform.jsp"/>
+            <forward name="failure" path="/DataEntry/serviceform.jsp"/>
+            <forward name="error" path="/DataEntry/serviceform.jsp"/>
+        </action>
+
+                                
+        <action path="/dataentry" type="org.apache.struts.actions.ForwardAction" parameter="/Enrollment.jsp" />
+        <action path="/getCharacters" type="xhrstruts.GetCharactersAction" />
+
+        <action path="/dataentry" type="org.apache.struts.actions.ForwardAction" parameter="/Enrollment.jsp" />
+        <action path="/getSelectedState" type="xhrstruts.GetSelectedStateAction" />
+
+
+        <action path="/dataentry" type="org.apache.struts.actions.ForwardAction" parameter="/Enrollment.jsp" />
+        <action path="/getSelectedLga" type="xhrstruts.GetSelectedLgaAction" />
+
+
+        
+
+        <action path="/followup" type="org.apache.struts.actions.ForwardAction" parameter="/DataEntry/followup.jsp" />
+        <action path="/getFollowupDetails" type="xhrstruts.GetFollowupDetailsAction" />
+        <action path="/getSetupInfo" type="xhrstruts.GetSetUpInfoAction" />
+        
+        <action path="/OVC" type="org.apache.struts.actions.ForwardAction" parameter="/OVC.jsp" />
+        <action path="/getChart" type="xhrstruts.GetChartAction" />
+
+        
+        <action path="/getSelectedState" type="xhrstruts.GetSelectedStateAction" />
+
+        
+        <action path="/getSelectedLga" type="xhrstruts.GetSelectedLgaAction" />
+
+        
+        <action path="/getSelectedCbo" type="xhrstruts.GetSelectedCboAction" />
+
+        <action path="/Reports"
+                type="com.fhi.kidmap.controller.ReportProcessorAction"
+                name="mainreportspageForm"
+                attribute="reports"
+                scope="request"
+                input="/EnrolRegisterDatePage.jsp"
+                validate="true" >
+            <!--<set-property property="loginRequired" value="true"/>-->
+            <forward name="success" path="/OVC.jsp"/>
+            <forward name="error" path="/OVC.jsp"/>
+        </action>
+        <action input="/EnvironmentSetup/VulnerabilityStatusSetup.jsp" name="EligibilityCriteriaForm" path="/eligibility" scope="session" type="com.fhi.kidmap.controller.EligibilityCriteriaAction">
+            <forward name="success" path="/EnvironmentSetup/VulnerabilityStatusSetup.jsp"/>
+            <forward name="failure" path="/EnvironmentSetup/VulnerabilityStatusSetup.jsp"/>
+            <forward name="Nouserpriviledge" path="/NoUserPriviledge.jsp"/>
+        </action>
+        <action input="/DataEntry/followupsurvey.jsp" name="ovcfollowupsurveyForm" path="/followupsurvey" scope="session" type="com.fhi.kidmap.controller.OvcFollowupSurveyAction">
+            <forward name="success" path="/DataEntry/followupsurvey.jsp"/>
+            <forward name="failure" path="/DataEntry/followupsurvey.jsp"/>
+            <forward name="error" path="/DataEntry/followupsurvey.jsp"/>
+        </action>
+        <action input="/Reports/CaregiverList.jsp" name="CaregiverListForm" path="/listofcaregiver" scope="session" type="com.fhi.kidmap.report.controller.CaregiverListAction" validate="false">
+            <forward name="success" path="/Reports/CaregiverList.jsp"/>
+            <forward name="error" path="/Reports/CaregiverList.jsp"/>
+            <forward name="listOfOvcPerCaregiver" path="/Reports/ListOfOvcPerCaregivers.jsp"/>
+        </action>
+        <action path="/summstatexcelaction" type="com.fhi.kidmap.report.controller.SummaryStatExcelAction">
+            <forward name="success" path="/excelOutputServlet"/>
+            <forward name="failure" path="/excelOutputServlet"/>
+         </action>
+         <action input="/AdminUserSetup.jsp" name="UserSetupForm" path="/adminusersetup" scope="session" type="com.fhi.kidmap.controller.AdminUserSetupAction">
+             <forward name="createaccount" path="/AdminUserSetup.jsp"/>
+             <forward name="success" path="/Nomis.jsp"/>
+             <forward name="failure" path="/AdminUserSetup.jsp"/>
+         </action>
+         <!--<action input="/OrganizationRecords.jsp" name="OrganizationRecordsForm" path="/orgrecords" scope="session" type="com.fhi.kidmap.controller.OrganizationRecordsAction" validate="true">
+             <forward name="success" path="/OrganizationRecords.jsp"/>
+             <forward name="failure" path="/OrganizationRecords.jsp"/>
+             <forward name="ajaxValues" path="/cboAjaxServlet"/>
+             <forward name="Nouserpriviledge" path="/NoUserPriviledge.jsp"/>
+         </action>-->
+         <action input="/OrganizationUnit/OrganizationSetup.jsp" name="OrganizationRecordsForm" path="/orgrecords" scope="session" type="com.fhi.kidmap.controller.OrganizationRecordsAction" validate="true">
+             <forward name="success" path="/OrganizationUnit/OrganizationSetup.jsp"/>
+             <forward name="failure" path="/OrganizationUnit/OrganizationSetup.jsp"/>
+             <forward name="ajaxValues" path="/cboAjaxServlet"/>
+             <forward name="Nouserpriviledge" path="/NoUserPriviledge.jsp"/>
+         </action>
+        <action path="/mthlysummstatpdfreport" type="com.fhi.kidmap.report.controller.SummStatMthyPdfReportAction"/>
+        <action path="/summstatpdfreport" type="com.fhi.kidmap.report.controller.SummaryStatPdfReport"/>
+        <action path="/schattendancepdfreport" type="com.fhi.kidmap.report.controller.SchAttendancePdfReportAction"/>
+        <action path="/enrollmentpdf" type="com.fhi.kidmap.report.controller.EnrollmentReportPdfAction"/>
+        <action path="/csianalysispdf" type="com.fhi.kidmap.controller.CSIAnalysisPdfAction"/>
+        <action path="/pdftest" type="com.fhi.kidmap.controller.PdfHelloWorldAction"/>
+
+        <action input="/Charts/ChartParamPage.jsp" name="ChartForm" path="/chartaction" scope="session" type="com.fhi.kidmap.chart.controller.ChartAction">
+            <forward name="success" path="/Charts"/>
+
+        </action>
+        <action input="/" name="DhisExportForm" path="/exporttodhis" scope="session" type="com.fhi.kidmap.report.controller.ExportToDhisAction" validate="false">
+            <forward name="paramPage" path="/Reports/DhisExport.jsp"/>
+            <forward name="success" path="/Reports/DhisExportSuccess.jsp"/>
+            <forward name="exporttoexcel" path="/excelOutputServlet"/>
+            </action>
+            <action input="/Organizational capacity assessment.jsp" name="OrganizationalCapacityAssessmentForm" path="/orgcapacityassessment" scope="session" type="com.fhi.kidmap.controller.OrganizationalCapacityAssessmentAction">
+                <forward name="failure" path="/Organizational capacity assessment.jsp"/>
+                <forward name="success" path="/Organizational capacity assessment.jsp"/>
+            </action>
+            <action input="/DataEntry/OvcReferralForm.jsp" name="OvcReferralServiceForm" path="/ovcreferral" scope="session" type="com.fhi.kidmap.controller.OvcReferralAction" validate="true">
+                <forward name="failure" path="/DataEntry/OvcReferralForm.jsp"/>
+                <forward name="success" path="/DataEntry/OvcReferralForm.jsp"/>
+            </action>
+            <action input="/ServiceDomain.jsp" name="DomainServicesForm" path="/domainservices" scope="session" type="com.fhi.kidmap.controller.DomainServicesAction">
+                <forward name="failure" path="/ServiceDomain.jsp"/>
+                <forward name="success" path="/ServiceDomain.jsp"/>
+            </action>
+               
+            
+            <action input="/TestJSP.jsp" name="TestAction" path="/testbean" scope="session" type="com.fhi.kidmap.controller.TestActionServlet" validate="true"/>
+            <action input="/ChildVulnerabilityIndex.jsp" name="ChildVulnerabilityIndexForm" path="/cvi" scope="session" type="com.fhi.kidmap.controller.ChildVulnerabilityIndexAction">
+                <forward name="failure" path="/ChildVulnerabilityIndex.jsp"/>
+                <forward name="success" path="/ChildVulnerabilityIndex.jsp"/>
+            </action>
+            <action input="/" name="CVIReportForm" path="/cvireport" scope="session" type="com.fhi.kidmap.report.controller.CVIReportAction" validate="false">
+                <forward name="paramPage" path="/Reports/CVIReportParamPage.jsp"/>
+                <forward name="success" path="/Reports/CVIReport.jsp"/>
+            </action>
+            <action input="/DatabaseUpdate.jsp" name="DatabaseUpdateForm" path="/databaseupdate" scope="session" type="com.fhi.kidmap.controller.DatabaseUpdateAction" validate="true">
+                <forward name="success" path="/MessagePage.jsp"/>
+                <forward name="failure" path="/DatabaseUpdate.jsp"/>
+                <forward name="Nouserpriviledge" path="/NoUserPriviledge.jsp"/>
+            </action>
+            <action input="/Reports/OrganizationalRecordsParamPage.jsp" name="OrganizationalRecordsReportForm" path="/orgrecordsreport" scope="session" type="com.fhi.kidmap.report.controller.OrganizationalRecordsReportAction" validate="false">
+            <forward name="success" path="/Reports/OrganizationalRecordsParamPage.jsp"/>
+            <forward name="orgRecordsReportPage" path="/Reports/OrganizationalRecordsReportPage.jsp"/>
+
+            </action>
+            <action input="//Reports/SiteSetupReportParamPage.jsp" name="SiteSetupReportForm" path="/sitesetupreport" scope="session" type="com.fhi.kidmap.report.controller.SiteSetupReportAction" validate="false">
+            <forward name="success" path="/Reports/SiteSetupReportParamPage.jsp"/>
+            <forward name="siteSetupReportPage" path="/Reports/SiteSetupReportPage.jsp"/>
+            </action>
+            <action input="/IndicatorsPage.jsp" name="IndicatorsForm" path="/indicators" scope="session" type="com.fhi.kidmap.controller.IndicatorsAction">
+            <forward name="success" path="/IndicatorsPage.jsp"/>
+            </action>
+            <action path="/logoutAction" type="com.fhi.kidmap.controller.LogoutAction">
+                <forward name="success" path="/login.jsp"/>
+            </action>
+            <action path="/fingerprintaction" type="com.fhi.kidmap.controller.FingerPrintAction">
+                <forward name="success" path="/Administration.jsp"/>
+            </action>
+            <action input="/DataEntry/HouseholdVulnerabilityIndexView.jsp" name="HouseholdVulnerabilityIndexForm" path="/householdVulnerabilityIndexAction" scope="session" type="com.fhi.kidmap.controller.HouseholdVulnerabilityIndexAction" validate="true">
+                <forward name="oldForm" path="/DataEntry/HouseholdVulnerabilityIndexView.jsp"/>
+                <forward name="revisedForm" path="/rhhvaaction.do"/>
+            </action>
+            <action input="/DataEntry/HouseholdServiceView.jsp" name="HouseholdServiceForm" path="/householdServiceAction" scope="session" type="com.fhi.kidmap.controller.HouseholdServiceAction">
+                <forward name="success" path="/DataEntry/HouseholdServiceView.jsp" />
+            </action>
+            <action input="/Reports/HouseholdVulnerableIndexParamPage.jsp" name="HouseholdVulnerabilityIndexReportForm" path="/householdVulnerabilityIndexReportAction" scope="session" type="com.fhi.kidmap.report.controller.HouseholdVulnerabilityIndexReportAction" validate="false">
+                <forward name="paramPage" path="/Reports/HouseholdVulnerableIndexParamPage.jsp"/>
+                <forward name="success" path="/Reports/HouseholdVulnerabilityReport.jsp" />
+                <forward name="exceldownload" path="/Reports/DatimReportView.jsp"/>
+                <forward name="householdHistory" path="/Reports/HouseholdReports/HouseholdHistory.jsp"/>
+                <forward name="ovcHistory" path="/Reports/OVCReports/OvcHistory.jsp"/>
+                <forward name="cgiverHistory" path="/Reports/CaregiverReports/CaregiverHistory.jsp"/>
+            </action>
+            <action input="/" name="HVIServiceReportForm" path="/hVIServiceReportAction" scope="session" type="com.fhi.kidmap.report.controller.HVIServiceReportAction" validate="false">
+                <forward name="paramPage" path="/Reports/HVIServiceReportParamPage.jsp"/>
+                <forward name="success" path="/Reports/HVIServiceReport.jsp" />
+                <forward name="specialReport" path="/SpecialOperations/HouseholdServiceSpecialOperation.jsp"/>
+            </action>
+            <action input="/Reports/ReferralReportParamPage.jsp" name="VulnerableHouseholdReferralReportForm" path="/vulnerableHouseholdReferralAction" scope="session" type="com.fhi.kidmap.report.controller.VulnerableHouseholdReferralReportAction" validate="false">
+                <forward name="paramPage" path="/Reports/ReferralReportParamPage.jsp"/>
+                <forward name="success" path="/Reports/VulnerableHouseholdReferralReportView.jsp" />
+            </action>
+            <action input="/" name="HVAAnalysisReportForm" path="/hvaAnalysisReportAction" scope="session" type="com.fhi.kidmap.report.controller.HVAAnalysisReportAction">
+                <forward name="paramPage" path="/Reports/HVAAnalysisReportCriteriaPae.jsp"/>
+                <forward name="analysisList" path="/Reports/HVAAnalysisReportView.jsp"/>
+                <forward name="hhListPerScore" path="/Reports/ListOfHouseholdsPerScoreInThematicArea.jsp"/>
+            </action>
+            <action input="/UserAccountManagement/UserRoleSetup.jsp" name="UserRoleForm" path="/userRoleAction" scope="session" type="com.fhi.kidmap.controller.UserRoleAction">
+                <forward name="success" path="/UserAccountManagement/UserRoleSetup.jsp"/>
+            </action>
+            <action input="/PartnerUpdate.jsp" name="PartnerUpdateForm" path="/partnerUpdateAction" scope="session" type="com.fhi.kidmap.controller.PartnerUpdateAction">
+                <forward name="success" path="/PartnerUpdate.jsp"/>
+            </action>
+            <action input="/DataEntry/NutritionAssessmentForm.jsp" name="NutritionAssessmentForm" path="/nutritionAssessmentAction" scope="session" type="com.fhi.kidmap.controller.NutritionAssessmentAction" validate="true">
+                <forward name="success" path="/DataEntry/NutritionAssessmentForm.jsp"/>
+            </action>
+            <action input="/Reports/NutritionAssessmentReportParamPage.jsp" name="NutritionAssessmentReportForm" path="/nutririonAssessmentReportAction" scope="session" type="com.fhi.kidmap.report.controller.NutririonAssessmentReportAction">
+                    <forward name="success" path="/Reports/NutritionAssessmentReportParamPage.jsp"/>
+                    <forward name="naReport" path="/Reports/NutritionAssessmentReport.jsp"/>
+                    <forward name="nutritionAssessmentDetails" path="/Reports/NutritionAssessmentDetails.jsp"/>
+                </action>
+            <!--<action input="/DataEntry/CaregiverView.jsp" name="CaregiverForm" path="/caregiverAction" scope="session" type="com.fhi.kidmap.controller.CaregiverAction">
+                    <forward name="success" path="/DataEntry/CaregiverView.jsp"/>
+                </action>-->
+            <action path="/householdVulnerabilityAssessmentPdfAction" type="com.fhi.kidmap.report.controller.HouseholdVulnerabilityAssessmentPdfAction"/>
+                
+            
+            <action input="/" name="ServiceReportGeneratorForm" path="/serviceReportGeneratorAction" scope="session" type="com.fhi.kidmap.report.controller.ServiceReportGeneratorAction">
+                <forward name="success" path="/ReportSetup/DataMartProcessor.jsp"/>
+            </action>
+            <action input="/" name="ReportQueryForm" path="/reportQueryAction" scope="session" type="com.fhi.kidmap.report.controller.ReportQueryAction">
+                <forward name="success" path="/ReportSetup/ReportQueryView.jsp"/>
+            </action>
+            <action input="/" name="CategoryOptionForm" path="/categoryOptionAction" scope="session" type="com.fhi.kidmap.controller.CategoryOptionAction">
+                <forward name="success" path="/ReportSetup/CategoryOptionView.jsp"/>
+            </action>
+            <action input="/" name="CustomDataElementsForm" path="/customDataElementsAction" scope="session" type="com.fhi.kidmap.controller.CustomDataElementsAction">
+                <forward name="success" path="/ReportSetup/CustomDataelementsView.jsp"/>
+            </action>
+            <action input="/Category.jsp" name="CategoryForm" path="/categoryAction" scope="session" type="com.fhi.kidmap.controller.CategoryAction">
+                <forward name="success" path="/ReportSetup/Category.jsp"/>
+            </action>
+            <action input="/CategoryCombination.jsp" name="CategoryCombinationForm" path="/categoryCombinationAction" scope="session" type="com.fhi.kidmap.controller.CategoryCombinationAction">
+                <forward name="success" path="/ReportSetup/CategoryCombination.jsp"/>
+            </action>
+            <action input="/" name="DataExportToExcelForm" path="/dataExportToExcelAction" scope="session" type="com.fhi.kidmap.report.controller.DataExportToExcelAction">
+                    <forward name="excelReportParamPage" path="/Reports/SummaryStatisticsReportInExcelParamPage.jsp"/>
+                    <forward name="success" path="/Reports/DhisExportSuccess.jsp"/>
+                    <forward name="exporttoexcel" path="/excelOutputServlet"/>
+            </action>
+            <action input="/" name="TrainingForm" path="/trainingAction" scope="session" type="com.fhi.kidmap.controller.TrainingAction">
+                <forward name="success" path="/Training/TrainingView.jsp"/>
+            </action>
+            <action input="/Training/TrainingCategoryView.jsp" name="TrainingCategoryForm" path="/trainingCategoryAction" scope="session" type="com.fhi.kidmap.controller.TrainingCategoryAction">
+                <forward name="success" path="/Training/TrainingCategoryView.jsp"/>
+            </action>
+            <action input="/Training/TrainingDesignationView.jsp" name="TrainingDesignationForm" path="/trainingDesignationAction" scope="session" type="com.fhi.kidmap.controller.TrainingDesignationAction">
+                <forward name="success" path="/Training/TrainingDesignationView.jsp"/>
+            </action>
+            <action input="/Training/TrainingInformationSetup.jsp" name="TrainingInformationSetupForm" path="/trainingInformationSetupAction" scope="session" type="com.fhi.kidmap.controller.TrainingInformationSetupAction">
+                    <forward name="success" path="/Training/TrainingInformationSetup.jsp"/>
+                </action>
+                <action input="/Training/TrainingStatusSetupView.jsp" name="TrainingStatusSetupForm" path="/trainingStatusSetupAction" scope="session" type="com.fhi.kidmap.controller.TrainingStatusSetupAction">
+                    <forward name="success" path="/Training/TrainingStatusSetupView.jsp"/>
+                </action>
+                <action input="/Reports/TrainingReportCriteria.jsp" name="TrainingReportForm" path="/trainingReportAction" scope="session" type="com.fhi.kidmap.report.controller.TrainingReportAction">
+                    <forward name="success" path="/Reports/TrainingReportCriteria.jsp"/>
+                    <forward name="report" path="/Reports/TrainingReportView.jsp"/>
+                </action>
+                <action input="/DataEntry/HouseholdFollowupAssessment.jsp" name="HouseholdFollowupAssessmentForm" path="/householdFollowupAssessmentAction" scope="session" type="com.fhi.kidmap.controller.HouseholdFollowupAssessmentAction" validate="true">
+                    <forward name="oldForm" path="/DataEntry/HouseholdFollowupAssessment.jsp"/>
+                    <forward name="revisedForm" path="/rhhfaaction.do"/>
+                </action>
+                <action input="/Reports/HouseholdFollowupAssessmentReportParamPage.jsp" name="HouseholdFollowupAssessmentReportForm" path="/householdFollowupAssessmentReportAction" scope="session" type="com.fhi.kidmap.report.controller.HouseholdFollowupAssessmentReportAction">
+                    <forward name="paramPage" path="/Reports/HouseholdFollowupAssessmentReportParamPage.jsp"/>
+                    <forward name="success" path="/Reports/HouseholdFollowupAssessmentReport.jsp"/>
+                </action>
+                
+                <action input="/OrganizationUnit/UmbrellaOrganizationView.jsp" name="UmbrellaOrganizationForm" path="/umbrellaOrganizationAction" scope="session" type="com.fhi.kidmap.controller.UmbrellaOrganizationAction">
+                    <forward name="success" path="/OrganizationUnit/UmbrellaOrganizationView.jsp"/>
+                </action>
+                <action input="/ImportExport/MetadataExportSelectionPage.jsp" name="MetadataMgtForm" path="/metadataMgtAction" scope="session" type="com.fhi.kidmap.controller.MetadataMgtAction">
+                    <forward name="success" path="/ImportExport/MetadataExportSelectionPage.jsp"/>
+                    <forward name="fileUploadPage" path="/ImportExport/MetadataImportFileUpLoadPage.jsp"/>
+                    <forward name="importExportPage" path="/ImportExport/ImportExportPage.jsp"/>
+                </action>
+                <action path="/importExportAction" type="com.fhi.kidmap.controller.ImportExportAction">
+                    <forward name="success" path="/ImportExport/ImportExportPage.jsp"/>
+                </action>
+                <action input="/ReportSetup/CurrentAgeCriteriaPage.jsp" name="CurrentAgeUpdateForm" path="/currentAgeUpdateAction" scope="session" type="com.fhi.kidmap.controller.CurrentAgeUpdateAction">
+                        <forward name="paramPage" path="/ReportSetup/CurrentAgeCriteriaPage.jsp"/>
+                        <forward name="success" path="/ReportSetup/CurrentAgeCriteriaPage.jsp"/>
+                    </action>
+                    <action input="/Reports/AgeAnalysisParamPage.jsp" name="AgeAnalysisReportForm" path="/ageAnalysisReportAction" scope="session" type="com.fhi.kidmap.report.controller.AgeAnalysisReportAction">
+                        <forward name="paramPage" path="/Reports/AgeAnalysisParamPage.jsp"/>
+                        <forward name="success" path="/Reports/AgeAnalysisReport.jsp"/>
+                        <forward name="list" path="/Reports/AgeAnalysisList.jsp"/>
+                    </action>
+                    <action input="/" name="IndicatorForm" path="/indicatorAction" scope="session" type="com.fhi.kidmap.controller.IndicatorAction">
+                        <forward name="success" path="/ReportSetup/IndicatorSetup.jsp"/>
+                    </action>
+                    <action input="/" name="ReportQueryManagerForm" path="/reportQueryManagerAction" scope="session" type="com.fhi.kidmap.controller.ReportQueryManagerAction">
+                        <forward name="success" path="/ReportSetup/ReportQueryManager.jsp"/>
+                    </action>
+                    <action input="/OrganizationUnitGroup.jsp" name="OrganizationUnitGroupForm" path="/organizationUnitGroupAction" scope="session" type="com.fhi.kidmap.controller.OrganizationUnitGroupAction" validate="true">
+                        <forward name="success" path="/OrganizationUnit/OrganizationUnitGroup.jsp"/>
+                    </action>
+                    <action input="/OrganizationUnit/OrganizationUnitGroupAssignment.jsp" name="OrganizationUnitGroupAssignmentForm" path="/organizationUnitGroupAssignmentAction" scope="session" type="com.fhi.kidmap.controller.OrganizationUnitGroupAssignmentAction">
+                        <forward name="success" path="/OrganizationUnit/OrganizationUnitGroupAssignment.jsp"/>
+                    </action>
+                    <action input="/ReportSetup/DatavalueGenerator.jsp" name="DatavalueGeneratorForm" path="/datavalueGeneratorAction" scope="session" type="com.fhi.kidmap.report.controller.DatavalueGeneratorAction">
+                        <forward name="success" path="/ReportSetup/DatavalueGenerator.jsp"/>
+                    </action>
+                    <action input="/DatabaseManagement/DatabaseManagement.jsp" name="DatabaseManagementForm" path="/databaseManagementAction" scope="session" type="com.fhi.kidmap.controller.DatabaseManagementAction">
+                        <forward name="mainPage" path="/DatabaseManagement/DatabaseManagement.jsp"/>
+                    </action>
+                    <action input="/" name="DiskDefragmenterForm" path="/diskDefragmenterAction" scope="session" type="com.fhi.kidmap.controller.DiskDefragmenterAction">
+                        <forward name="success" path="/DatabaseManagement/DiskDefragmenter.jsp"/>
+                    </action>
+                    <action input="/ImportExport/DatabaseExportCriteriaPage.jsp" name="DatabaseExportForm" path="/databaseExportAction" scope="session" type="com.fhi.kidmap.controller.DatabaseExportAction">
+                        <forward name="mainPage" path="/ImportExport/DatabaseManagementMainPage.jsp"/>
+                        <forward name="criteriaPage" path="/ImportExport/DatabaseExportCriteriaPage.jsp"/>
+                        <forward name="dbexport" path="/ImportExport/DatabaseExportSummaryPage.jsp"/>
+                        <forward name="summary" path="/ImportExport/DatabaseExportSummaryPage.jsp"/>
+                    </action>
+                    <action input="/ImportExport/DatabaseUpload.jsp" name="DatabaseUploadForm" path="/databaseUploadAction" scope="session" type="com.fhi.kidmap.controller.DatabaseUploadAction">
+                        <forward name="success" path="/ImportExport/DatabaseUpload.jsp"/>
+                        <forward name="importFileSelectionPage" path="/ImportExport/ImportFilesSelectionPage.jsp"/>
+                        <forward name="dbImportSuccessMsg" path="/ImportExport/DataImportSuccessPage.jsp"/>
+                    </action>
+                    <action input="/UserAccountManagement/ChangePassword.jsp" name="ChangePasswordForm" path="/changePasswordAction" scope="session" type="com.fhi.kidmap.controller.ChangePasswordAction">
+                            <forward name="changePassword" path="/UserAccountManagement/ChangePassword.jsp"/>
+                        </action>
+                        <action input="/" name="DatabaseImportTrackerReportForm" path="/databaseImportTrackerReportAction" scope="session" type="com.fhi.kidmap.report.controller.DatabaseImportTrackerReportAction">
+                            <forward name="success" path="/Reports/DatabaseImportTrackerReportParamPage.jsp"/>
+                            <forward name="reportpage" path="/Reports/DataImportTrackerReport.jsp"/>
+                            <forward name="details" path="/Reports/DataImportTrackerDetails.jsp"/>
+                        </action>
+                        <action input="/DataEntry/CaregiverView.jsp" name="CaregiverForm" path="/caregiverAction" scope="session" type="com.fhi.kidmap.controller.CaregiverAction">
+                            <forward name="success" path="/DataEntry/CaregiverView.jsp"/>
+                            <forward name="caregiverSpan" path="/DataEntry/Enrollment.jsp"/>
+                        </action>
+                        <action input="/Reports/FollowSurveyListParamPage.jsp" name="OvcFollowupSurveyReportForm" path="/ovcFollowupSurveyReportAction" scope="session" type="com.fhi.kidmap.report.controller.OvcFollowupSurveyReportAction">
+                            <forward name="paramPage" path="/Reports/FollowSurveyListParamPage.jsp"/>
+                            <forward name="report" path="/Reports/FollowupSurveyList.jsp"/>
+                            <forward name="csireport" path="/Reports/FollowupCsi.jsp"/>
+                        </action>
+                        <action input="/DataEntry/CompatibilityView.jsp" name="CompatibilityForm" path="/compatibilityAction" scope="session" type="com.fhi.kidmap.controller.CompatibilityAction">
+                            <forward name="success" path="/DataEntry/CompatibilityView.jsp"/>
+                        </action>
+                        <action input="/Reports/ReportDownload.jsp" name="ReportDownloadForm" path="/reportDownloadAction" scope="session" type="com.fhi.kidmap.report.controller.ReportDownloadAction">
+                           <forward name="success" path="/Reports/ReportDownload.jsp"/>
+                        </action>
+                        <action input="/Charts/ChartGenerator.jsp" name="ChartGeneratorForm" path="/chartGeneratorAction" scope="session" type="com.fhi.kidmap.chart.controller.ChartGeneratorAction">
+                            <forward name="success" path="/Charts/ChartGenerator.jsp"/>
+                            <forward name="chartview" path="/Charts/ChartView.jsp"/>
+
+                        </action>
+                        <action input="/" name="DatabaseCleanupForm" path="/databaseCleanupAction" scope="session" type="com.fhi.kidmap.controller.DatabaseCleanupAction">
+                                <forward name="success" path="/DatabaseManagement/DatabaseCleanup.jsp"/>
+                            </action>
+        <action input="/Reports/CohortAnalysisReportCriteria.jsp" name="CohortAnalysisReportForm" path="/cohortAnalysisReportAction" scope="session" type="com.fhi.kidmap.report.controller.CohortAnalysisReportAction">
+            <forward name="criteriaPage" path="/Reports/CohortAnalysisReportCriteria.jsp"/>
+            <forward name="report" path="/Reports/CohortAnalysisReport.jsp"/>
+            <forward name="household" path="/Reports/CohortAnalysisReports/HouseholdList.jsp"/>
+            <forward name="caregiver" path="/Reports/CohortAnalysisReports/CaregiverList.jsp"/>
+            <forward name="ovc" path="/Reports/CohortAnalysisReports/OvcList.jsp"/>
+        </action>
+        <action input="/DataEntry/HivStatusUpdate.jsp" name="HivStatusUpdateForm" path="/hivStatusUpdateAction" scope="session" type="com.fhi.kidmap.controller.HivStatusUpdateAction">
+            <forward name="hivInformationUpdatePage" path="/DataEntry/HivInformationUpdate.jsp"/>
+            <forward name="inputPage" path="/DataEntry/HivStatusUpdate.jsp"/>
+        </action>
+        <action input="/DatabaseManagement/HouseholdMergeOperation.jsp" name="HouseholdMergeForm" path="/householdMergeAction" scope="session" type="com.fhi.kidmap.controller.HouseholdMergeAction">
+            <!--<forward name="mainPage" path="/DataEntry/BeneficiaryRecordsMgt.jsp"/>-->
+            <forward name="paramPage" path="/DatabaseManagement/HouseholdMergeOperation.jsp"/>
+            <forward name="hhMemberListPage" path="/Reports/HouseholdMembers.jsp"/>
+        </action>
+        <!--<action path="/dataexport" type="com.fhi.kidmap.controller.DataExportAction">
+            <forward name="success" path="/dataExportServlet"/>
+            <forward name="failure" path="/dataExportServlet"/>
+        </action>-->
+        <action path="/dataexport" type="com.fhi.kidmap.controller.DataExportAction">
+            <forward name="success" path="/dataExportServlet"/>
+            <forward name="failure" path="/dataExportServlet"/>
+        </action>
+        <action input="/DataEntry/OVCTBHIVScreeningChecklist.jsp" name="OVCTBHIVScreeningForm" path="/ovctbhivScreeningAction" scope="session" type="com.fhi.kidmap.controller.OVCTBHIVScreeningAction" validate="true">
+            <forward name="checklist" path="/DataEntry/OVCTBHIVScreeningChecklist.jsp"/>
+        </action>
+        <action input="/DataEntry/CaregiverTBHIVScreeningChecklist.jsp" name="CaregiverTBHIVScreeningForm" path="/caregivertbhivScreeningAction" scope="session" type="com.fhi.kidmap.controller.CaregiverTBHIVScreeningAction">
+            <forward name="checklist" path="/DataEntry/CaregiverTBHIVScreeningChecklist.jsp"/>
+        </action>
+        
+        <action input="/DataEntry/GraduationCheckList.jsp" name="GraduationCheckListForm" path="/graduationCheckListAction" scope="session" type="com.fhi.kidmap.controller.GraduationCheckListAction" validate="true">
+            <forward name="success" path="/DataEntry/GraduationCheckList.jsp"/>
+            <forward name="failure" path="/DataEntry/GraduationCheckList.jsp"/>
+        </action>
+        <action input="/Reports/HouseholdReports/GraduationCheckListReportParamPage.jsp" name="GraduationCheckListReportForm" path="/graduationCheckListReportAction" scope="session" type="com.fhi.kidmap.report.controller.GraduationCheckListReportAction">
+            <forward name="paraPage" path="/Reports/HouseholdReports/GraduationCheckListReportParamPage.jsp"/>
+            <forward name="reportPage" path="/Reports/HouseholdReports/GraduationCheckListReport.jsp"/>
+        </action>
+        <action input="/DataEntry/SiteTransition.jsp" name="SiteTransitionForm" path="/sitetransitionaction" scope="session" type="com.fhi.kidmap.controller.SiteTransitionAction" validate="true">
+            <forward name="paramPage" path="/DataEntry/SiteTransition.jsp"/>
+        </action>
+        <action input="/OrganizationUnit/OrganizationUnitHirachy.jsp" name="OrganizationUnitHirachyForm" path="/orgunithirachyaction" scope="session" type="com.fhi.kidmap.controller.OrganizationUnitHirachyAction" validate="true">
+            <forward name="newhirachypage" path="/OrganizationUnit/OrganizationUnitHirachy.jsp"/>
+        </action>
+        <action input="/DataEntry/BeneficiaryRecordsMgt.jsp" name="InterceptingFilterForm" path="/nomisaction" scope="session" type="com.fhi.kidmap.controller.InterceptingFilterAction">
+            <forward name="beneficiaryRecords" path="/DataEntry/BeneficiaryRecordsMgt.jsp"/>
+            <forward name="hhva" path="/householdVulnerabilityIndexAction.do"/>
+            <forward name="csc" path="/careandsupport.do"/>
+            <forward name="ceasa" path="/cgexpandschattend.do"/>
+        </action>
+        <action input="/DataEntry/HouseholdChangeOperation.jsp" name="HouseholdChangeOperationForm" path="/hhChangeOperationAction" scope="session" type="com.fhi.kidmap.controller.HouseholdChangeOperationAction">
+            <forward name="paramPage" path="/DataEntry/HouseholdChangeOperation.jsp"/>
+        </action>
+        <action input="/DataEntry/ReferralDirectory.jsp" name="ReferralDirectoryForm" path="/referralaction" scope="session" type="com.fhi.kidmap.controller.ReferralDirectoryAction">
+            <forward name="paramPage" path="/DataEntry/ReferralDirectory.jsp"/>
+        </action>
+        <action input="/UserAccountManagement/UserGroupSetup.jsp" name="UserGroupForm" path="/usergrp" scope="session" type="com.fhi.kidmap.controller.UserGroupAction">
+            <forward name="success" path="/UserAccountManagement/UserGroupSetup.jsp"/>
+        </action>
+        <action input="/DataExchange/DhisInstance.jsp" name="DhisInstanceForm" path="/dhisInstance" scope="session" type="com.nomis.dataexchange.controller.DhisInstanceAction">
+            <forward name="success" path="/DataExchange/DhisInstance.jsp"/>
+        </action>
+        <action input="/DataExchange/DataExchangeOrganizationUnitUpload.jsp" name="DataExchangeOrganizationUnitForm" path="/dxchangeouaaction" scope="session" type="com.nomis.dataexchange.controller.DataExchangeOrganizationUnitAction">
+            <forward name="success" path="/DataExchange/DataExchangeOrganizationUnitUpload.jsp"/>
+        </action>
+        <action input="/DataEntry/HivRiskAssessmentChecklist.jsp" name="HivRiskAssessmentForm" path="/hivriskassessmentchecklist" scope="session" type="com.fhi.kidmap.controller.HivRiskAssessmentChecklistAction">
+            <forward name="oldForm" path="/DataEntry/HivRiskAssessmentChecklist.jsp"/>
+            <forward name="revisedForm" path="/nathivriskassessment.do"/>
+        </action>
+        <action input="/" name="HivRiskAssessmentReportForm" path="/hivriskassessmentreport" scope="session" type="com.fhi.kidmap.report.controller.HivRiskAssessmentReportAction">
+            <forward name="paramPage" path="/Reports/HivRiskAssessmentReportParamPage.jsp"/>
+            <forward name="reportPage" path="/Reports/HivRiskAssessmentReport.jsp"/>
+        </action>
+        <action input="/DatabaseManagement/CommunityChange.jsp" name="CommunityChangeForm" path="/communityChange" scope="session" type="com.fhi.kidmap.controller.CommunityChangeAction">
+            <forward name="newparamPage" path="/DatabaseManagement/CommunityChange.jsp"/>
+        </action>
+        <action input="/Nomis.jsp" name="HomeForm" path="/homeaction" scope="session" type="com.fhi.kidmap.controller.HomeAction">
+            <forward name="homePage" path="/Nomis.jsp"/>
+            <forward name="dashboardPage" path="/Charts/Dashboard.jsp"/>
+        </action>
+        <action input="/Charts/ChartParamPage.jsp" name="NewChartForm" path="/newchartaction" scope="session" type="com.nomis.chart.controller.NewChartAction">
+            <forward name="chartcriteriaPage" path="/Charts/ChartParamPage.jsp"/>
+            <forward name="chartpage" path="/Charts/ChartView.jsp"/>
+        </action>
+        <action input="/Charts/DashboardSetup.jsp" name="DashboardForm" path="/dashboard" scope="session" type="com.nomis.chart.controller.DashboardAction">
+            <forward name="paramPage" path="/Charts/DashboardSetup.jsp"/>
+            <forward name="dashboard" path="/Charts/Dashboard.jsp"/>
+        </action>
+        <action input="/DataEntry/CareplanAchievementChecklist.jsp" name="CareplanAchievementForm" path="/careplanachievement" scope="session" type="com.fhi.kidmap.controller.CareplanAchievementAction">
+            <forward name="success" path="/DataEntry/CareplanAchievementChecklist.jsp"/>
+        </action>
+        <action input="/Reports/CareplanAchievementReportParamPage.jsp" name="CareplanAchievementReportForm" path="/careplanachievementreport" scope="session" type="com.fhi.kidmap.report.controller.CareplanAchievementReportAction">
+            <forward name="paramPage" path="/Reports/CareplanAchievementReportParamPage.jsp"/>
+            <forward name="graduationListParamPage" path="/Reports/CareplanGraduationListParamPage.jsp"/>
+            <forward name="report" path="/Reports/CareplanAchievementReport.jsp"/>
+            <forward name="graduationListPage" path="/Reports/CareplanGraduationList.jsp"/>
+            </action>
+        <action input="/DataEntry/GenderNormCohortAttendanceForm.jsp" name="GenderNormCohortAttendanceForm" path="/gendernormcohortattendance" scope="session" type="com.fhi.kidmap.controller.GenderNormCohortAttendanceAction">
+            <forward name="success" path="/DataEntry/GenderNormCohortAttendanceForm.jsp"/>
+        </action>
+        <action input="/Reports/CareAndSupport/GenderNormCohortAttendanceReportParamPage.jsp" name="GenderNormCohortAttendanceReportForm" path="/gendernormcohortattendancereport" scope="session" type="com.fhi.kidmap.report.controller.GenderNormCohortAttendanceReportAction">
+            <forward name="success" path="/Reports/CareAndSupport/GenderNormCohortAttendanceReport.jsp"/>
+            <forward name="paramPage" path="/Reports/CareAndSupport/GenderNormCohortAttendanceReportParamPage.jsp"/>
+        </action>
+        <action input="/Reports/MultipleReportQueryParamPage.jsp" name="MultipleReportForm" path="/multireport" scope="session" type="com.fhi.kidmap.report.controller.MultipleReportAction">
+            <forward name="paramPage" path="/Reports/MultipleReportQueryParamPage.jsp"/>
+            <forward name="success" path="/Reports/MultiQueryServiceReport.jsp"/>
+            <forward name="rapidServicePage" path="/DataEntry/OvcRapidServiceUpdate.jsp"/>
+        </action>
+        <action input="/Reports/HhMultipleReportQueryParamPage.jsp" name="HouseholdMultipleQueryReportForm" path="/householdmultiplequeryreport" scope="session" type="com.fhi.kidmap.report.controller.HouseholdMultipleQueryReportAction">
+            <forward name="paramPage" path="/Reports/HhMultipleReportQueryParamPage.jsp"/>
+            <forward name="success" path="/Reports/HouseholdMultiServiceReport.jsp"/>
+            <forward name="rapidServicePage" path="/DataEntry/HouseholdRapidServiceUpdateForm.jsp"/>
+        </action>
+        <action input="/DataEntry/CareAndSupportChecklist.jsp" name="CareAndSupportForm" path="/careandsupport" scope="session" type="com.fhi.kidmap.controller.CareAndSupportAction">
+            <forward name="checklist" path="/DataEntry/CareAndSupportChecklist.jsp"/>
+            </action>
+        <action input="/" name="CareAndSupportReportForm" path="/candsreport" scope="session" type="com.fhi.kidmap.report.controller.CareAndSupportChecklistReportAction">
+            <forward name="success" path="/Reports/CareAndSupport/CareAndSupportReport.jsp"/>
+            <forward name="paramPage" path="/Reports/CareAndSupport/CareAndSupportChecklistReportParamPage.jsp"/>
+        </action>
+        <action input="/DataEntry/CaregiverExpenditureAndSchAttendanceForm.jsp" name="CaregiverExpenditureAndSchoolAttendanceForm" path="/cgexpandschattend" scope="session" type="com.fhi.kidmap.controller.CaregiverExpenditureAndSchoolAttendanceAction" validate="true">
+                <forward name="success" path="/DataEntry/CaregiverExpenditureAndSchAttendanceForm.jsp"/>
+            </action>
+        <action input="/" name="CaregiverExpReportForm" path="/caregiverexpreport" scope="session" type="com.fhi.kidmap.report.controller.CaregiverExpReportAction">
+            <forward name="paramPage" path="/Reports/CaregiverExpReportParamPage.jsp"/>
+            <forward name="report" path="/Reports/CaregiverExpenditureReport.jsp"/>
+            </action>
+        <action input="/login.jsp" name="WelcomeForm" path="/welcomeaction" scope="session" type="com.fhi.kidmap.controller.WelcomeAction">
+                <forward name="login" path="/login.jsp"/>
+            </action>
+        <action input="/DatabaseManagement/PartnerMergeOperation.jsp" name="PartnerChangeForm" path="/partnerchangeaction" scope="session" type="com.fhi.kidmap.controller.PartnerChangeAction">
+                <forward name="paramPage" path="/DatabaseManagement/PartnerMergeOperation.jsp"/>
+            </action>
+        <action input="/Reports/SummStatParamPage.jsp" name="SummaryStatisticsReportForm" path="/summstatreport" scope="session" type="com.fhi.kidmap.report.controller.SummaryStatisticsReportAction">
+            <forward name="paramPage" path="/Reports/SummStatParamPage.jsp"/>
+            <forward name="failure" path="/Reports/SummStatParamPage.jsp"/>
+            <forward name="success" path="/Reports/SummaryStatCountPerMth.jsp"/>
+            <forward name="summstatOvcList" path="/Reports/SummaryStatList.jsp" />
+            <forward name="caregiverList" path="/Reports/HVIServiceReport.jsp" />
+            <forward name="caregiverRegister" path="/Reports/CaregiverRegister.jsp" />
+            <forward name="householdList" path="/Reports/HouseholdVulnerabilityReport.jsp" />
+            <forward name="householdList" path="/ErrorPages/OperationNotAllowed.jsp" />
+        </action>
+        <action input="/Reports/CustomReportParamPage.jsp" name="CustomReportForm" path="/customReportAction" scope="session" type="com.fhi.kidmap.report.controller.CustomReportAction">
+            <forward name="homePage" path="/Reports/CustomReports/CustomReports.jsp"/>
+            
+        </action>
+        <action input="/EnvironmentSetup/OptionsManager.jsp" name="OptionForm" path="/options" scope="session" type="com.fhi.kidmap.controller.OptionAction" validate="true">
+            <forward name="success" path="/EnvironmentSetup/OptionsManager.jsp"/>
+        </action>
+        <action input="/DatabaseManagement/BulkDeleteOperation.jsp" name="BulkDeleteOperationForm" path="/bulkdeleteoperation" scope="session" type="com.fhi.kidmap.controller.BulkDeleteOperationAction">
+            <forward name="paramPage" path="/DatabaseManagement/BulkDeleteOperation.jsp"/>
+            </action>
+        <action input="/SpecialOperations/OVCServiceSpecialOperation.jsp" name="OVCServiceSpecialOperationsForm" path="/ovcservicespecialoperation" scope="session" type="com.fhi.kidmap.report.controller.OvcServiceSpecialOperationsAction" validate="true">
+                <forward name="specialReport" path="/SpecialOperations/OVCServiceSpecialOperation.jsp"/>
+                <forward name="paramPage" path="/Reports/MthlyServiceReportDatePage.jsp"/>
+            </action>
+        <action input="/SpecialOperations/HouseholdServiceSpecialOperation.jsp" name="HouseholdServiceSpecialOperationForm" path="/householdservicespecialoperation" scope="session" type="com.fhi.kidmap.report.controller.HouseholdServiceSpecialOperationAction" validate="true">
+            <forward name="specialReport" path="/SpecialOperations/HouseholdServiceSpecialOperation.jsp"/>
+                <forward name="paramPage" path="/Reports/HVIServiceReportParamPage.jsp"/>
+            </action>
+        <action input="/DataEntry/RevisedHouseholdVulnerabilityAssessmentForm.jsp" name="RevisedHouseholdVulnerabilityAssessmentForm" path="/rhhvaaction" scope="session" type="com.fhi.kidmap.controller.RevisedHouseholdVulnerabilityAssessmentAction" validate="true">
+            <forward name="oldForm" path="/householdVulnerabilityIndexAction.do"/>
+            <forward name="revisedForm" path="/DataEntry/RevisedHouseholdVulnerabilityAssessmentForm.jsp"/>
+        </action>
+        <action input="/DataEntry/RevisedHouseholdFollowupForm.jsp" name="RevisedHouseholdFollowupAssessmentForm" path="/rhhfaaction" scope="session" type="com.fhi.kidmap.controller.RevisedHouseholdFollowupAssessmentAction">
+           <forward name="oldForm" path="/householdFollowupAssessmentAction.do"/>
+            <forward name="revisedForm" path="/DataEntry/RevisedHouseholdFollowupForm.jsp"/> 
+        </action>
+        <action input="/ReportSetup/CustomIndicatorValueGenerator.jsp" name="CustomIndicatorValueGeneratorForm" path="/customvaluegenerator" scope="session" type="com.fhi.kidmap.report.controller.CustomIndicatorValueGeneratorAction" validate="true">
+            <forward name="success" path="/ReportSetup/CustomIndicatorValueGenerator.jsp"/> 
+        </action>
+        <action input="/Reports/CustomReports/DatimReportParamPage.jsp" name="DatimReportForm" path="/datimreport" scope="session" type="com.fhi.kidmap.report.controller.DatimReportAction" validate="true">
+            <forward name="paramPage" path="/Reports/CustomReports/DatimReportParamPage.jsp"/>
+            <!--<forward name="datim2017" path="/Reports/DatimReport2017.jsp"/>-->
+            <forward name="datim2017" path="/Reports/CustomReports/DatimReportFY19.jsp"/>
+            <forward name="merReport" path="/Reports/MERReportView.jsp"/>
+            <forward name="mer2018" path="/Reports/MERReport2018.jsp"/>
+            <forward name="datimReportView" path="/Reports/DatimReportView.jsp"/>
+            
+        </action>
+        <action input="/Reports/CustomReports/CustomIndicatorsReport.jsp" name="CustomIndicatorReportForm" path="/customindicatorsreport" scope="session" type="com.fhi.kidmap.report.controller.CustomIndicatorReportAction">
+            <forward name="paramPage" path="/Reports/CustomReports/CustomIndicatorsReport.jsp"/>
+        </action>
+        <action input="/DataEntry/NationalHivRiskAssessmentChecklist.jsp" name="NationalHivRiskAssessmentForm" path="/nathivriskassessment" scope="session" type="com.fhi.kidmap.controller.NationalHivRiskAssessmentAction">
+                <forward name="paramPage" path="/DataEntry/NationalHivRiskAssessmentChecklist.jsp"/>
+        </action>
+        <action input="/ReportSetup/DatimDataGeneratorForm.jsp" name="DatimDataGeneratorForm" path="/datimdatagenerator" scope="session" type="com.fhi.kidmap.report.controller.DatimDataGeneratorAction">
+            <forward name="success" path="/ReportSetup/DatimDataGeneratorForm.jsp"/>
+        </action>
+        <action input="/Reports/CustomReports/DatimGeneratedDataDownloadParamPage.jsp" name="DatimGeneratedDataDownloadForm" path="/datimgenerateddatadownload" scope="session" type="com.fhi.kidmap.report.controller.DatimGeneratedDataDownloadAction">
+            <forward name="success" path="/Reports/CustomReports/DatimGeneratedDataDownloadParamPage.jsp"/>
+            <forward name="datim2017" path="/Reports/DatimReport2017.jsp"/>
+            <forward name="datimReportView" path="/Reports/DatimReportView.jsp"/>
+            </action>
+        <!--<action input="/ImportExport/MetadataExportSelectionPage.jsp" name="MetadataMgtForm" path="/metadataMgtAction" scope="session" type="com.fhi.kidmap.controller.MetadataMgtAction"/>
+        <action path="/dataexport" type="com.fhi.kidmap.controller.DataExportAction"/>-->
+        <!--<action input="/ImportExport/DatabaseExportCriteriaPage.jsp" name="DatabaseExportForm" path="/databaseExportAction" scope="session" type="com.fhi.kidmap.controller.DatabaseExportAction"/>-->
+        
+        <action path="/newChartGenerator" type="com.nomis.chart.controller.NewChartGeneratorAction"/>
+        <!--<action input="/Reports/SummStatParamPage.jsp" name="SummStatReportForm" path="/summstatreport" scope="session" type="com.fhi.kidmap.report.controller.SummaryStatisticsAction"/>-->
+        <action input="/" name="OrganizationUnitForm" path="/organisationunit" scope="session" type="com.fhi.kidmap.controller.OrganizationUnitAction"/>
+        <!--<action path="/dataexport" type="com.fhi.kidmap.controller.DataExportAction"/>-->
+        <action input="/Reports/CareAndSupport/ChildTbHivReportCriteria.jsp" name="ChildTbHivReportForm" path="/childTbHivReportAction" scope="session" type="com.fhi.kidmap.report.controller.ChildTbHivReportAction"/>
+                                    
+                        <action path="/ajaxRequestProcessorAction" type="com.fhi.kidmap.controller.AjaxRequestProcessorAction"/>
+                    <action path="/usgDataEntryFormInPdf" type="com.fhi.kidmap.report.controller.USGDataEntryFormInPdf"/>
+            <action path="/monthlySummaryPdfAction" type="com.fhi.kidmap.report.controller.MonthlySummaryPdfAction"/>
+            <action path="/fingerprintserviceaction" type="com.fhi.kidmap.controller.FingerPrintServiceAction"/>
+            
+            <action input="/" name="DataElementsImportForm" path="/dataelementsimportaction" scope="session" type="com.fhi.kidmap.controller.DataElementsImportAction" validate="false"/>
+     
+    </action-mappings>
+
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>
+
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+
+</struts-config>

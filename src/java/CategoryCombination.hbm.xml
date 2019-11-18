@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.CategoryCombination" table="CATEGORYCOMBINATION">
+    <id column="CATEGORYCOMBOID" name="categoryComboId" type="string"/>
+    <property column="CATCOMBONAME" name="categoryComboName" type="string"/>
+    <property column="CATCOMBODESCRIPTION" name="description" type="string"/>
+    <property column="CATEGORYID" name="categoryId" type="string"/>
+    <property column="PROGRAMAREA" name="programArea" type="string"/>
+    <property column="TYPE" name="type" type="string"/>
+    <property column="QUERY" name="query" type="string"/>
+  </class>
+</hibernate-mapping>

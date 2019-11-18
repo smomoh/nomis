@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class lazy="false" name="com.fhi.kidmap.business.Indicators" table="indicators">
+    <id column="indicatorid" name="indicatorId" type="string">
+      </id>
+    <property column="indicatorname" name="indicatorName" type="string"/>
+    <property column="indicatorType" name="indicatorType" type="string"/>
+    <property column="indicatorSubtype" name="indicatorSubtype" type="string"/>
+    <property column="query" name="query" type="string"/>
+    <property column="queryCriteria" name="queryCriteria" type="string"/>
+    <property column="categoryComboOption" name="categoryOptionCombo" type="string"/>
+  </class>
+</hibernate-mapping>

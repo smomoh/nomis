@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <typedef class="org.jasypt.hibernate.type.EncryptedStringType" name="encrypted">
+    <param name="encryptorRegisteredName">strongHibernateStringEncryptor</param>
+  </typedef>
+  <class lazy="false" name="com.fhi.kidmap.business.OvcService" table="service">
+    <id column="id" name="id" type="int">
+      <generator class="identity"/>
+    </id>
+    <property column="ovc_id" name="ovcId" type="string"/>
+    <property column="date_entry" name="dateOfEntry" type="string"/>
+    <property column="servicedate" name="servicedate" type="string"/>
+    <property column="serviceprovider" name="providerName" type="string"/>
+    <property column="service_accessed1" name="serviceAccessed1" type="string"/>
+    <property column="service_accessed2" name="serviceAccessed2" type="string"/>
+    <property column="service_accessed3" name="serviceAccessed3" type="string"/>
+    <property column="service_accessed4" name="serviceAccessed4" type="string"/>
+    <property column="service_accessed5" name="serviceAccessed5" type="string"/>
+    <property column="service_accessed6" name="serviceAccessed6" type="string"/>
+    <property column="service_accessed7" name="serviceAccessed7" type="string"/>
+    <property column="servicesreferred" name="servicesReferred" type="string"/>
+    <property column="HIVSTATUS" name="currentHivStatus" type="string"/>
+    <property column="ENROLLEDINCARE" name="enrolledInCare" type="string"/>
+    <property column="ENROLLEDONART" name="enrolledOnART" type="string"/>
+    <property column="FACILITYID" name="facilityId" type="string"/>
+    <property column="weight" name="weight" type="double"/>
+    <property column="height" name="height" type="double"/>
+    <property column="survey_number" name="surveyNumber" type="int"/>
+    <property column="NUMBEROFSERVICES" name="numberOfServices" type="int"/>
+    <property column="CHILDABUSED" name="childAbused" type="int"/>
+    <property column="CHILDLINKEDTOGOVT" name="childLinkedToGovt" type="int"/>
+    <property column="CHILDMISSEDSCHOOL" name="childMissedSchool" type="string"/>
+    <property column="RECORDEDBY" name="recordedBy" type="string"/>
+  </class>
+</hibernate-mapping>

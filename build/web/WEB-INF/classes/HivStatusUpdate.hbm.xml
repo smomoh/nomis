@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.HivStatusUpdate" table="HIVSTATUSUPDATE">
+      <id name="recordId" column="RECORDID" type="string" />
+    <property name="clientId" column="CLIENTID" type="string"/>
+    <property name="clientType" column="CLIENTTYPE" type="string"/>
+    <property name="clientEnrolledInCare" column="CLIENTENROLLEDINCARE" type="string"/>
+    <property name="dateModified" column="DATEMODIFIED" type="string"/>
+    <property name="dateOfCurrentStatus" column="DATEOFCURRENTSTATUS" type="string"/>
+    <property name="lastHivTrackingDate" column="LASTHIVTRACKINGDATE" type="string"/>
+    <property name="enrolledOnART" column="CLIENTENROLLEDONART" type="string"/>
+    <property name="hivStatus" column="HIVSTATUS" type="string"/>
+    <property name="recordStatus" column="RECORDSTATUS" type="string"/>
+    <property name="organizationClientIsReferred" column="ORGANIZATIONCLIENTISREFERRED" type="string"/>
+    <property name="pointOfUpdate" column="POINTOFUPDATE" type="string"/>
+    <property name="recordedBy" column="RECORDEDBY" type="string"/>
+    <property name="treatmentId" column="TREATMENTID" type="string"/>
+    <property name="dateEnrolledOnTreatment" column="DATEENROLLEDONTREATMENT" type="date"/>
+  </class>
+</hibernate-mapping>

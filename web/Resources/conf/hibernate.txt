@@ -1,0 +1,5 @@
+hibernate.connection.driver_class=org.apache.derby.jdbc.EmbeddedDriver
+hibernate.dialect=org.hibernate.dialect.DerbyDialect
+hibernate.connection.url=jdbc:derby:C:\Nomis\dbs\nomisdb
+hibernate.connection.username=
+hibernate.connection.password=

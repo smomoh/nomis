@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.CaregiverExpenditureAndSchoolAttendance" table="CAREGIVEREXPENDITUREANDSCHATTENDANCE">
+      <id column="RECORDID" name="recordId" type="int">
+      <generator class="identity"/>
+    </id>
+        <property column="ACCESSMONEY" name="accessMoney" type="string"/>
+        <property column="CAREGIVERID" name="caregiverId" type="string"/>
+        <property column="DATEOFASSESSMENT" name="dateOfAssessment" type="string"/>
+        <property column="LASTMODIFIEDDATE" name="lastModifiedDate" type="string"/>
+        <property column="OVCID" name="ovcId" type="string"/>
+        <property column="REASONSFORMISSINGSCHOOL" name="reasonsForMissingSch" type="string"/>
+        <property column="RECORDEDBY" name="recordedBy" type="string"/>
+        <property column="SCHATTENDANCE" name="schAttendance" type="string"/>
+        <property column="SOURCEOFMONEY" name="sourceOfMoney" type="string"/>
+        <property column="UNEXPECTEDEXPENDITURE" name="unexpectedExpenditure" type="string"/>
+        <property column="URGENTHHNEEDS" name="urgentHhNeeds" type="string"/>
+        <property column="VOLUNTEERNAME" name="volunteerName" type="string"/>
+        <property column="VOLUNTEERPHONE" name="volunteerPhone" type="string"/>
+  </class>
+</hibernate-mapping>

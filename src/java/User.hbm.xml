@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class lazy="false" name="com.fhi.kidmap.business.User" table="NOMISUSER">
+    <id column="username" name="username" type="string">
+      <!--<generator class="increment"/>-->
+    </id>
+    <property column="password" name="password" type="string"/>
+    <property column="ROLEID" name="userroleId" type="string"/>
+    <property column="FIRSTNAME" name="firstName" type="string"/>
+    <property column="LASTNAME" name="lastName" type="string"/>
+    <property column="ORGUNITGROUPID" name="orgUnitGroupId" type="string"/>
+    <property column="USERGROUPID" name="userGroupId" type="string"/>
+    <property column="ASSIGNEDGROUPID" name="assignedGroupId" type="string"/>
+    <property column="CHANGEPWD" name="changePwd" type="string"/>
+    <property column="VIEWCLIENTDETAILS" name="viewClientDetails" type="string"/>
+    <property column="ADDRESS" name="address" type="string"/>
+    <property column="PHONE" name="phone" type="string"/>
+    <property column="EMAIL" name="email" type="string"/>
+    <property column="DATECREATED" name="dateCreated" type="string"/>
+    <property column="DATEMODIFIED" name="lastModified" type="string"/>
+    <property column="ACCOUNTSTATUS" name="accountStatus" type="string"/>
+    <property column="PARTNERCODE" name="partnerCodes" type="string"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+.textField
+{
+    /*width: 200px;*/
+ font: 11px Verdana, Geneva, Arial, Helvetica, sans-serif;
+ background-color: #D7E5F2;
+ color: #102132;
+ border: 1px solid #284279;
+ /*margin-right: 0px;*/
+}
+.label
+    {
+        font-family: Arial,Helvetica,sans-serif;
+        font-size: 9pt;
+}
+td{
+
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 10pt;
+}

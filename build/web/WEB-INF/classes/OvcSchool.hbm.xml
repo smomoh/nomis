@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class lazy="false" name="com.fhi.kidmap.business.OvcSchool" table="school">
+    <id column="id" name="id" type="int">
+      <generator class="identity"/>
+    </id>
+    <property column="name" name="name" type="string"/>
+    <property column="type" name="type" type="string"/>
+    <property column="address" name="address" type="string"/>
+    <property column="lga" name="lga" type="string"/>
+    <property column="state" name="state" type="string"/>
+  </class>
+</hibernate-mapping>

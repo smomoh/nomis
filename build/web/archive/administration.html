@@ -1,0 +1,682 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Welcome to KidMAP Orphan &amp; Vulnerable Children Database</title>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #F5F5F5;
+	background-image: url();
+	background-repeat: repeat-x;
+}
+-->
+</style>
+<link href="images/kidmap.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+}
+a:link {
+	text-decoration: none;
+	color: #0075B5;
+}
+a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+a:hover {
+	text-decoration: underline;
+	color: #0075B6;
+}
+a:active {
+	text-decoration: none;
+	color: #000000;
+}
+-->
+</style>
+<script type="text/JavaScript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+
+<script language="javascript">
+
+ function retrieveURL(url) {
+
+    if (window.XMLHttpRequest) { // Non-IE browsers
+      req = new XMLHttpRequest();
+      req.onreadystatechange = processStateChange;
+      try {
+        req.open("GET", url, true);
+      } catch (e) {
+        alert(e);
+      }
+      req.send(null);
+    } else if (window.ActiveXObject) { // IE
+      req = new ActiveXObject("Microsoft.XMLHTTP");
+      if (req) {
+        req.onreadystatechange = processStateChange;
+        req.open("GET", url, true);
+        req.send();
+      }
+    }
+  }
+
+  function processStateChange() {
+    if (req.readyState == 4) { // Complete
+      if (req.status == 200) { // OK response
+
+            //window.location.replace('AdminPage.jsp');
+            var newWindow = window.open("AdminPage.jsp","","width=655,height=458,left=230,top=70,resizable=no,scrollbars=no,menubar=no,location=no,status=no");
+
+
+      } else {
+        alert("Problem: " + req.statusText);
+      }
+    }
+  }
+
+
+function getSecuritySetup() {
+
+    //var newWindow = window.open("securitysetup.jsp","","width=655,height=458,left=230,top=70,resizable=no,scrollbars=no,menubar=no,location=no,status=no");
+    var newWindow = window.open("securitysetup.jsp","","width=278,height=380,left=230,top=70,resizable=no,scrollbars=no,menubar=no,location=no,status=no");
+
+}
+
+
+function getUserSetup() {
+
+    //var newWindow = window.open("securitysetup.jsp","","width=655,height=458,left=230,top=70,resizable=no,scrollbars=no,menubar=no,location=no,status=no");
+    var newWindow = window.open("usersetup.jsp","","width=655,height=458,left=230,top=70,resizable=no,scrollbars=no,menubar=no,location=no,status=no");
+
+
+}
+
+</script>
+<script language="javascript">
+var param=""
+var callerId=""
+var dataSize=0
+var csiDataSize=0
+var k=0
+var secs
+var msgSecs=0
+var timerID = null
+var timerRunning = false
+var delay = 4000
+var msgDelay = 2000
+var ovcSize=0
+var csiSize=0
+var loopSize=0
+var startSize=0
+var loopCount=0
+var enrLoopCount=0
+var csiLoopCount=0
+var type=""
+var csiScores=false
+var msg=" "
+var dbIndicator=" "
+function getValuesFromDb(url,str,id)
+{
+	callerId=id;
+	xmlhttp=GetXmlHttpObject();
+    if (xmlhttp==null)
+    {
+        alert ("Browser does not support HTTP Request");
+        return;
+    }
+    url=url+"?qparam="+str;
+
+    url=url+"&sid="+Math.random();
+    xmlhttp.onreadystatechange=stateChanged;
+    xmlhttp.open("GET",url,true);
+    xmlhttp.send(null);
+}
+function GetXmlHttpObject()
+{
+    if (window.XMLHttpRequest)
+    {
+       return new XMLHttpRequest();
+    }
+    if (window.ActiveXObject)
+    {
+        return new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    return null;
+}
+function stateChanged()
+{
+    	if (xmlhttp.readyState==4)
+	{
+            var result=xmlhttp.responseText;
+            if(result==" " || result=="" || result==";")
+            return false;
+            var values=result.split(";")
+            if(callerId=="cboForReports")
+            {
+                populateSelectBox(values, "cbo")
+            }
+            else if(callerId=="csi_cbo")
+            {
+                populateSelectBox(values, "csi_cbo")
+            }
+            else if(callerId=="lgaForReports")
+            {
+                setSelectBoxValues(values, "lga")
+            }
+            else if(callerId=="csi_lga")
+            {
+                setSelectBoxValues(values, "csi_lga")
+            }
+            else if(callerId=="sumstat_lga")
+            {
+                setSelectBoxValues(values, "sumstat_lga")
+            }
+            else if(callerId=="sumstat_cbo")
+            {
+                setSelectBoxValues(values, "sumstat_cbo")
+            }
+            else if(callerId=="wardForReports")
+            {
+                setSelectBoxValues(values, "ward")
+            }
+            else if(callerId=="schools")
+            {
+                setSelectBoxValues(values, "schools")
+            }
+            else if(callerId=="sizeOfData")
+            {
+              dataSize=values[0]
+              csiDataSize=values[1]
+            }
+            else if(callerId=="restoreDb")
+            {
+                  dbIndicator="endOfImport"
+                  msgSecs=0
+                  msg=result
+            }
+	}
+}
+function InitializeTimer()
+{
+    secs = loopCount
+    StopTheClock()
+    StartTheTimer()
+}
+function StopTheClock()
+{
+    if(timerRunning)
+        clearTimeout(timerID)
+    timerRunning = false
+}
+function StartMsgTimer()
+{
+    if (msgSecs==0)
+    {
+        StopTheClock()
+        showMsg("bcMsg",msg)
+    }
+    else
+    {
+        self.status = msgSecs
+        msgSecs = msgSecs + 1
+        if(msgSecs%2==0)
+        msg="Importing database, please wait....."
+        else
+        msg=" "
+        showMsg("bcMsg",msg)
+        timerRunning = true
+        timerID = self.setTimeout("StartMsgTimer()", msgDelay)
+    }
+}
+function StartTheTimer()
+{
+    if (secs==0)
+    {
+        StopTheClock()
+        if(dbIndicator=="endOfImport")
+        msg="Database import completed"
+        else
+        msg="Database backup completed"
+        showMsg("bcMsg",msg)
+        resetGlobalVariables()
+    }
+    else
+    {
+        if (secs==csiLoopCount)
+        {
+            type="csiData"
+            loopSize=0
+            startSize=0;
+            k=0
+        }
+        if(type=="csiData")
+        createCsiExport(k)
+        else
+        createExport(k)
+        self.status = secs
+        secs = secs - 1
+        if(secs%2==0)
+        msg="Database backup in progress, please wait..."
+        else
+        msg=" "
+        showMsg("bcMsg",msg)
+        timerRunning = true
+        timerID = self.setTimeout("StartTheTimer()", delay)
+        k++
+    }
+}
+function showMsg(id,msg)
+{
+    document.getElementById(id).innerHTML=msg
+}
+function showDbProgressMsg()
+{
+    StopTheClock()
+    StartMsgTimer()
+}
+function resetGlobalVariables()
+{
+    k=0;
+    secs=0
+    timerID = null
+    timerRunning = false
+    delay = 4000
+    ovcSize=0
+    csiSize=0
+    loopSize=0
+    startSize=0
+    loopCount=0
+    enrLoopCount=0
+    csiLoopCount=0
+    type=""
+}
+function showComponent(id)
+{
+document.getElementById("wizard").innerHTML = document.getElementById(id).innerHTML;
+document.getElementById("contentContainer").style.background="#FFF";
+}
+
+
+function hideComponent()
+{
+    document.getElementById("wizard").innerHTML = "";
+}
+function exportDatabase()
+{
+    ovcSize=parseInt(dataSize)
+    csiSize=parseInt(csiDataSize)
+    loopSize=0
+    startSize=0;
+    enrLoopCount=Math.ceil((ovcSize/2000))
+    csiLoopCount=Math.ceil((csiSize/5000))
+    loopCount=enrLoopCount+csiLoopCount
+    InitializeTimer()
+}
+function exportCsiDatabase()
+{
+    csiSize=parseInt(csiDataSize)
+    //alert(csiSize)
+    loopSize=0
+    startSize=0;
+    loopCount=Math.ceil((csiSize/5000))
+}
+function createCsiExport(i)
+{
+        if(csiSize>5000)
+        {
+            csiSize-=5000
+            loopSize+=5000
+            if(i==0)
+            startSize=0
+            else
+            startSize+=5000
+        }
+        else
+        {
+            if(i>0)
+            startSize+=5000
+            else
+            startSize=0
+            loopSize+=csiSize
+        }
+        var req=i+":"+startSize+":"+loopSize+":csiDatabaseExport"
+        getValuesFromDb('dataexport.do',req,'csiDatabaseExport')
+}
+function createExport(i)
+{
+        if(ovcSize>2000)
+        {
+            ovcSize-=2000
+            loopSize+=2000
+            if(i==0)
+            startSize=0
+            else
+            startSize+=2000
+        }
+        else
+        {
+            if(i>0)
+            startSize+=2000
+            else
+            startSize=0
+            loopSize+=ovcSize
+        }
+        var req=i+":"+startSize+":"+loopSize
+        getValuesFromDb('dataexport.do',req,'databaseExport')
+}
+function restoreDb()
+{
+    var req="databaseExport;restoreDb"
+    getValuesFromDb('addcbo.do',req,'restoreDb')
+    msgSecs=1
+    dbIndicator="import"
+    showDbProgressMsg()
+}
+function getDataSize()
+{
+    var req="databaseExport;sizeOfData"
+    getValuesFromDb('addcbo.do',req,'sizeOfData')
+}
+</script>
+
+<link href="sdmenu/sdmenu.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body onload="MM_preloadImages('images/tabs/care&amp;support_down.jpg','images/tabs/Rapid_assesment_down.jpg','images/tabs/About_down.jpg','images/tabs/OVC_down.jpg');getDataSize()">
+<table width="921" border="0" align="center" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="170" height="38">&nbsp;</td>
+    <td width="751" rowspan="2" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <!--DWLayoutTable-->
+      <tr>
+        <td width="751" height="33" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <!--DWLayoutTable-->
+          <tr>
+            <td width="642" height="27"></td>
+                <td width="109" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <!--DWLayoutTable-->
+                  <tr>
+                    <td width="109" height="27"><a href="login.jsp"><img src="images/tabs/log_out.jpg" width="109" height="27" border="0" /></a></td>
+                    </tr>
+                </table></td>
+              </tr>
+          <tr>
+            <td height="6"></td>
+                <td></td>
+              </tr>
+          
+          
+          </table></td>
+        </tr>
+      <tr>
+        <td height="38" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <!--DWLayoutTable-->
+          <tr>
+            <td width="125" height="38" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+              <!--DWLayoutTable-->
+              <tr>
+                <td width="125" height="38"><a href="OVC.jsp" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('OVC','','images/tabs/OVC_down.jpg',1)"><img src="images/tabs/OVC_up.jpg" alt="OCV" name="OVC" width="125" height="38" border="0" id="OVC" /></a></td>
+                    </tr>
+              </table></td>
+                <td width="126" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <!--DWLayoutTable-->
+                  <tr>
+                    <td width="126" height="38"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('care &amp; Support','','images/tabs/care&amp;support_down.jpg',1)"><img src="images/tabs/care&amp;support_up.jpg" alt="care &amp; Support" name="care &amp; Support" width="126" height="38" border="0" id="care &amp; Support" /></a><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('care &amp; support','','images/tabs/care&amp;support_down.jpg',1)"></a></td>
+                    </tr>
+                </table></td>
+                <td width="126" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <!--DWLayoutTable-->
+                  <tr>
+                    <td width="126" height="38"><a href="RapidAssessment.jsp" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Rapid Assesment','','images/tabs/Rapid_assesment_down.jpg',1)"><img src="images/tabs/Rapid_assesment_up.jpg" alt="Rapid Assesment" name="Rapid Assesment" width="126" height="38" border="0" id="Rapid Assesment" /></a><a href="rapid.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Rapid Assesment','','images/tabs/Rapid_assesment_down.jpg',1)"></a></td>
+                    </tr>
+                </table></td>
+                <td width="126" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <!--DWLayoutTable-->
+                  <tr>
+                    <td width="126" height="38"><a href="administration.html"><img src="images/tabs/Administration_down.jpg" alt="Administration" name="Administration" width="126" height="38" border="0" id="Administration" /></a></td>
+                    </tr>
+                </table></td>
+                <td width="126" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <!--DWLayoutTable-->
+                  <tr>
+                    <td width="126" height="38"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('About','','images/tabs/About_down.jpg',1)"><img src="images/tabs/About_up.jpg" alt="About" name="About" width="126" height="38" border="0" id="About" /></a></td>
+                    </tr>
+                </table></td>
+                <td width="122" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <!--DWLayoutTable-->
+                  <tr>
+                    <td width="122" height="38"><img src="images/tabs/Last.jpg" width="122" height="38" /></td>
+                  </tr>
+                  
+                </table>            </td>
+              </tr>
+          </table></td>
+        </tr>
+      <tr>
+        <td height="412" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="boaderall">
+          <!--DWLayoutTable-->
+          <tr>
+             <td width="747" height="542" valign="top" background="images/main_border.jpg" id="contentContainer">
+                <table border="0" cellpadding="0" cellspacing="0" align="center"><tr>
+                        <td height="50"></td></tr>
+                    <tr><td><div id="wizard"> </div></td></tr><tr><td></td></tr></table></td>
+              </tr>
+          
+          
+          
+          </table></td>
+        </tr>
+      
+      
+      
+      
+      
+      
+      
+      
+    </table></td>
+  </tr>
+  <tr>
+    <td height="448" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <!--DWLayoutTable-->
+      
+      <tr>
+        <td width="170" height="69" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <!--DWLayoutTable-->
+          <tr>
+            <td width="170" height="69"><img src="images/tabs/logo.jpg" width="170" height="69" /></td>
+              </tr>
+          </table></td>
+        </tr>
+      
+      
+      
+      
+      
+        <tr>
+          <td height="376" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="leftpane_border">
+              <!--DWLayoutTable-->
+              <tr>
+                <td width="168" height="25" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <!--DWLayoutTable-->
+                  <tr>
+                    <td width="168" height="25"><img src="images/tabs/data_E_ELeftpane_header.jpg" width="168" height="25" /></td>
+                    </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td height="85" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <!--DWLayoutTable-->
+                  <tr>
+                    <td width="168" height="88" valign="top"><div style="float: left" id="my_menu" class="sdmenu">
+                            <div><a href="#" onclick="javascript:showComponent('lookupDiv');">Lookup table </a> <a href="#" onclick="showComponent('schoolSetupDiv')">School setup</a><a href="#" onclick="showComponent('userSetupDiv')">User setup </a><!--<a href="#" onclick="javascript:showComponent('dbBackupDiv')">Export database</a>--><a href="DatabaseMgt.jsp" target="_blank">Database Management</a></div>
+                      </div></td>
+                    </tr>
+                  
+                  
+                    </table></td>
+              </tr>
+              <tr>
+                <td height="25" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <!--DWLayoutTable-->
+                  <tr>
+                    <td width="168" height="25"><img src="images/tabs/Repots_leftpane_header.jpg" width="168" height="25" /></td>
+                    </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td height="234" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <!--DWLayoutTable-->
+                    <tr>
+                      <td width="168" height="88" valign="top"><div style="float: left" id="div" class="sdmenu">
+                          <div><a href="#"> &nbsp;</a> <a href="#"> &nbsp; </a><a href="#"> &nbsp; </a><a href="#"> &nbsp; </a><a href="#"> &nbsp; </a><a href="#"> &nbsp; </a></div>
+                      </div></td>
+                    </tr>
+                  </table></td>
+              </tr>
+              
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+          
+          
+          </table></td>
+        </tr>
+      <tr>
+        <td height="3"></td>
+        </tr>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </table></td>
+  </tr>
+</table>
+    <div id="lookupDiv" style="height: 450px; width: 660px; position: absolute; left: 430px; top: 200px; visibility: hidden; border: 1px blue solid; background-color: #0075B5">
+        <center>
+        <table>
+               <tr><td style=" width: 650px; height:450px;"><iframe name="lookupTable" width="100%" height="100%" src="LookupTable.jsp" frameborder="0" scrolling="no" ></iframe> </td><td> </td></tr>
+        </table>
+
+        </center>
+    </div>
+
+    <div id="schoolSetupDiv" style="height: 450px; width: 660px; position: absolute; left: 430px; top: 200px; visibility: hidden; border: 1px blue solid; background-color: black">
+        <center>
+            <table style=" border: 1px black solid; background-color: #0075B5;"> <!--CboSetup.jsp-->
+               <tr><td style=" width: 650px; height:450px;"><iframe name="schoolsetup" width="95%" height="95%" src="SchoolLookup.jsp" frameborder="0" scrolling="no" ></iframe> </td><td> </td></tr>
+        </table>
+
+        </center>
+    </div>
+    <div id="userSetupDiv" style="height: 450px; width: 660px; position: absolute; left: 430px; top: 200px; visibility: hidden; border: 1px blue solid; background-color: black">
+        <center>
+            <table style=" border: 1px black solid; background-color: #0075B5;">
+               <tr><td style=" width: 650px; height:450px;"><iframe name="userSetup" width="95%" height="95%" src="UserSetup.jsp" frameborder="0" scrolling="no" ></iframe> </td><td> </td></tr>
+        </table>
+
+        </center>
+    </div>
+<div id="dbBackupDiv" style="background-color: #0075B5; position: absolute; left: 550px; top: 300px; visibility: hidden">
+        <center>
+            <table><tr><td height="40"> </td> </tr></table>
+        
+            <table style="background-color: #0075B5;" width="300">
+                <tr><td colspan="4" class="title" style=" color: white">Database Management</td></tr>
+            <tr><td class="orglabel" height="20" width="300" colspan="4">&nbsp;</td></tr>
+            <tr><td colspan="4" height="30"> &nbsp;<label id="bcMsg" style="font-size: 12px; color: white"> </label> </td></tr>
+
+                 <tr><td>&nbsp; </td><td> </td></tr>
+                 <tr><td colspan="2" align="center"><input type="button" name="backup" value="Export" onclick="exportDatabase()" style="width: 120px; height: 25px" />&nbsp;<input type="button" name="restore" value="Restore database" style="width: 120px; height: 25px;" onclick="restoreDb()"/></td></tr>
+        </table>
+        </center>
+    </div>
+<p class="copyright">Copyright &copy; KidMAP </p>
+</body>
+</html>

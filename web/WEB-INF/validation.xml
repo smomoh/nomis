@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+
+<form-validation>
+
+<!--
+     This is a minimal Validator form file with a couple of examples.
+-->
+
+    <global>
+
+        <!-- An example global constant
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^\d{5}\d*$</constant-value>
+        </constant>
+        end example-->
+
+        <constant>
+            <constant-name>ovcIdMask</constant-name>
+
+            <constant-value>
+                ^[0-9]+$
+            </constant-value>
+
+            <!--
+            <constant-value>
+              ^[a-zA-Z]{1}[a-zA-Z0-9_]*$
+            </constant-value>
+            -->
+        </constant>
+
+    </global>
+
+    <formset>
+
+        <!-- An example form -->
+        <form name="logonForm">
+            <field
+                property="username"
+                depends="required">
+                    <arg key="logonForm.username"/>
+            </field>
+            <field
+                property="password"
+                depends="required,mask">
+                    <arg key="logonForm.password"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-9a-zA-Z]*$</var-value>
+                    </var>
+            </field>
+        </form>
+
+        <form name="ovc">
+            <!--
+            <field
+                property="username"
+                depends="required">
+                    <arg key="logonForm.username"/>
+            </field>
+            <field
+                property="password"
+                depends="required,mask">
+                    <arg key="logonForm.password"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-9a-zA-Z]*$</var-value>
+                    </var>
+            </field>
+            -->
+
+            <field
+                property="ovcId"
+                depends="required,minlength,maxlength,mask">
+                <msg name="mask"
+                     key="OvcForm.ovcIdMask"/>
+                <arg0 key="OvcForm.ovcId"/>
+                <arg1 key="${var:maxlength}"
+                      name="maxlength"
+                      resource="false"/>
+                <arg1 key="${var:minlength}"
+                      name="minlength"
+                      resource="false"/>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+                <!--
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z]{1}[a-zA-Z0-9_]*$
+                    </var-value>
+                </var>
+                -->
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${ovcIdMask}</var-value>
+                </var>
+            </field>
+
+        </form>
+
+        <form name="ovcfollowupsurvey">
+            <!--
+            <field
+                property="username"
+                depends="required">
+                    <arg key="logonForm.username"/>
+            </field>
+            <field
+                property="password"
+                depends="required,mask">
+                    <arg key="logonForm.password"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-9a-zA-Z]*$</var-value>
+                    </var>
+            </field>
+            -->
+
+            <field
+                property="ovcId"
+                depends="required,minlength,maxlength,mask">
+                <msg name="mask"
+                     key="OvcFollowupSurveyForm.ovcIdMask"/>
+                <arg0 key="OvcFollowupSurveyForm.ovcId"/>
+                <arg1 key="${var:maxlength}"
+                      name="maxlength"
+                      resource="false"/>
+                <arg1 key="${var:minlength}"
+                      name="minlength"
+                      resource="false"/>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+                <!--
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z]{1}[a-zA-Z0-9_]*$
+                    </var-value>
+                </var>
+                -->
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${ovcIdMask}</var-value>
+                </var>
+            </field>
+
+        </form>
+
+
+    </formset>
+
+    <!-- An example formset for another locale -->
+    <formset language="fr">
+
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^[0-9a-zA-Z]*$</constant-value>
+        </constant>
+
+        <!-- An example form -->
+        <form name="logonForm">
+            <field
+                property="username"
+                depends="required">
+                    <arg key="logonForm.username"/>
+            </field>
+            <field
+                property="password"
+                depends="required,mask">
+                    <arg key="logonForm.password"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-9a-zA-Z]*$</var-value>
+                    </var>
+            </field>
+        </form>
+
+   </formset>
+
+</form-validation>

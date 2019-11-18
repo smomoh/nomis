@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class lazy="false" name="com.fhi.kidmap.business.OvcMonthlyService" table="mthlyservice">
+    <id column="id" name="id" type="int">
+      <generator class="identity"/>
+    </id>
+    <property column="month" name="month" type="int"/>
+    <property column="year" name="year" type="int"/>
+    <property column="dateOfService" name="dateOfService" type="string"/>
+    <property column="dateOfEntry" name="dateOfEntry" type="string"/>
+    <property column="ovcId" name="ovcId" type="string"/>
+    <property column="counsellingSupport" name="counsellingSupport" type="string"/>
+    <property column="recreationalActivity" name="recreationalActivity" type="string"/>
+    <property column="liveBuildingSkills" name="liveBuildingSkills" type="string"/>
+    <property column="psychosocialOthers" name="psychosocialOthers" type="string"/>
+    <property column="nutitionEducation" name="nutitionEducation" type="string"/>
+    <property column="foodAndNutrition" name="foodAndNutrition" type="string"/>
+    <property column="growthMonitoring" name="growthMonitoring" type="string"/>
+    <property column="nutritionOthers" name="nutritionOthers" type="string"/>
+    <property column="minorIlness" name="minorIlness" type="string"/>
+    <property column="waterTreatment" name="waterTreatment" type="string"/>
+    <property column="healthEducation" name="healthEducation" type="string"/>
+    <property column="provisionOfItns" name="provisionOfItns" type="string"/>
+    <property column="vitaminSupplement" name="vitaminSupplement" type="string"/>
+    <property column="breastMilk" name="breastMilk" type="string"/>
+    <property column="healthOthers" name="healthOthers" type="string"/>
+    <property column="schoolFees" name="schoolFees" type="string"/>
+    <property column="provisionOfMaterials" name="provisionOfMaterials" type="string"/>
+    <property column="schoolOfMinerals" name="schoolOfMinerals" type="string"/>
+    <property column="schoolVisit" name="schoolVisit" type="string"/>
+    <property column="schoolPerformance" name="schoolPerformance" type="string"/>
+    <property column="educationOthers" name="educationOthers" type="string"/>
+    <property column="legalService" name="legalService" type="string"/>
+    <property column="birthRegistration" name="birthRegistration" type="string"/>
+    <property column="successionPlanning" name="successionPlanning" type="string"/>
+    <property column="childProtection" name="childProtection" type="string"/>
+    <property column="renovationOfAccmd" name="renovationOfAccmd" type="string"/>
+    <property column="reintegration" name="reintegration" type="string"/>
+    <property column="clothingSupport" name="clothingSupport" type="string"/>
+    <property column="linkToShelter" name="linkToShelter" type="string"/>
+    <property column="shelterOthers" name="shelterOthers" type="string"/>
+    <property column="businessGrant" name="businessGrant" type="string"/>
+    <property column="vocational" name="vocational" type="string"/>
+    <property column="employment" name="employment" type="string"/>
+    <property column="supportForHeadOfHouse" name="supportForHeadOfHouse" type="string"/>
+    <property column="economicOthers" name="economicOthers" type="string"/>
+    <property column="isChildWithdrawn" name="isChildWithdrawn" type="string"/>
+    <property column="knownDeath" name="knownDeath" type="string"/>
+    <property column="ageAbove18" name="ageAbove18" type="string"/>
+    <property column="migrated" name="migrated" type="string"/>
+    <property column="lostToFollowup" name="lostToFollowup" type="string"/>
+  </class>
+</hibernate-mapping>

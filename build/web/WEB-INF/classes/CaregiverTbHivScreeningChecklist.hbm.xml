@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.CaregiverTBHIVScreeningChecklist" table="CAREGIVERTBHIVSCREENINGCHECKLIST">
+    <id name="id" column="ID" type="integer">
+        <generator class="identity" />
+      </id>
+    <property name="caregiverId" column="CAREGIVERID" type="string" />
+      <property name="assessmentNo" column="ASSESSMENTNO" type="int" />
+      <property name="beneficiariesHasSoresOrBleeding" column="BENEFICIARIESHASSORESORBLEEDING" type="string" />
+      <property name="caregiverEnrolledInPMTCT" column="CAREGIVERENROLLEDINPMTCT" type="string" />
+      <property name="childAboveSixWksAndStartedOnSeptrin" column="CHILDABOVESIXWKSANDSTARTEDONSEPTRIN" type="string"/>
+      <property name="caregiverCoughing" column="CAREGIVERCOUGHING" type="string"/>
+      <property name="caregiverHavingFever" column="CAREGIVERHAVINGFEVER" type="string" />
+      <property name="caregiverHavingNightSweat" column="CAREGIVERHAVINGNIGHTSWEAT" type="string" />
+      <property name="caregiverLossindWeight" column="CAREGIVERLOSSINGWEIGHT" type="string" />
+      <property name="caregiverOnSeptrin" column="CAREGIVERONSEPTRIN" type="string" />
+      <property name="caregiverSleepInTreatedNet" column="CAREGIVERSLEEPINTREATEDNET" type="string" />
+      <property name="caregiverSwellingOnNeck" column="CAREGIVERSWELLINGONNECK" type="string" />
+      <property name="dateModified" column="DATEMODIFIED" type="string" />
+      <property name="dateOfAssessment" column="DATEOFASSESSMENT" type="string" />
+      <property name="designation" column="DESIGNATION" type="string"/>
+      <property name="dosesOfARVMissedByCaregiver" column="DOSESOFARVMISSEDBYCAREGIVER" type="string" />
+      <property name="dosesOfSeptrinMissedByCaregiver" column="DOSESOFSEPTRINMISSEDBYCAREGIVER" type="string"/>
+      <property name="eidTestingDoneForChild" column="EIDTESTINGDONEFORCHILD" type="string"/>
+      <property name="familyMemberHadTB" column="FAMILYMEMBERHADTB" type="string"/>
+      <property name="hivStatusDisclosedToPartner" column="HIVSTATUSDISCLOSEDTOPARTNER" type="string"/>
+      <property name="hivStatusOfPartnerKnown" column="HIVSTATUSOFPARTNERKNOWN" type="string"/>
+      <property name="numberOfClubsAttndedInThreeMths" column="NUMBEROFCLUBSATTNDEDINTHREEMTHS" type="string"/>
+      <property name="volunteerName" column="VOLUNTEERNAME" type="string"/>
+  </class>
+</hibernate-mapping>

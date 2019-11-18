@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nomis.upgrade.CompatibilityOvc" table="ENROLLMENT">
+    <id column="ovc_id" name="ovcId" type="string">
+    </id>
+    <property column="date_enrollment" name="dateEnrollment" type="string"/>
+    <property column="DATEOFENTRY" name="dateOfEntry" type="string"/>
+    <property column="state_code" name="state" type="string"/>
+    <property column="lga_code" name="lga" type="string"/>
+    <property column="cbo_code" name="cboCode" type="string"/>
+    <property column="ward_code" name="ward" type="string"/>
+    <property column="caregiver_name" name="caregiverName" type="string"/>
+    <property column="caregiver_gender" name="caregiverGender" type="string"/>
+    <property column="caregiver_age" name="caregiverAge" type="integer"/>
+    <property column="caregiver_address" name="caregiverAddress" type="string"/>
+    <property column="caregiver_phone" name="caregiverPhone" type="string"/>
+    <property column="caregiver_occupation" name="caregiverOccupation" type="string"/>
+    <property column="hhsurname" name="hhSurname" type="string"/>
+    <property column="hhfirstname" name="hhFirstname" type="string"/>
+    <property column="hhgender" name="hhGender" type="string"/>
+    <property column="hhage" name="hhAge" type="int"/>
+    <property column="numofchildreninhh" name="numOfChildrenInHh" type="int"/>
+    <property column="numofovcinhh" name="numOfOVCInHh" type="int"/>
+    <property column="completedby_name" name="completedbyName" type="string"/>
+    <property column="completedby_designation" name="completedbyDesignation" type="string"/>
+    <property column="partnercode" name="partner" type="string"/>
+    <property column="recordedby" name="recordedBy" type="string"/>
+  </class>
+</hibernate-mapping>

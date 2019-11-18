@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nomis.chart.DashboardItem" table="DASHBOARDITEM">
+      <id name="recordId" column="RECORDID" type="string"/>
+      <property name="dashboardId" column="DASHBOARDID" type="string"/>
+      <property name="dateCreated" column="DATECREATED" type="string"/>
+      <property name="lastModifiedDate" column="LASTMODIFIEDDATE" type="string"/>
+      <property name="objectId" column="OBJECTID" type="string"/>
+      <property name="objectType" column="OBJECTTYPE" type="string"/>
+  </class>
+</hibernate-mapping>

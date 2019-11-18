@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class lazy="false" name="com.fhi.kidmap.business.OvcWithdrawal" table="withdrawal">
+    <id column="ovc_id" name="ovcId" type="string">
+      
+    </id>
+    <property column="date_of_withdrawal" name="dateOfWithdrawal" type="string"/>
+    <property column="reason_withdrawal" name="reasonWithdrawal" type="string"/>
+    <property column="TYPE" name="type" type="string"/>
+    <property column="survey_number" name="surveyNumber" type="int"/>
+  </class>
+</hibernate-mapping>

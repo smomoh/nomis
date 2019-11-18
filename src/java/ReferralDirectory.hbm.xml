@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.ReferralDirectory" table="REFERRALDIRECTORY">
+      <id column="FACILITYID" name="facilityId" type="string"/>
+    <property column="ADDRESS" name="address" type="string"/>
+    <property column="COMMUNITY" name="community" type="string"/>
+    <property column="CONTACTEMAIL" name="contactEmail" type="string"/>
+    <property column="CONTACTNUMBER" name="contactNumber" type="string"/>
+    <property column="DATEMODIFIED" name="dateModified" type="string"/>
+    <property column="FACILITYNAME" name="facilityName" type="string"/>
+    <property column="LATITUDE" name="latitude" type="string"/>
+    <property column="LONGITUDE" name="longitude" type="string"/>
+    <property column="NAMEOFCONTACT" name="nameOfContact" type="string"/>
+    <property column="TYPEOFORGANIZATION" name="typeOfOrganization" type="string"/>
+  </class>
+</hibernate-mapping>

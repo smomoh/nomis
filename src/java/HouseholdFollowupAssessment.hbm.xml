@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.HouseholdFollowupAssessment" table="HOUSEHOLDFOLLOWUPASSESSMENT">
+    <id column="RECORDID" name="recordId" type="string"/>
+    <property column="UPDATEDADDRESS" name="updatedAddress" type="string"/>
+    <property column="hhAge" name="hhAge" type="int"/>
+    <property column="DATEMODIFIED" name="dateModified" type="string"/>
+    <property column="DATEOFASSESSMENT" name="dateOfAssessment" type="string"/>
+    <property column="HHUNIQUEID" name="hhUniqueId" type="string"/>
+    <property column="NOOFCHILDRENINHH" name="noOfChildrenInhh" type="int"/>
+    <property column="NOOFPEOPLEINHH" name="noOfPeopleInhh" type="int"/>
+    <property column="OCCUPATION" name="occupation" type="string"/>
+    <property column="HHEDUCATIONLEVEL" name="hhEducationLevel" type="int"/>
+    <property column="PHONE" name="phone" type="string"/>
+    <property column="PARTNERCODE" name="partnerCode" type="string"/>
+    <property column="RECORDEDBY" name="recordedBy" type="string"/>
+    <property column="HIVSTATUS" name="hivStatus" type="string"/>
+    <property column="ENROLLEDINCARE" name="enrolledInCare" type="string"/>
+    <property column="ENROLLEDONART" name="enrolledOnART" type="string"/>
+    <property column="FACILITYID" name="facilityId" type="string"/>
+    
+    <property column="EDUCATIONLEVEL" name="educationLevel" type="int"/>
+    <property column="CHILDEDUCATIONLEVEL" name="childEducationLevel" type="int"/>
+    <property column="FOODSECURITYANDNUTRITION" name="foodSecurityAndNutrition" type="int"/>
+    <property column="HEALTH" name="health" type="int"/>
+    <property column="HHHEADSHIP" name="hhHeadship" type="int"/>
+    <property column="HHINCOME" name="hhIncome" type="int"/>
+    <property column="MEANSOFLIVELIHOOD" name="meansOfLivelihood" type="int"/>
+    <property column="SHELTERANDHOUSING" name="shelterAndHousing" type="int"/>
+    <property column="PROTECTION" name="protection" type="int"/>
+    <property column="VULNERABILITYSCORE" name="vulnerabilityScore" type="int"/>
+    <property column="HHVAID" name="hhvaId" type="int"/>
+  </class>
+</hibernate-mapping>

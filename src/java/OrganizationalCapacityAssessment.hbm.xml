@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class lazy="false" name="com.fhi.kidmap.business.OrganizationalCapacityAssessment" table="orgcapacityassessment">
+    <id column="recordid" name="recordId" type="int">
+      <generator class="identity"/>
+    </id>
+    <property column="org_code" name="orgCode" type="string"/>
+    <property column="noofassessment" name="noofassessment" type="int"/>
+    <!--<property column="typeoforganization" name="typeoforganization" type="string"/>-->
+    <property column="isorganizationasubgrantee" name="isorganizationasubgrantee" type="string"/>
+    <property column="dateofcapacityassessment" name="dateofcapacityassessment" type="string"/>
+    <!--<property column="assessedbefore" name="assessedbefore" type="string"/>-->
+    <property column="leadassessorname" name="leadassessorname" type="string"/>
+    <property column="noofassessors" name="noofassessors" type="int"/>
+    <property column="visionandmission" name="visionandmission" type="int"/>
+    <property column="goalsandobjectives" name="goalsandobjectives" type="int"/>
+    <property column="leadership" name="leadership" type="int"/>
+    <property column="actionplanning" name="actionplanning" type="int"/>
+    <property column="roleandresponsibilities" name="roleandresponsibilities" type="int"/>
+    <property column="internalrules" name="internalrules" type="int"/>
+    <property column="meetings" name="meetings" type="int"/>
+    <property column="teambuilding" name="teambuilding" type="int"/>
+    <property column="monitoring" name="monitoring" type="int"/>
+    <property column="reportingandrecordkeeping" name="reportingandrecordkeeping" type="int"/>
+    <property column="budgeting" name="budgeting" type="int"/>
+    <property column="bookkeeping" name="bookkeeping" type="int"/>
+    <property column="banking" name="banking" type="int"/>
+    <property column="localresourcemobilization" name="localresourcemobilization" type="int"/>
+    <property column="proposalwriting" name="proposalwriting" type="int"/>
+    <property column="networking" name="networking" type="int"/>
+    <property column="advocacy" name="advocacy" type="int"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class lazy="false" name="com.fhi.kidmap.business.NutritionAssessment" table="NUTRITIONASSESSMENT">
+        <id column="ID" name="id" type="int">
+            <generator class="identity"/>
+        </id>
+        <property column="ASSESSMENTNO" name="assessmentNo" type="int"/>
+        <property column="BMI" name="bmi" type="string"/>
+        <property column="BODYMASSINDEX" name="bodyMassIndex" type="double"/>
+        <property column="CHANGEINWEIGHT" name="changeInWeight" type="string"/>
+        <property column="DATEMODIFIED" name="dateModified" type="string"/>
+        <property column="DATEOFASSESSMENT" name="dateOfAssessment" type="string"/>
+        <property column="DATEOFLASTWEIGHT" name="dateOfLastWeight" type="string"/>
+        <property column="FOODSECURITYANDDIETQ1" name="foodSecurityAndDietQ1" type="string"/>
+        <property column="FOODSECURITYANDDIETQ2" name="foodSecurityAndDietQ2" type="string"/>
+        <property column="FOODSECURITYANDDIETQ3" name="foodSecurityAndDietQ3" type="string"/>
+        <property column="FOODSECURITYANDDIETQ4" name="foodSecurityAndDietQ4" type="string"/>
+        <property column="FOODSECURITYANDDIETQ5" name="foodSecurityAndDietQ5" type="string"/>
+        <property column="FOODSECURITYANDDIETQ6" name="foodSecurityAndDietQ6" type="string"/>
+        <property column="FOODSECURITYANDDIETQ7" name="foodSecurityAndDietQ7" type="string"/>
+        <property column="FOODSECURITYANDDIETQ8" name="foodSecurityAndDietQ8" type="string"/>
+        <property column="FOODSECURITYANDDIETQ9" name="foodSecurityAndDietQ9" type="string"/>
+        <property column="HEIGHT" name="height" type="double"/>
+        <property column="HYGIENEQ1" name="hygieneQ1" type="string"/>
+        <property column="HYGIENEQ2" name="hygieneQ2" type="string"/>
+        <property column="HYGIENEQ3" name="hygieneQ3" type="string"/>
+        <property column="HYGIENEQ4" name="hygieneQ4" type="string"/>
+        <property column="LASTWEIGHT" name="lastWeight" type="double"/>
+        <property column="MEDICALEVALUATIONDIARRHEA" name="medicalEvaluationDiarrhea" type="string"/>
+        <property column="MEDICALEVALUATIONHIV" name="medicalEvaluationHIV" type="string"/>
+        <property column="MEDICALEVALUATIONMOUTHSOARS" name="medicalEvaluationMouthSoars" type="string"/>
+        <property column="MEDICALEVALUATIONNAUSEA" name="medicalEvaluationNausea" type="string"/>
+        <property column="MEDICALEVALUATIONPAINFULCHEWING" name="medicalEvaluationPainfulChewing" type="string"/>
+        <property column="MEDICALEVALUATIONPOORAPETITE" name="medicalEvaluationPoorApetite" type="string"/>
+        <property column="MEDICALEVALUATIONVOMITING" name="medicalEvaluationVomiting" type="string"/>
+        <property column="MUAC" name="muac" type="string"/>
+        <property column="NUTRITIONALSTATUS" name="nutritionalStatus" type="string"/>
+        <property column="OEDEMA" name="oedema" type="string"/>
+        <property column="OVCID" name="ovcId" type="string"/>
+        <property column="RECORDEDBY" name="recordedBy" type="string"/>
+        <property column="WEIGHT" name="weight" type="double"/>
+        <property column="NARECORDSTATUS" name="naRecordStatus" type="int"/>
+        <property column="MUACFACILITY" name="muacFacility" type="string"/>
+        <property column="YELLOWMUACSERVICES" name="yellowMuacServices" type="string"/>
+    </class>
+</hibernate-mapping>

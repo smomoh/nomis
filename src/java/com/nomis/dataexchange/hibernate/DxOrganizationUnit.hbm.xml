@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nomis.dataexchange.business.DataExchangeOrganizationUnit" table="DxORGANIZATIONUNIT">
+      <id name="orgunitId" column="ORGUNITID" type="string" />
+        <property name="instanceName" column="INSTANCENAME" type="string" />
+        <property name="lastModifiedDate" column="LASTMODIFIEDDATE" type="string" />
+        <property name="level" column="OULEVEL" type="int" />
+        <property name="orgunitName" column="ORGUNITNAME" type="string" />
+        <property name="parentId" column="PARENTID" type="string" />
+  </class>
+</hibernate-mapping>

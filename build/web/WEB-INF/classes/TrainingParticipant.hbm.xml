@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.TrainingParticipant" table="TRAININGPARTICIPANT">
+    <id column="PARTICIPANTID" name="participantId" type="string"/>
+    <property column="AGE" name="age" type="int"/>
+    <property column="DATEMODIFIED" name="dateModified" type="string"/>
+    <property column="DESIGNATION" name="designation" type="string"/>
+    <property column="EMAIL" name="email" type="string"/>
+    <property column="GENDER" name="gender" type="string"/>
+    <property column="ORGANIZATIONCODE" name="organizationCode" type="string"/>
+    <property column="PHONE" name="phone" type="string"/>
+    <property column="TRAINEEID" name="traineeId" type="string"/>
+    <property column="PARTICIPANTNAME" name="participantName" type="string"/>
+  </class>
+</hibernate-mapping>

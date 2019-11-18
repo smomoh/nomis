@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.CareAndSupportChecklist" table="CAREANDSUPPORTCHECKLIST">
+     <id column="RECORDID" name="recordId" type="int">
+      <generator class="identity"/>
+    </id>
+    <property column="APPROVALLEVEL" name="approvalLevel" type="int"/>
+    <property column="DATEENROLLEDONART" name="dateEnrolledOnART" type="string"/>
+    <property column="DATEOFASSESSMENT" name="dateOfAssessment" type="string"/>
+    <property column="DATEOFHIVTEST" name="dateOfHivTest" type="string"/>
+    <property column="DATEOFVIRALLOADTEST" name="dateOfViralLoadTest" type="string"/>
+    <property column="DESIGNATION" name="designation" type="string"/>
+    <property column="DELETED" name="recordDeleted" type="int"/>
+    <property column="ENROLLEDONTREATMENT" name="enrolledOnTreatment" type="string"/>
+    <property column="EXPERIENCEDSORESORRASH" name="experiencedSoresOrRash" type="string"/>
+    <property column="HIVSTATUS" name="hivStatus" type="string"/>
+    <property column="LASTMODIFIEDDATE" name="lastModifiedDate" type="string"/>
+    <property column="MEDICATIONPICKEDUP" name="medicationPickedUp" type="string"/>
+    <property column="REASONSPEOPLESKIPARV" name="reasonsPeopleSkipARV" type="string"/>
+    <property column="RECEIVEDTESTRESULT" name="receivedTestResult" type="string"/>
+    <property column="SKIPPEDARV" name="skippedARV" type="string"/>
+    <property column="TRANSPORTATIONSUPPORT" name="transportationSupport" type="string"/>
+    <property column="TREATMENTFACILITY" name="treatmentFacility" type="string"/>
+    <property column="UNIQUEID" name="clientId" type="string"/>
+    <property column="VIRALLOADTESTDONE" name="viralLoadTestDone" type="string"/>
+    <property column="VOLUNTEERNAME" name="volunteerName" type="string"/>
+    <property column="PROVIDERPHONE" name="providerPhone" type="string"/>
+  </class>
+</hibernate-mapping>

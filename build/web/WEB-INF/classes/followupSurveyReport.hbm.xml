@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class lazy="false" name="com.fhi.kidmap.report.FollowupSurveyReport" table="FOLLOWUPSURVEYREPORT">
+    <id column="id" name="id" type="int">
+      <generator class="identity"/>
+    </id>
+    <property column="OVC_ID" name="ovcId" type="string"/>
+    <property column="date_enrollment" name="dateEnrollment" type="string"/>
+    <property column="state_code" name="state" type="string"/>
+    <property column="lga_code" name="lga" type="string"/>
+    <property column="ward_code" name="ward" type="string"/>
+    <property column="gender" name="gender" type="string"/>
+    <property column="age" name="age" type="int"/>
+    <property column="ageunit" name="ageUnit" type="string"/>
+    <property column="eligibility" name="eligibility" type="string"/>
+    <property column="hiv_status" name="hivStatus" type="string"/>
+    <property column="birth_certificate" name="birthCertificate" type="string"/>
+    <property column="school_status" name="schoolStatus" type="string"/>
+    <property column="cbo_code" name="cboCode" type="string"/>
+    <property column="partnercode" name="partner" type="string"/>
+    <property column="current_age" name="currentAge" type="int"/>
+    <property column="recordedby" name="recordedBy" type="string"/>
+    <property column="dateofentry" name="dateOfEntry" type="string"/>
+    <property column="caregiver_name" name="caregiverName" type="string"/>
+    <property column="caregiver_gender" name="caregiverGender" type="string"/>
+    <property column="caregiver_age" name="caregiverAge" type="int"/>
+    <property column="caregiver_address" name="caregiverAddress" type="string"/>
+    <property column="caregiver_phone" name="caregiverPhone" type="string"/>
+    <property column="caregiver_occupation" name="caregiverOccupation" type="string"/>
+    <property column="caregiver_relationships" name="caregiverRelationships" type="string"/>
+    <property column="completedby_name" name="completedbyName" type="string"/>
+    <property column="completedby_designation" name="completedbyDesignation" type="string"/>
+    <property column="DATE_OF_SURVEY" name="dateOfSurvey" type="string"/>
+    <property column="UPDATEDADDRESS" name="updatedAddress" type="string"/>
+    <property column="UPDATEDAGE" name="updatedAge" type="int"/>
+    <property column="UPDATEDAGEUNIT" name="updatedAgeUnit" type="string"/>
+    <property column="UPDATEDHIV_STATUS" name="updatedHivStatus" type="string"/>
+    <property column="UPDATEDBIRTH_CERTIFICATE" name="updatedBirthCertStatus" type="string"/>
+    <property column="UPDATEDSCHOOL_STATUS" name="updatedSchoolStatus" type="string"/>
+    <property column="UPDATEDSCHOOL_NAME" name="updatedSchoolName" type="string"/>
+    <property column="UPDATEDCAREGIVER_NAME" name="updatedCaregiverName" type="string"/>
+    <property column="UPDATEDCAREGIVER_GENDER" name="updatedCaregiverGender" type="string"/>
+    <property column="UPDATEDCAREGIVER_AGE" name="updatedCaregiverAge" type="int"/>
+    <property column="UPDATEDCAREGIVER_ADDRESS" name="updatedCaregiverAddress" type="string"/>
+    <property column="UPDATEDCAREGIVER_PHONE" name="updatedCaregiverPhone" type="string"/>
+    <property column="UPDATEDCAREGIVER_OCCUPATION" name="updatedCaregiverOccupation" type="string"/>
+    <property column="UPDATEDCAREGIVER_RELATIONSHIP" name="updatedCaregiverRelationship" type="string"/>
+    <property column="FOLLOWUPCOMPLETEDBY_NAME" name="followupCompletedbyName" type="string"/>
+    <property column="FOLLOWUPCOMPLETEDBY_DESIGNATION" name="followupCompletedbyDesignation" type="string"/>
+    <property column="FOLLOWUPDATEOFENTRY" name="followupDateOfEntry" type="string"/>
+    <property column="FOLLOWUPRECORDEDBY" name="followupRecordedBy" type="string"/>
+    <property column="csi_factor1" name="csiFactor1" type="int"/>
+    <property column="csi_factor2" name="csiFactor2" type="int"/>
+    <property column="csi_factor3" name="csiFactor3" type="int"/>
+    <property column="csi_factor4" name="csiFactor4" type="int"/>
+    <property column="csi_factor5" name="csiFactor5" type="int"/>
+    <property column="csi_factor6" name="csiFactor6" type="int"/>
+    <property column="csi_factor7" name="csiFactor7" type="int"/>
+    <property column="csi_factor8" name="csiFactor8" type="int"/>
+    <property column="csi_factor9" name="csiFactor9" type="int"/>
+    <property column="csi_factor10" name="csiFactor10" type="int"/>
+    <property column="csi_factor11" name="csiFactor11" type="int"/>
+    <property column="csi_factor12" name="csiFactor12" type="int"/>
+    <property column="survey_number" name="surveyNumber" type="int"/>
+  </class>
+</hibernate-mapping>

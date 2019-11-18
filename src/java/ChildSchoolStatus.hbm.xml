@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.ChildSchoolStatus" table="CHILDSCHOOLSTATUS">
+     <id column="OVCID" name="ovcId" type="string"></id> 
+     <property name="currentClass" column="CURRENTCLASS" type="string" />
+     <property name="currentSchoolName" column="CURRENTSCHOOLNAME" type="string" />
+     <property name="dateOfAssessment" column="DATEOFASSESSMENT" type="date" />
+     <property name="lastModifiedDate" column="LASTMODIFIEDDATE" type="date" />
+     <property name="lastPointOfUpdate" column="LASTPOINTOFUPDATE" type="string" />
+     <property name="markedForDelete" column="MARKEDFORDELETE" type="int" />
+     <property name="ovcInSchool" column="OVCINSCHOOL" type="string" />
+     <property name="recordedBy" column="RECORDEDBY" type="string" />
+  </class>
+</hibernate-mapping>

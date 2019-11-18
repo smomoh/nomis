@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.HivRiskAssessmentChecklist" table="HIVRISKASSESSMENTCHECKLIST">
+      <id name="recordId" column="RECORDID" type="int" >
+          <generator class="identity" />
+      </id>
+      <property name="childAgeComment" column="CHILDAGECOMMENT" type="string"/>
+      <property name="childAgeQuestion" column="CHILDAGEQUESTION" type="string"/>
+      <property name="childAtRiskQuestion" column="CHILDATRISKQUESTION" type="string"/>
+      <property name="childSickComment" column="CHILDSICKCOMMENT" type="string"/>
+      <property name="childSickQuestion" column="CHILDSICKQUESTION" type="string"/>
+      <property name="childTestedComment" column="CHILDTESTEDCOMMENT" type="string"/>
+      <property name="childTestedQuestion" column="CHILDTESTEDQUESTION" type="string"/>
+      <property name="chronicallyIllComment" column="CHRONICALLYILLCOMMENT" type="string"/>
+      <property name="chronicallyIllQuestion" column="CHRONICALLYILLQUESTION" type="string"/>
+      <property name="dateOfAssessment" column="DATEOFASSESSMENT" type="string"/>
+      <property name="designation" column="DESIGNATION" type="string"/>
+      <property name="genitalDischargeComment" column="GENITALDISCHARGECOMMENT" type="string"/>
+      <property name="genitalDischargeQuestion" column="GENITALDISCHARGEQUESTION" type="string"/>
+      <property name="hivParentComment" column="HIVPARENTCOMMENT" type="string"/>
+      <property name="hivParentQuestion" column="HIVPARENTQUESTION" type="string"/>
+      <property name="ovcId" column="OVCID" type="string"/>
+      <property name="parentDeceasedComment" column="PARENTDECEASEDCOMMENT" type="string"/>
+      <property name="parentDeceasedQuestion" column="PARENTDECEASEDQUESTION" type="string"/>
+      <property name="schoolGradeComment" column="SCHOOLGRADECOMMENT" type="string"/>
+      <property name="schoolGradeQuestion" column="SCHOOLGRADEQUESTION" type="string"/>
+      <property name="serviceProviderName" column="SERVICEPROVIDERNAME" type="string"/>
+      <property name="serviceProviderPhone" column="SERVICEPROVIDERPHONE" type="string"/>
+      <property name="sexualAbuseComment" column="SEXUALABUSECOMMENT" type="string"/>
+      <property name="sexualAbuseQuestion" column="SEXUALABUSEQUESTION" type="string"/>
+      <property name="sexuallyActiveComment" column="SEXUALLYACTIVECOMMENT" type="string"/>
+      <property name="sexuallyActiveQuestion" column="SEXUALLYACTIVEQUESTION" type="string"/>
+      <property name="skinProblemComment" column="SKINPROBLEMCOMMENT" type="string"/>
+      <property name="skinProblemQuestion" column="SKINPROBLEMQUESTION" type="string"/>
+      <property name="lastModifiedDate" column="LASTMODIFIEDDATE" type="string"/>
+      <property name="bloodTransfusionQuestion" column="BLOODTRANSFUSIONQUESTION" type="string"/>
+      <property name="bloodTransfusionComment" column="BLOODTRANSFUSIONCOMMENT" type="string"/>
+      <property name="muacbmiQuestion" column="MUACBMIQUESTION" type="string"/>
+      <property name="muacbmiComment" column="MUACBMICOMMENT" type="string"/>
+      <property name="hivStatusQuestion" column="HIVSTATUSQUESTION" type="string"/>
+      <property name="hivStatus" column="HIVSTATUS" type="string"/>
+      
+      <property name="parentKnowHivStatusQuestion" column="PARENTKNOWHIVSTATUSQUESTION" type="string"/>
+      <property name="parentKnowHivStatusComment" column="PARENTKNOWHIVSTATUSCOMMENT" type="string"/>
+      <property name="childHeadedHhQuestion" column="CHILDHEADEDHHQUESTION" type="string"/>
+      <property name="childHeadedHhComment" column="CHILDHEADEDHHCOMMENT" type="string"/>
+      <property name="diverseSexQuestion" column="DIVERSESEXQUESTION" type="string"/>
+      <property name="diverseSexComment" column="DIVERSESEXCOMMENT" type="string"/>
+      <property name="tbOrNutritionQuestion" column="TBORNUTRITIONQUESTION" type="string"/>
+      <property name="tbOrNutritionComment" column="TBORNUTRITIONCOMMENT" type="string"/>
+      <property name="teenMotherQuestion" column="TEENMOTHERQUESTION" type="string"/>
+      <property name="teenMotherComment" column="TEENMOTHERCOMMENT" type="string"/>
+  </class>
+</hibernate-mapping>

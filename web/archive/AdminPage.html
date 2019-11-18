@@ -1,0 +1,610 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Welcome to KidMAP Orphan &amp; Vulnerable Children Database</title>
+<link href="images/kidmap.css" rel="stylesheet" type="text/css" />
+<link href="kidmap-default.css" rel="stylesheet" type="text/css" />
+<link href="images/kidmap2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #0075B5;
+	background-image: url(images/back.jpg);
+	background-repeat: repeat-x;
+}
+a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333333;
+	font-weight: bold;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+a:hover {
+	text-decoration: underline;
+	color: #0075B6;
+}
+a:active {
+	text-decoration: none;
+	color: #000000;
+}
+.style1 {
+	font-size: 10px;
+	color: #000000;
+}
+-->
+</style>
+
+<script   type="text/JavaScript" src="kidmap.js"> </script>
+<script language="javascript">
+
+var param=""
+var callerId=""
+var dataSize=0
+var csiDataSize=0
+var k=0
+var secs
+var msgSecs=0
+var timerID = null
+var timerRunning = false
+var delay = 4000
+var msgDelay = 2000
+var ovcSize=0
+var csiSize=0
+var loopSize=0
+var startSize=0
+var loopCount=0
+var enrLoopCount=0
+var csiLoopCount=0
+var type=""
+var csiScores=false
+var msg=" "
+var dbIndicator=" "
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages()
+{ //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function InitializeTimer()
+{
+    secs = loopCount
+    StopTheClock()
+    StartTheTimer()
+}
+function StopTheClock()
+{
+    if(timerRunning)
+        clearTimeout(timerID)
+    timerRunning = false
+}
+function StartMsgTimer()
+{
+    if (msgSecs==0)
+    {
+        StopTheClock()
+        showMsg("bcMsg",msg)
+    }
+    else
+    {
+        self.status = msgSecs
+        msgSecs = msgSecs + 1
+        if(msgSecs%2==0)
+        msg="Importing database, please wait....."
+        else
+        msg=" "
+        showMsg("bcMsg",msg)
+        timerRunning = true
+        timerID = self.setTimeout("StartMsgTimer()", msgDelay)
+    }
+}
+function StartTheTimer()
+{
+    if (secs==0)
+    {
+        StopTheClock()
+        if(dbIndicator=="endOfImport")
+        msg="Database import completed"
+        else
+        msg="Database backup completed"
+        showMsg("bcMsg",msg)
+        resetGlobalVariables()
+    }
+    else
+    {
+        if (secs==csiLoopCount)
+        {
+            type="csiData"
+            loopSize=0
+            startSize=0;
+            k=0
+        }
+        if(type=="csiData")
+        createCsiExport(k)
+        else
+        createExport(k)
+        self.status = secs
+        secs = secs - 1
+        if(secs%2==0)
+        msg="Database backup in progress, please wait..."
+        else
+        msg=" "
+        showMsg("bcMsg",msg)
+        timerRunning = true
+        timerID = self.setTimeout("StartTheTimer()", delay)
+        k++
+    }
+}
+function showMsg(id,msg)
+{
+    document.getElementById(id).innerHTML=msg
+}
+function showDbProgressMsg()
+{
+    StopTheClock()
+    StartMsgTimer()
+}
+function resetGlobalVariables()
+{
+    k=0;
+    secs=0
+    timerID = null
+    timerRunning = false
+    delay = 4000
+    ovcSize=0
+    csiSize=0
+    loopSize=0
+    startSize=0
+    loopCount=0
+    enrLoopCount=0
+    csiLoopCount=0
+    type=""
+}
+function showComponent(id)
+{
+    document.getElementById("component").innerHTML=document.getElementById(id).innerHTML
+}
+function hideComponent(id)
+{
+    document.getElementById(id).style.visibility="hidden"
+}
+
+function getDropDownValue(id)
+{
+    var dropDownValue=document.getElementById(id).value
+    return dropDownValue;
+}
+function getValuesFromDb(url,str,id)
+{
+	callerId=id;
+	xmlhttp=GetXmlHttpObject();
+    if (xmlhttp==null)
+    {
+        alert ("Browser does not support HTTP Request");
+        return;
+    }
+    url=url+"?qparam="+str;
+    url=url+"&sid="+Math.random();
+    xmlhttp.onreadystatechange=stateChanged;
+    xmlhttp.open("GET",url,true);
+    xmlhttp.send(null);
+}
+function GetXmlHttpObject()
+{
+    if (window.XMLHttpRequest)
+    {
+       return new XMLHttpRequest();
+    }
+    if (window.ActiveXObject)
+    {
+        return new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    return null;
+}
+function stateChanged()
+{
+    	if (xmlhttp.readyState==4)
+	{
+            result=xmlhttp.responseText
+            if(callerId=="sizeOfData")
+            {
+              var dataSizeResponse=result
+              var values=dataSizeResponse.split(";")
+              dataSize=values[0]
+              csiDataSize=values[1]
+            }
+            else if(callerId=="restoreDb")
+            {
+                  dbIndicator="endOfImport"
+                  msgSecs=0
+                  msg=result
+            }
+        }
+}
+function exportDatabase()
+{
+    ovcSize=parseInt(dataSize)
+    csiSize=parseInt(csiDataSize)
+    loopSize=0
+    startSize=0;
+    enrLoopCount=Math.ceil((ovcSize/2000))
+    csiLoopCount=Math.ceil((csiSize/5000))
+    loopCount=enrLoopCount+csiLoopCount
+    InitializeTimer()
+}
+function exportCsiDatabase()
+{
+    csiSize=parseInt(csiDataSize)
+    loopSize=0
+    startSize=0;
+    loopCount=Math.ceil((csiSize/5000))
+}
+function createCsiExport(i)
+{
+        if(csiSize>5000)
+        {
+            csiSize-=5000
+            loopSize+=5000
+            if(i==0)
+            startSize=0
+            else
+            startSize+=5000
+        }
+        else
+        {
+            if(i>0)
+            startSize+=5000
+            else
+            startSize=0
+            loopSize+=csiSize
+        }
+        var req=i+":"+startSize+":"+loopSize+":csiDatabaseExport"
+        getValuesFromDb('dataexport.do',req,'csiDatabaseExport')
+}
+function createExport(i)
+{
+        if(ovcSize>2000)
+        {
+            ovcSize-=2000
+            loopSize+=2000
+            if(i==0)
+            startSize=0
+            else
+            startSize+=2000
+        }
+        else
+        {
+            if(i>0)
+            startSize+=2000
+            else
+            startSize=0
+            loopSize+=ovcSize
+        }
+        var req=i+":"+startSize+":"+loopSize
+        getValuesFromDb('dataexport.do',req,'databaseExport')
+}
+function restoreDb()
+{
+    var req="databaseExport;restoreDb"
+    getValuesFromDb('addcbo.do',req,'restoreDb')
+    msgSecs=1
+    dbIndicator="import"
+    showDbProgressMsg()
+}
+function getDataSize()
+{
+    var req="databaseExport;sizeOfData"
+    getValuesFromDb('addcbo.do',req,'sizeOfData')
+}
+</script>
+</head>
+
+<body onload="MM_preloadImages('images/dataentry_down.jpg','images/reports_down.jpg','images/admin_down.jpg','images/help_down.jpg');getDataSize()">
+<table width="985" border="0" align="center" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr>
+    <td height="125" colspan="2" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <!--DWLayoutTable-->
+      <tr>
+        <td width="204" height="29"> </td>
+        <td width="17"></td>
+        <td width="122"></td>
+        <td width="12"></td>
+        <td width="122"></td>
+        <td width="13"></td>
+        <td width="122"></td>
+        <td width="15"></td>
+        <td width="122"></td>
+        <td width="122"></td>
+        <td width="114" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" background="images/logout.jpg">
+          <!--DWLayoutTable-->
+          <tr>
+            <td width="114" height="29"><div align="center"><a href="login.jsp">Logout</a></div></td>
+              </tr>
+        </table></td>
+        </tr>
+      <tr>
+        <td height="5"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+   
+      
+      <tr>
+        <td rowspan="3" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <!--DWLayoutTable-->
+          <tr>
+            <td width="204" height="91"><img src="images/kidmap_logo.jpg" width="204" height="91" /></td>
+          </tr>
+            </table></td>
+    <td height="15"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      </tr>
+      <tr>
+        <td height="37"></td>
+        <td valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <!--DWLayoutTable-->
+          <tr>
+            <td width="122" height="37"><a href="dataentry.jsp" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Data Entry','','images/dataentry_down.jpg',1)"><img src="images/dataentry_up.jpg" alt="Data Entry" name="Data Entry" width="122" height="37" border="0" id="Data Entry" /></a></td>
+              </tr>
+        </table></td>
+        <td>&nbsp;</td>
+        <td valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <!--DWLayoutTable-->
+          <tr>
+            <td width="122" height="37"><a href="MainReportPage.jsp" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Reports','','images/reports_down.jpg',1)"><img src="images/reports_up.jpg" alt="Reports" name="Reports" width="122" height="37" border="0" id="Reports" /></a></td>
+            </tr>
+        </table></td>
+        <td>&nbsp;</td>
+        <td valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <!--DWLayoutTable-->
+          <tr>
+            <td width="122" height="37"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Admin','','images/admin_down.jpg',1)"><img src="images/admin_down.jpg" alt="Admin" name="Admin" width="122" height="37" border="0" id="Admin" /></a></td>
+              </tr>
+        </table></td>
+        <td>&nbsp;</td>
+        <td valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <!--DWLayoutTable-->
+          <tr>
+            <td width="122" height="37"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Help','','images/help_down.jpg',1)"><img src="images/help_up.jpg" alt="Help" name="Help" width="122" height="37" border="0" id="Help" /></a></td>
+            </tr>
+        </table></td>
+        <td>&nbsp;</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td height="39" colspan="10" valign="top">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+          <!--DWLayoutTable-->
+          <tr>
+              <td width="740" height="39" class="homepagestyle"><label>Admin</label> </td>
+            <td width="41" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+              <!--DWLayoutTable-->
+              <tr>
+                <td width="41" height="39" valign="top"><img src="images/page_top_right.jpg" width="41" height="32" /></td>
+              </tr>
+            </table></td>
+          </tr>
+          
+          
+            </table></td>
+  </tr>
+      
+    </table>    </td>
+  </tr>
+  <tr>
+    <td width="204" height="17"></td>
+    <td width="781" rowspan="3" valign="top"><form id="form1" name="form1" method="post" action="">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+        <!--DWLayoutTable-->
+        
+        <tr>
+          <td width="9" height="1258">&nbsp;  </td>
+            <td colspan="2" valign="top">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <!--DWLayoutTable-->
+                <tr>
+                  <td width="762" height="28" valign="top">
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <tr height="20"><td> </td></tr>
+                     
+                  </table></td>
+                </tr>
+                <tr>
+                  <td height="210" valign="top">
+                      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <!--DWLayoutTable-->
+                     <tr>
+                      <td width="762" height="32" valign="top">
+                        <table width="100%" class="regsitertable">
+                        <!--DWLayoutTable-->
+                        
+                        
+                        
+                        <tr><td> </td></tr>
+                        
+                       
+                        
+                        
+                        
+                        </table>
+                      </td>
+
+                      </tr>
+                    <tr><td ><span id="component" style="background-color: #0075B5">  </span></td></tr>
+                  </table></td>
+                </tr>
+                <tr>
+                  <td height="123" valign="top">
+     <!--class="regsitertable"-->   
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" >
+                    <!--DWLayoutTable-->
+                    <tr>
+                      <td width="762" height="102">
+                      <table width="686"  >
+                        
+                       <tr><td> </td></tr>
+                        
+                        
+                        </table></td>
+                      </tr>
+                  </table>
+                  </td>
+                </tr>            
+                
+
+            </table></td>
+            <td width="10">&nbsp;</td>
+        </tr>
+        
+        <tr>
+          <td height="30">&nbsp;</td>
+          <td width="741">&nbsp;</td>
+          <td colspan="2" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <!--DWLayoutTable-->
+            <tr>
+              <td width="31" height="30">&nbsp;</td>
+                </tr>
+          </table></td>
+          </tr>
+        <tr>
+          <td height="1"></td>
+          <td></td>
+          <td width="21"></td>
+          <td></td>
+        </tr>
+        </table>
+    </form>      <script type="text/javascript" src="kidmap.js"></script></td>
+  </tr>
+  <tr>
+    <td height="92" valign="top"><table width="203" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+      <!--DWLayoutTable-->
+      <tr>
+        <td width="19" height="19" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <!--DWLayoutTable-->
+          <tr>
+            <td width="19" height="19"><img src="images/links_top_right.jpg" width="19" height="19" /></td>
+              </tr>
+          </table></td>
+          <td width="185">&nbsp;</td>
+        </tr>
+      <tr>
+        <td height="25" colspan="2" valign="top">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
+          <!--DWLayoutTable-->
+          <tr>
+            <td width="204" height="20" class="quicklinks"> Setup </td>
+            </tr>
+                    <tr height="25" style="background-color: white"><td><a href="javascript:showComponent('lookupDiv')" style="margin-left:20px;" >Lookup table</a> </td></tr>
+                    <tr height="25" style="background-color: white"><td><a href="javascript:showComponent('setupDiv')" style="margin-left:20px;" >CBO setup</a> </td></tr>
+                    <tr height="25" style="background-color: white"><td><a href="javascript:showComponent('userSetupDiv')" style="margin-left:20px;" >User setup</a> </td></tr>
+                    <tr height="25" style="background-color: white"><td><a href="javascript:showComponent('dbBackupDiv')" style="margin-left:20px;" >Database Management</a> </td></tr>
+
+            </table></td>
+        </tr>
+      <tr>
+        <td height="150">&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      
+      
+      <tr>
+        <td height="18" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <!--DWLayoutTable-->
+          <tr>
+            <td width="19" height="17"><img src="images/links_bottom_left.jpg" width="19" height="18" /></td>
+              </tr>
+          </table></td>
+          <td></td>
+        </tr>
+   
+    </table></td>
+  </tr>
+  
+</table>
+    <div id="lookupDiv" style="height: 450px; width: 660px; position: absolute; left: 430px; top: 200px; visibility: hidden; border: 1px blue solid; background-color: #0075B5">
+        <center>
+        <table>
+               <tr><td style=" width: 650px; height:450px;"><iframe name="lookupTable" width="100%" height="100%" src="LookupTable.jsp" frameborder="0" scrolling="no" ></iframe> </td><td> </td></tr>
+        </table>
+            
+        </center>
+    </div>
+
+    <div id="setupDiv" style="height: 450px; width: 660px; position: absolute; left: 430px; top: 200px; visibility: hidden; border: 1px blue solid; background-color: black">
+        <center>
+            <table style=" border: 1px black solid; background-color: #0075B5;">
+               <tr><td style=" width: 650px; height:450px;"><iframe name="cboSetup" width="95%" height="95%" src="CboSetup.jsp" frameborder="0" scrolling="no" ></iframe> </td><td> </td></tr>
+        </table>
+
+        </center>
+    </div>
+    <div id="userSetupDiv" style="height: 450px; width: 660px; position: absolute; left: 430px; top: 200px; visibility: hidden; border: 1px blue solid; background-color: black">
+        <center>
+            <table style=" border: 1px black solid; background-color: #0075B5;">
+               <tr><td style=" width: 650px; height:450px;"><iframe name="userSetup" width="95%" height="95%" src="UserSetup.jsp" frameborder="0" scrolling="no" ></iframe> </td><td> </td></tr>
+        </table>
+
+        </center>
+    </div>
+    <div id="dbBackupDiv" style="background-color: #0075B5; position: absolute; left: 550px; top: 300px; visibility: hidden">
+        <center>
+        <span style="height: 160px; width: 400px; background-color: #0075B5;">
+            <table style="background-color: #0075B5;" width="300">
+                <tr><td colspan="4" class="title" style=" color: white">Database Management</td></tr>
+            <tr><td class="orglabel" height="20" width="300" colspan="4">&nbsp;</td></tr>
+            <tr><td colspan="4" height="30"> &nbsp;<label id="bcMsg" style="font-size: 12px; color: white"> </label> </td></tr>
+            
+                 <tr><td>&nbsp; </td><td> </td></tr>
+                 <tr><td colspan="2" align="center"><input type="button" name="backup" value="Backup database" onclick="exportDatabase()" style="width: 120px; height: 25px" />&nbsp;<input type="button" name="restore" value="Restore database" style="width: 120px; height: 25px;" onclick="restoreDb()" /></td></tr>
+        </table>
+
+        </span>
+        </center>
+    </div>
+</body>
+</html>

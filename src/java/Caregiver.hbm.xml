@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class lazy="false" name="com.fhi.kidmap.business.Caregiver" table="CAREGIVERINFO">
+    <id column="CAREGIVERID" name="caregiverId" type="string">
+      </id>
+    <property column="CGENROLLMENTID" name="cgEnrollmentId" type="string"/>
+    <property column="CAREGIVERADDRESS" name="caregiverAddress" type="string"/>
+    <property column="CAREGIVERAGE" name="caregiverAge" type="int"/>
+    <property column="CURRENTAGE" name="currentAge" type="int"/>
+    <property column="CAREGIVERFIRSTNAME" name="caregiverFirstname" type="string"/>
+    <property column="CAREGIVERGENDER" name="caregiverGender" type="string"/>
+    <property column="CAREGIVERLASTNAME" name="caregiverLastName" type="string"/>
+    <property column="CAREGIVEROCCUPATION" name="caregiverOccupation" type="string"/>
+    <property column="CAREGIVERMARITALSTATUS" name="caregiverMaritalStatus" type="string"/>
+    <property column="CAREGIVERPHONE" name="caregiverPhone" type="string"/>
+    <property column="HHUNIQUEID" name="hhUniqueId" type="string"/>
+    <property column="DATEOFENROLLMENT" name="dateOfEnrollment" type="string"/>
+    <property column="DATEMODIFIED" name="dateModified" type="string"/>
+    <property column="HOUSEHOLDHEAD" name="householdhead" type="string"/>
+    <property column="CGIVERHIVSTATUS" name="cgiverHivStatus" type="string"/>
+    <property column="ENROLLEDINCARE" name="enrolledInCare" type="string"/>
+    <property column="ENROLLEDONART" name="enrolledOnART" type="string"/>
+    <property column="FACILITYID" name="facilityId" type="string"/>
+    <property column="WITHDRAWNFROMPROGRAM" name="withdrawnFromProgram" type="string"/>
+  </class>
+</hibernate-mapping>

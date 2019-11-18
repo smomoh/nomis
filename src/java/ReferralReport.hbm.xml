@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class lazy="false" name="com.fhi.kidmap.report.ReferralReport" table="REFERRALREPORT">
+    <id column="id" name="id" type="int">
+      <generator class="identity"/>
+    </id>
+    <property column="ovc_id" name="ovcId" type="string"/>
+    <property column="date_enrollment" name="dateEnrollment" type="string"/>
+    <property column="state_code" name="state" type="string"/>
+    <property column="lga_code" name="lga" type="string"/>
+    <property column="ward_code" name="ward" type="string"/>
+    <property column="gender" name="gender" type="string"/>
+    <property column="age" name="age" type="int"/>
+    <property column="ageunit" name="ageUnit" type="string"/>
+    <property column="eligibility" name="eligibility" type="string"/>
+    <property column="hiv_status" name="hivStatus" type="string"/>
+    <property column="birth_certificate" name="birthCertificate" type="string"/>
+    <property column="school_status" name="schoolStatus" type="string"/>
+    <property column="cbo_code" name="cboCode" type="string"/>
+    <property column="partnercode" name="partner" type="string"/>
+    <property column="current_age" name="currentAge" type="int"/>
+    <property column="recordedby" name="recordedBy" type="string"/>
+    <property column="dateofentry" name="dateOfEntry" type="string"/>
+    <property column="caregiver_name" name="caregiverName" type="string"/>
+    <property column="caregiver_gender" name="caregiverGender" type="string"/>
+    <property column="caregiver_age" name="caregiverAge" type="int"/>
+    <property column="caregiver_address" name="caregiverAddress" type="string"/>
+    <property column="caregiver_phone" name="caregiverPhone" type="string"/>
+    <property column="caregiver_occupation" name="caregiverOccupation" type="string"/>
+    <property column="caregiver_relationships" name="caregiverRelationships" type="string"/>
+    <property column="completedby_name" name="completedbyName" type="string"/>
+    <property column="completedby_designation" name="completedbyDesignation" type="string"/>
+    <property column="DATEOFREFERRAL" name="dateOfReferral" type="string"/>
+    <property column="referringOrganization" name="referringOrganization" type="string"/>
+    <property column="psychoServices" name="psychoServices" type="string"/>
+    <property column="nameOfOrganizationChildIsreferred" name="nameOfOrganizationChildIsreferred" type="string"/>
+    <property column="referralcompleted" name="referralCompleted" type="string"/>
+    <property column="nutritionalServices" name="nutritionalServices" type="string"/>
+    <property column="healthServices" name="healthServices" type="string"/>
+    <property column="educationalServices" name="educationalServices" type="string"/>
+    <property column="protectionServices" name="protectionServices" type="string"/>
+    <property column="shelterServices" name="shelterServices" type="string"/>
+    <property column="economicServices" name="economicServices" type="string"/>
+    <property column="nameOfPersonReferring" name="nameOfPersonReferring" type="string"/>
+    <property column="designationOfReferrer" name="designationOfReferrer" type="string"/>
+    <property column="referrerPhoneNo" name="referrerPhoneNo" type="string"/>
+    <property column="referrerEmail" name="referrerEmail" type="string"/>
+  </class>
+</hibernate-mapping>

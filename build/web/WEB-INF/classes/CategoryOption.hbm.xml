@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.CategoryOption" table="CATEGORYOPTION">
+    <id column="CATEGORYOPTIONID" name="categoryOptionId" type="string"/>
+    <property column="CATEGORYDEFINITION" name="categoryDefinition" type="string"/>
+    <property column="CATEGORYOPTIONDESCRIPTION" name="categoryOptionDescription" type="string"/>
+    <property column="CATEGORYOPTIONNAME" name="categoryOptionName" type="string"/>
+    <property column="DISAGGREGATION" name="disaggregation" type="string"/>
+  </class>
+</hibernate-mapping>

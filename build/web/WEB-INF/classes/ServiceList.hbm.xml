@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class lazy="false" name="com.fhi.kidmap.business.ServiceList" table="servicelist">
+    <id column="id" name="id" type="int">
+      <generator class="identity"/>
+    </id>
+    <property column="servicename" name="serviceName" type="string"/>
+  </class>
+</hibernate-mapping>

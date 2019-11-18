@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.HouseholdEnrollment" table="HOUSEHOLDENROLLMENT">
+    <id column="HHUNIQUEID" name="hhUniqueId" type="string">
+    </id>
+    <property column="HHENROLLMENTID" name="hhEnrollmentId" type="string"/>
+    <property column="ADDRESS" name="address" type="string"/>
+    <property column="COMMUNITYCODE" name="communityCode" type="string"/>
+    <property column="CURRENTAGE" name="currentAge" type="int"/>
+    <property column="DATEOFASSESSMENT" name="dateOfAssessment" type="string"/>
+    <property column="DATEOFENTRY" name="dateOfEntry" type="string"/>
+    <property column="ELIGIBLEFORENROLLMENT" name="eligibleForEnrollment" type="string"/>
+    <property column="HHAGE" name="hhAge" type="int"/>
+    <property column="HHFIRSTNAME" name="hhFirstname" type="string"/>
+    <property column="HHSURNAME" name="hhSurname" type="string"/>
+    <property column="HHGENDER" name="hhGender" type="string"/>
+    <property column="LGACODE" name="lgaCode" type="string"/>
+    <property column="MARITALSTATUS" name="maritalStatus" type="string"/>
+    <property column="NOOFCHILDRENINHH" name="noOfChildrenInhh" type="int"/>
+    <property column="NOOFPEOPLEINHH" name="noOfPeopleInhh" type="int"/>
+    <property column="OCCUPATION" name="occupation" type="string"/>
+    <property column="ORGCODE" name="orgCode" type="string"/>
+    <property column="PARTNERCODE" name="partnerCode" type="string"/>
+    <property column="PHONE" name="phone" type="string"/>
+    <property column="RECORDEDBY" name="recordedBy" type="string"/>
+    <property column="STATECODE" name="stateCode" type="string"/>
+    <property column="WITHDRAWNFROMPROGRAM" name="withdrawnFromProgram" type="string"/>
+    <property column="LATITUDE" name="latitude" type="double"/>
+    <property column="LONGITUDE" name="longitude" type="double"/>
+    <property column="HHEDUCATIONLEVEL" name="hhEducationLevel" type="int"/>
+    <property column="HIVSTATUS" name="baselineHivStatus" type="string"/>
+    <property column="ENROLLEDINCARE" name="enrolledInCare" type="string"/>
+    <property column="ENROLLEDONART" name="enrolledOnART" type="string"/>
+    <property column="FACILITYID" name="facilityId" type="string"/>
+    <property column="NAMEOFASSESSOR" name="nameOfAssessor" type="string"/>
+    <property column="DESIGNATIONOFASSESSOR" name="designationOfAssessor" type="string"/>
+    
+    <property column="EDUCATIONLEVEL" name="educationLevel" type="int"/>
+    <property column="CHILDEDUCATIONLEVEL" name="childEducationLevel" type="int"/>
+    <property column="FOODSECURITYANDNUTRITION" name="foodSecurityAndNutrition" type="int"/>
+    <property column="HEALTH" name="health" type="int"/>
+    <property column="HHHEADSHIP" name="hhHeadship" type="int"/>
+    <property column="HHINCOME" name="hhIncome" type="int"/>
+    <property column="MEANSOFLIVELIHOOD" name="meansOfLivelihood" type="int"/>
+    <property column="SHELTERANDHOUSING" name="shelterAndHousing" type="int"/>
+    <property column="PROTECTION" name="protection" type="int"/>
+    <property column="VULNERABILITYSCORE" name="baselineAssessmentScore" type="int"/>
+    <property column="HHVAID" name="hhvaId" type="integer"/>
+    
+  </class>
+</hibernate-mapping>

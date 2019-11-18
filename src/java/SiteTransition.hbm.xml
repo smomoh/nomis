@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.SiteTransition" table="SITETRANSITION">
+      <id name="siteCode" column="SITECODE" type="string"/>
+    <property name="dateOfTransition" column="DATEOFTRANSITION" type="string"/>
+    <property name="dateModified" column="DATEMODIFIED" type="string"/>
+    <property name="organizationSiteTransitionedTo" column="ORGANIZATIONSITETRANSITIONEDTO" type="string"/>
+    <property name="recordedBy" column="RECORDEDBY" type="string"/>
+  </class>
+</hibernate-mapping>

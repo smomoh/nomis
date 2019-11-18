@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nomis.chart.Chart" table="CHART">
+    <id name="chartId" column="CHARTID" type="string" />
+    <property name="chartName" column="CHARTNAME" type="string" />
+    <property name="chartType" column="CHARTTYPE" type="string" />
+    <property name="stateCode" column="STATECODE" type="string" />
+    <property name="lgaCode" column="LGACODE" type="string" />
+    <property name="cboCode" column="CBOCODE" type="string" />
+    <property name="communityCode" column="COMMUNITYCODE" type="string" />
+    <property name="orgUnitCode" column="ORGUNITCODE" type="string" />
+    <property name="orgUnitLevel" column="ORGUNITLEVEL" type="integer" />
+    <property name="endDate" column="ENDDATE" type="string" />
+    <property name="filter" column="FILTER" type="string" />
+    <property name="labelVisible" column="LABELVISIBLE" type="string"/>
+    <property name="lastModifiedDate" column="LASTMODIFIED" type="string"/>
+    <property name="periodType" column="PERIODTYPE" type="string" />
+    <property name="selectedIndicators" column="SELECTEDINDICATORS" type="string"/>
+    <property name="selectedOrgUnits" column="SELECTEDORGUNITS" type="string"/>
+    <property name="selectedPeriods" column="SELECTEDPERIODS" type="string"/>
+    <property name="series" column="SERIES" type="string"/>
+    <property name="categoryOption" column="CATEGORY" type="string"/>
+    <property name="startDate" column="STARTDATE" type="string"/>
+    <property name="dateCreated" column="DATECREATED" type="string"/>
+    
+  </class>
+</hibernate-mapping>

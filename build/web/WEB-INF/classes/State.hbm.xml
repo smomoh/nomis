@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class lazy="false" name="com.fhi.kidmap.business.State" table="state">
+    <id column="name" name="name" type="string">
+      <!--<generator class="increment"/>-->
+    </id>
+    <property column="description" name="description" type="string"/>
+    <property column="symbol" name="symbol" type="string"/>
+  </class>
+</hibernate-mapping>

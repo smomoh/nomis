@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.report.HouseholdUniqueServiceReport" table="HOUSEHOLDUNIQUESERVICEREPORT">
+      <id column="ID" name="id">
+      <generator class="identity"/>
+    </id>
+    <property column="HHUNIQUEID" name="hhUniqueId" type="string"/>
+    <property column="ECONOMICSTRENGTHENING" name="economicStrengtheningServices" type="string"/>
+    <property column="EDUCATION" name="educationalServices" type="string"/>
+    <property column="HEALTH" name="healthServices" type="string"/>
+    <property column="NUTRITION" name="nutritionalServices" type="string"/>
+    <property column="PROTECTION" name="protectionServices" type="string"/>
+    <property column="PSYCHOSOCIALSUPPORT" name="psychosocialSupportServices" type="string"/>
+    <property column="SHELTERANDCARE" name="shelterAndCareServices" type="string"/>
+    <property column="SERVICEDATE" name="serviceDate" type="string"/>
+    <property column="SERVICENO" name="serviceNo" type="int"/>
+    <property column="NUMBEROFSERVICES" name="numberOfServices" type="int"/>
+    <property column="VOLUNTEERNAME" name="volunteerName" type="string"/>
+    <property column="CAREGIVERID" name="caregiverId" type="string"/>
+    <property column="SERVICERECIPIENTTYPE" name="serviceRecipientType" type="string"/>
+    <property column="VOLUNTEERDESIGNATION" name="volunteerDesignation" type="string"/>
+    <property column="RECORDEDBY" name="recordedBy" type="string"/>
+    <property column="DATEOFENTRY" name="dateOfEntry" type="string"/>
+  </class>
+</hibernate-mapping>

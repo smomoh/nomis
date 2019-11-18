@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.CareplanAchievement" table="CAREPLANACHIEVEMENT">
+      <id name="id" column="ID" type="integer">
+        <generator class="identity" />
+      </id>
+      <property name="clientId" column="CLIENTID" type="string" />
+      <property name="dateOfAssessment" column="DATEOFASSESSMENT" type="string" />
+      <property name="followupRequired" column="FOLLOWUP" type="string" />
+      <property name="graduated" column="GRADUATED" type="string" />
+      <property name="lastModifiedDate" column="LASTMODIFIED" type="string" />
+      <property name="designation" column="DESIGNATION" type="string" />
+      <property name="serviceProviderPhone" column="SERVICEPROVIDERPHONE" type="string" />
+      <property name="recordedBy" column="RECORDEDBY" type="string" />
+      <property name="volunteerId" column="VOLUNTEERID" type="string" />
+      <property name="score" column="SCORE" type="int" />
+      <property name="assessmentNo" column="ASSESSMENTNO" type="int" />
+      
+      <property name="hth_hivOnArt" column="HTH_HIVONART" type="string" />
+      <property name="hth_hivOnArtComment" column="HTH_HIVONARTCOMMENT" type="string" />
+      <property name="hth_hivdisclosed" column="HTH_HIVDISCLOSED" type="string" />
+      <property name="hth_hivdisclosedComment" column="HTH_HIVDISCLOSEDCOMMENT" type="string" />
+      <property name="hth_hivknowledge" column="HTH_HIVKNOWLEDGE" type="string" />
+      <property name="hth_hivknowledgeComment" column="HTH_HIVKNOWLEDGECOMMENT" type="string" />
+      <property name="hth_vcInneedOfHthServices" column="HTH_VCINNEEDOFHTHSERVICES" type="string" />
+      <property name="hth_vcInneedOfHthServicesComment" column="HTH_VCINNEEDOFHTHSERVICESCOMMENT" type="string" />
+      <property name="hth_vchivrisk" column="HTH_VCHIVRISK" type="string" />
+      <property name="hth_vchivriskComment" column="HTH_VCHIVRISKCOMMENT" type="string" />
+      <property name="hth_vcreftested" column="HTH_VCREFTESTED" type="string" />
+      <property name="hth_vcreftestedComment" column="HTH_VCREFTESTEDCOMMENT" type="string" />
+      
+      <property name="sch_adolInVoctraining" column="SCH_ADOLINVOCTRAINING" type="string" />
+      <property name="sch_adolInVoctrainingComment" column="SCH_ADOLINVOCTRAININGCOMMENT" type="string" />
+      <property name="sch_earlyChildCare" column="SCH_EARLYCHILDCARE" type="string" />
+      <property name="sch_earlyChildCareComment" column="SCH_EARLYCHILDCARECOMMENT" type="string" />
+      <property name="sch_schAttendance" column="SCH_SCHATTENDANCE" type="string" />
+      <property name="sch_schAttendanceComment" column="SCH_SCHATTENDANCECOMMENT" type="string" />
+      <property name="sch_vcEnrolledInSecondarySch" column="SCH_VCENROLLEDINSECONDARYSCH" type="string" />
+      <property name="sch_vcEnrolledInSecondarySchComment" column="SCH_VCENROLLEDINSECONDARYSCHCOMMENT" type="string" />
+      
+      <property name="sft_birthCert" column="SFT_BIRTHCERT" type="string" />
+      <property name="sft_birthCertComment" column="SFT_BIRTHCERTCOMMENT" type="string" />
+      <property name="sft_cgcompletedTwoModules" column="SFT_CGCOMPLETEDTWOMODULES" type="string" />
+      <property name="sft_cgcompletedTwoModulesComment" column="SFT_CGCOMPLETEDTWOMODULESCOMMENT" type="string" />
+      <property name="sft_childHeadedLinkedToServices" column="SFT_CHILDHEADEDLINKEDTOSERVICES" type="string" />
+      <property name="sft_childHeadedLinkedToServicesComment" column="SFT_CHILDHEADEDLINKEDTOSERVICESCOMMENT" type="string" />
+      <property name="sft_vcSafeFromAbuse" column="SFT_VCSAFEFROMABUSE" type="string" />
+      <property name="sft_vcSafeFromAbuseComment" column="SFT_VCSAFEFROMABUSECOMMENT" type="string" />
+      <property name="sft_vcreferredForCps" column="SFT_VCREFERREDFORCPS" type="string" />
+      <property name="sft_vcreferredForCpsComment" column="SFT_VCREFERREDFORCPSCOMMENT" type="string" />
+      <property name="sft_vcsad" column="SFT_VCSAD" type="string" />
+      <property name="sft_vcsadComment" column="SFT_VCSADCOMMENT" type="string" />
+      
+      <property name="stb_cgPartEconServ" column="STB_CGPARTECONSERV" type="string" />
+      <property name="stb_cgPartEconServComment" column="STB_CGPARTECONSERVCOMMENT" type="string" />
+      <property name="stb_hungryNoFood" column="STB_HUNGRYNOFOOD" type="string" />
+      <property name="stb_hungryNoFoodComment" column="STB_HUNGRYNOFOODCOMMENT" type="string" />
+      <property name="stb_resiliency" column="STB_RESILIENCY" type="string" />
+      <property name="stb_resiliencyComment" column="STB_RESILIENCYCOMMENT" type="string" />
+      <property name="stb_socEmotSupport" column="STB_SOCEMOTSUPPORT" type="string" />
+      <property name="stb_socEmotSupportComment" column="STB_SOCEMOTSUPPORTCOMMENT" type="string" />
+      <property name="comment" column="COMMENT" type="string" />
+      
+      </class>
+</hibernate-mapping>

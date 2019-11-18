@@ -1,0 +1,35 @@
+.kidmap {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+.homepagestyle {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	color: #000000;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-weight: bold;
+}
+.fieldset {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #5D7E9F;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-weight: bold;
+}
+.quicklinks {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	padding-left: 8px;
+	color: #FFFFFF;
+}
+.forms {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-weight: bold;
+}

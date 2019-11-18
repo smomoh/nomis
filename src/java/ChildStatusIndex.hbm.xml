@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class lazy="false" name="com.fhi.kidmap.business.ChildStatusIndex" table="assessment">
+    <id column="id" name="id" type="int">
+      <generator class="identity"/>
+    </id>
+    <property column="ovc_id" name="ovcId" type="string"/>
+    <property column="csi_date" name="csiDate" type="string"/>
+    <property column="dateofEntry" name="dateOfEntry" type="string"/>
+    <property column="csi_factor1" name="csiFactor1" type="int"/>
+    <property column="csi_factor2" name="csiFactor2" type="int"/>
+    <property column="csi_factor3" name="csiFactor3" type="int"/>
+    <property column="csi_factor4" name="csiFactor4" type="int"/>
+    <property column="csi_factor5" name="csiFactor5" type="int"/>
+    <property column="csi_factor6" name="csiFactor6" type="int"/>
+    <property column="csi_factor7" name="csiFactor7" type="int"/>
+    <property column="csi_factor8" name="csiFactor8" type="int"/>
+    <property column="csi_factor9" name="csiFactor9" type="int"/>
+    <property column="csi_factor10" name="csiFactor10" type="int"/>
+    <property column="csi_factor11" name="csiFactor11" type="int"/>
+    <property column="csi_factor12" name="csiFactor12" type="int"/>
+    <property column="survey_number" name="surveyNumber" type="int"/>
+    <property column="TOTALCSISCORE" name="totalCsiScore" type="int"/>
+  </class>
+</hibernate-mapping>

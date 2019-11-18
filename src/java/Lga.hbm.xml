@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class lazy="false" name="com.fhi.kidmap.business.Lga" table="lga">
+    <id column="lga_code" name="lgaCode" type="string">
+    </id>
+    <property column="lga_name" name="lgaName" type="string"/>
+    <!--<generator class="increment"/>
+      <property column="state_code" name="stateCode" type="string"/>
+      -->
+  </class>
+</hibernate-mapping>

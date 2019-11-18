@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.Cbos" table="cbo">
+    <id column="cbo_code" name="cbo_code" type="string"/>
+    <property column="lga_code" name="lga_code" type="string"/>
+    <property column="cbo_name" name="cbo_name" type="string"/>
+    <property column="address" name="address" type="string"/>
+    <property column="contact_mobile" name="phone" type="string"/>
+    <property column="fax" name="fax" type="string"/>
+    <property column="email" name="email" type="string"/>
+    <property column="website" name="website" type="string"/>
+    <!--<property column="state_code" name="state_code" type="string"/>
+    <property column="lga_code" name="lga_code" type="string"/>-->
+  </class>
+</hibernate-mapping>

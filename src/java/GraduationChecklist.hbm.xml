@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.fhi.kidmap.business.GraduationCheckList" table="GRADUATIONCHECKLIST">
+   <id column="id" name="id" type="int">
+      <generator class="identity"/>
+    </id>
+    <property column="CLIENTID" name="clientId" type="string"/>
+    <property column="CLIENTTYPE" name="clientType" type="string"/>
+    <property column="DATEMODIFIED" name="dateModified" type="string"/>
+    <property column="DATEOFASSESSMENT" name="dateOfAssessment" type="string"/>
+    <property column="GRADUATED" name="graduated" type="string"/>
+    <property column="HEALTH" name="health" type="string"/>
+    <property column="SAFETY" name="safety" type="string"/>
+    <property column="SCHOOL" name="school" type="string"/>
+    <property column="STABILITY" name="stability" type="string"/>
+    <property column="VULNERABILITY" name="vulnerability" type="string"/>
+    <property column="GCLSCORE" name="gclscore" type="int"/>
+    <property column="VOLUNTEERID" name="volunteerId" type="string"/>
+    <property column="RECORDEDBY" name="recordedby" type="string"/> 
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class lazy="false" name="com.fhi.kidmap.business.Ovc" table="enrollment">
+    <id column="ovc_id" name="ovcId" type="string">
+      <!--<generator class="increment"/>-->
+    </id>
+    <property column="VCENROLLMENTID" name="vcEnrollmentId" type="string"/>
+    <property column="HHUNIQUEID" name="hhUniqueId" type="string"/>
+    <property column="date_enrollment" name="dateEnrollment" type="string"/>
+    <property column="surname" name="lastName" type="string"/>
+    <property column="othernames" name="firstName" type="string"/>
+    <property column="gender" name="gender" type="string"/>
+    <property column="age" name="age" type="int"/>
+    <property column="ageunit" name="ageUnit" type="string"/>
+    <property column="currentAge" name="currentAge" type="int"/>
+    <property column="CURRENTAGEUNIT" name="currentAgeUnit" type="string"/>
+    <property column="address" name="address" type="string"/>
+    <property column="phone" name="phone" type="string"/>
+    <property column="eligibility" name="eligibility" type="string"/>
+    <property column="hiv_status" name="hivStatus" type="string"/>
+    <property column="ENROLLEDINCARE" name="enrolledInCare" type="string"/>
+    <property column="ENROLLEDONART" name="enrolledOnART" type="string"/>
+    <property column="FACILITYID" name="facilityId" type="string"/>
+    <property column="birth_certificate" name="birthCertificate" type="string"/>
+    <property column="school_status" name="schoolStatus" type="string"/>
+    <property column="school_name" name="schoolName" type="string"/>
+    <property column="current_class" name="currentClass" type="string"/>
+    <property column="school_type" name="schoolType" type="string"/>
+    <property column="CAREGIVERID" name="caregiverId" type="string"/>
+    <property column="caregiver_relationships" name="caregiverRelationships" type="string"/>
+    <property column="completedby_name" name="completedbyName" type="string"/>
+    <property column="completedby_designation" name="completedbyDesignation" type="string"/>
+    <property column="weight" name="weight" type="double"/>
+    <property column="height" name="height" type="double"/>
+    <property column="verified_by" name="verifiedBy" type="string"/>
+    <property column="partnercode" name="partner" type="string"/>
+    <property column="recordedby" name="recordedBy" type="string"/>
+    <property column="dateofentry" name="dateOfEntry" type="string"/>
+    <property column="sourceofinfo" name="sourceOfInfo" type="string"/>
+    <property column="WITHDRAWNFROMPROGRAM" name="withdrawnFromProgram" type="string"/>
+    <property column="LASTSERVICEDATE" name="lastServiceDate" type="string"/>
+  </class>
+</hibernate-mapping>

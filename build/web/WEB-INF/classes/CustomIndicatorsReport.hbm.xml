@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nomis.business.ReportTemplate" table="CUSTOMINDICATORSREPORT">
+    <id name="recordId" column="RECORDID" type="int">
+        <generator class="identity" />
+    </id>
+    <property name="cbo" column="CBO" type="string"/>
+    <property name="lga" column="LGA" type="string"/>
+    <property name="state" column="STATE" type="string"/>
+    <property name="dateCreated" column="DATECREATED" type="date"/>
+    <property name="period" column="PERIOD" type="string"/>
+    <property name="user" column="USERNAME" type="string"/>
+    <property name="otherDisaggregation"column="OTHERDISAGGREGATION" type="string"/>
+    <property name="indicatorName" column="INDICATORNAME" type="string"/>
+    <property name="femaleLessThan1" column="FLESSTHANONE" type="int"/>
+    <property name="female1to4" column="F1TO4" type="int"/>
+    <property name="female5to9" column="F5TO9" type="int"/>
+    <property name="female10to14" column="F10TO14" type="int"/>
+    <property name="female15to17" column="F15TO17" type="int"/>
+    <property name="female18to24" column="F18TO24" type="int"/>
+    <property name="female25AndAbove" column="F25PLUS" type="int"/>
+    <property name="maleLessThan1" column="MLESSTHANONE" type="int"/>
+    <property name="male1to4" column="M1TO4" type="int"/>
+    <property name="male5to9" column="M5TO9" type="int"/>
+    <property name="male10to14" column="M10TO14" type="int"/>
+    <property name="male15to17" column="M15TO17" type="int"/>
+    <property name="male18to24" column="F18TO24" type="int"/>
+    <property name="male25AndAbove" column="M25PLUS" type="int"/>
+  </class>
+</hibernate-mapping>

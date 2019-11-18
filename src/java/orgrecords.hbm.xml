@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class lazy="false" name="com.fhi.kidmap.business.OrganizationRecords" table="orgrecords">
+    <id column="org_code" name="orgCode" type="string">
+      <!--<generator class="identity" />-->
+    </id>
+    <property column="state_code" name="state" type="string"/>
+    <property column="lga_code" name="lga" type="string"/>
+    <property column="orgname" name="orgName" type="string"/>
+    <property column="orgtype" name="orgType" type="string"/>
+    <property column="orgsubtype" name="orgSubtype" type="string"/>
+    <property column="address" name="address" type="string"/>
+    <property column="contactname1" name="contactName1" type="string"/>
+    <property column="contactname2" name="contactName2" type="string"/>
+    <property column="contactname3" name="contactName3" type="string"/>
+    <property column="contactphone1" name="contactPhone1" type="string"/>
+    <property column="contactphone2" name="contactPhone2" type="string"/>
+    <property column="contactphone3" name="contactPhone3" type="string"/>
+    <property column="contactemail1" name="contactEmail1" type="string"/>
+    <property column="contactemail2" name="contactEmail2" type="string"/>
+    <property column="contactemail3" name="contactEmail3" type="string"/>
+    <property column="services" name="services" type="string"/>
+    <property column="LATITUDE" name="latitude" type="double"/>
+    <property column="LONGITUDE" name="longitude" type="double"/>
+  </class>
+</hibernate-mapping>
