@@ -153,6 +153,7 @@ table {
                                     <td width="59%">
                                         ${summList[0]}
                                     </td>
+                                    
                                     <td width="7%">
                                         <a href="summstatreport.do?reqParam=${summList[0]}:${summList[4]}:Male:summstatList" target="_blank">${summList[1]}</a>
                                     </td>

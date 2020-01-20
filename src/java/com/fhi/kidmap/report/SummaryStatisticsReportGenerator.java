@@ -766,6 +766,7 @@ public class SummaryStatisticsReportGenerator implements Serializable
     {
         IndicatorDictionary ind=new IndicatorDictionary();
         IndicatorWarehouse indwh=new IndicatorWarehouse();
+        String lgaName="";
         /*int startMth=Integer.parseInt(params[7]);
         int startYear=Integer.parseInt(params[8]);
         int endMth=Integer.parseInt(params[9]);
@@ -786,6 +787,10 @@ public class SummaryStatisticsReportGenerator implements Serializable
         String additionalQueryCriteria=util.getSummStatQueryCriteria(params);
         //create query criteria for exited beneficiaries
         //String exitedQueryCriteria=util.getSummStatQueryCriteria(reportParamsForExited);
+        if(params.length>1 && params[1] !=null && !params[1].equalsIgnoreCase("All"))
+        {
+            lgaName=util.getLgaName(params[1]);
+        }
         System.err.println("additionalQueryCriteria is "+additionalQueryCriteria);
         String[] hviParams=getHVIParams(params);//{params[0],params[1],params[2],null,null,null,null,null,null,null,params[18],params[19]};
         String[] periodParams={params[7], params[8], params[9],params[10]};
@@ -854,6 +859,7 @@ public class SummaryStatisticsReportGenerator implements Serializable
                 indicatorCode=selectedIndicators[i];
                 //getOVC_HIVSTATPOSITIVE(indicatorCode,indicatorName,additionalQueryCriteria, additionalEnrollmentQuery, additionalServiceQuery,ageQuery,startDate,endDate,false)
                 indicatorName=indwh.getIndicatorById(indicatorCode).getIndicatorName();
+                indicatorName=indicatorName+" ("+lgaName+")";
                 System.err.println("indicatorName is "+indicatorName);
                 if(indicatorCode.equalsIgnoreCase("vchivstapos"))
                 list.add(getOVC_HIVSTATPOSITIVE(indicatorCode,indicatorName,additionalQueryCriteria, additionalEnrollmentQuery, additionalServiceQuery,ageQuery,startDate,endDate,fyStartDate,fyEndDate,false));
@@ -939,18 +945,18 @@ public class SummaryStatisticsReportGenerator implements Serializable
                 else if(indicatorCode.equalsIgnoreCase("vccenrolled"))
                 list.add(getNoOfOvcCurrentlyEnrolled(additionalQueryCriteria,enrollmentEndDateQuery,ageQuery,indicatorCode));
                 else if(indicatorCode.equalsIgnoreCase("vcevenroled"))
-                list.add(getNoOfOvcEverEnrolled(ind.getIndicatorForNumberOfOvcEverEnrolled().getIndicatorName(),additionalQueryCriteria,enrollmentEndDateQuery,ageQuery,indicatorCode));
+                list.add(getNoOfOvcEverEnrolled(indicatorName,additionalQueryCriteria,enrollmentEndDateQuery,ageQuery,indicatorCode));
                 else if(indicatorCode.equalsIgnoreCase("vcserved007"))
-                list.add(getNoOfOvcServed(ind.getIndicatorForNumberOfOvcProvidedWithAtleastOneService().getIndicatorName(),additionalQueryCriteria,additionalEnrollmentQuery,additionalServiceQuery,ageQuery,indicatorCode));
+                list.add(getNoOfOvcServed(indicatorName,additionalQueryCriteria,additionalEnrollmentQuery,additionalServiceQuery,ageQuery,indicatorCode));
                 
                 else if(indicatorCode.equalsIgnoreCase("vcnenservrp"))
                 list.add(getNoOfOvcNewlyEnrolledAndServedWithinTheReportPeriod(indicatorName,additionalQueryCriteria,startAge,endAge,startDate,endDate,indicatorCode));
                 //list.add(getNoOfOvcNewlyEnrolledAndServedWithinTheReportPeriod(ind.getIndicatorForNumberOfNewOvcEnrolledAndServedWithinTheReportPeriod().getIndicatorName(),additionalQueryCriteria,additionalServiceQuery,ageQuery,indicatorCode));
                 
                 else if(indicatorCode.equalsIgnoreCase("vccurenserv"))
-                list.add(getNoOfOvcCurrentlyEnrolledAndServed(ind.getIndicatorForNumberOfOvcCurrentlyEnrolledAndServedInReportPeriod().getIndicatorName(),sex,additionalQueryCriteria,additionalEnrollmentQuery,additionalServiceQuery,ageQuery,indicatorCode));
+                list.add(getNoOfOvcCurrentlyEnrolledAndServed(indicatorName,sex,additionalQueryCriteria,additionalEnrollmentQuery,additionalServiceQuery,ageQuery,indicatorCode));
                 else if(indicatorCode.equalsIgnoreCase("vcgradserve"))
-                list.add(getNoOfOvcWithdrawnButServedWithinReportPeriod(ind.getIndicatorForNumberOfOvcGraduatedButServedInReportPeriod().getIndicatorName(),additionalQueryCriteria,additionalEnrollmentQuery,additionalServiceQuery,ageQuery,indicatorCode,ReportUtility.GRADUATED));
+                list.add(getNoOfOvcWithdrawnButServedWithinReportPeriod(indicatorName,additionalQueryCriteria,additionalEnrollmentQuery,additionalServiceQuery,ageQuery,indicatorCode,ReportUtility.GRADUATED));
                 else if(indicatorCode.equalsIgnoreCase("vcltfuserve"))
                 list.add(getNoOfOvcWithdrawnButServedWithinReportPeriod(ind.getIndicatorForNumberOfOvcLostToFollowupButServedInReportPeriod().getIndicatorName(),additionalQueryCriteria,additionalEnrollmentQuery,additionalServiceQuery,ageQuery,indicatorCode,ReportUtility.LOST_TO_FOLLOWUP));
                 else if(indicatorCode.equalsIgnoreCase("vcmigrserve"))
@@ -1351,7 +1357,9 @@ public class SummaryStatisticsReportGenerator implements Serializable
                 list.add(getNumberOfOvcReferredForHIVCare(ind.getIndicatorForNumberOfOvcReferredForHIVCare().getIndicatorName(),additionalQueryCriteria,additionalEnrollmentQuery,ageQuery,indicatorCode));
                 
             }
-        }     
+        } 
+        //add LGA name
+        //list.add(lgaName);
         return list;
     }
     

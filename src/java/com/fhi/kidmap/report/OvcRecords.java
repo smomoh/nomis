@@ -361,7 +361,7 @@ public class OvcRecords implements Serializable
         String[] param={stateCode,lgaCode,cboCode,month,year,stateName,lgaName,enrollmentStartMth,enrollmentStartYear,enrollmentEndMth,enrollmentEndYear,"All","All","All","All",startAge,endAge,cboName,partnerCode,wardCode,wardName};
         return param;
     }
-    public void getOvcCount(HttpSession session,String sex,List paramList,String[] selectedIndicators,String userGroupId)
+    public void getOvcCount(HttpSession session,String sex,List paramList,String[] multipleLgas,String[] selectedIndicators,String userGroupId)
     {
         List list=new ArrayList();
         String[] param=getParams(paramList);
@@ -370,7 +370,18 @@ public class OvcRecords implements Serializable
         try
         {
             //This is call for OVC indicators only
-            list=ssrg.getOvcEnrolledSummStatistics(sex,param,selectedIndicators);
+            if(multipleLgas !=null && multipleLgas.length>0)
+            {
+                for(int i=0; i<multipleLgas.length; i++)
+                {
+                    paramList.set(1,multipleLgas[i]);
+                    param=getParams(paramList);
+                    list.addAll(ssrg.getOvcEnrolledSummStatistics(sex,param,selectedIndicators));
+                }
+            }
+            else
+            list.addAll(ssrg.getOvcEnrolledSummStatistics(sex,param,selectedIndicators));
+            
         }
         catch(Exception ex)
         {
@@ -389,6 +400,7 @@ public class OvcRecords implements Serializable
         session.setAttribute("orgAssessmentList", assessmentList);
         session.setAttribute("summaryStatistics", list);
         session.setAttribute("summaryStatparams", param);
+        session.setAttribute("multipleLgas", multipleLgas);
         session.setAttribute("period", period);
         session.setAttribute("agegroup", agegroup);
     }
@@ -400,13 +412,25 @@ public class OvcRecords implements Serializable
         //System.err.println("indicatorCode in getSummStatisticsList is "+indicatorCode);
         //int index=Integer.parseInt(reqparams[1]);
         String param[]=(String[])session.getAttribute("summaryStatparams");
+        String multipleLgaParams[]=(String[])session.getAttribute("multipleLgas");
         String[] caregiverParams={param[0],param[1],param[2],"All",null,null,null,null,param[15],param[16]};
         //EnrollmentReportDao dao=new EnrollmentReportDaoImpl();
         SummaryStatisticsReportGenerator ssrg=new SummaryStatisticsReportGenerator();
         try
         {
             if(type.equals("all"))
-            list=ssrg.getSummaryStatisticList(param, reqparams);
+            {
+                if(multipleLgaParams !=null && multipleLgaParams.length>0)
+                {
+                    for(int i=0; i<multipleLgaParams.length; i++)
+                    {
+                        param[1]=multipleLgaParams[i];
+                        list.addAll(ssrg.getSummaryStatisticList(param, reqparams));
+                    }
+                }
+                else
+                list=(ssrg.getSummaryStatisticList(param, reqparams));
+            }
             IndicatorWarehouse indw=new IndicatorWarehouse();
             Indicators ind=indw.getIndicatorById(indicatorCode);
             session.removeAttribute("summaryStatisticsList");
@@ -556,10 +580,23 @@ public class OvcRecords implements Serializable
         String[] caregiverParams={param[0],param[1],param[2],"All",null,null,null,null,param[15],param[16]};
         //EnrollmentReportDao dao=new EnrollmentReportDaoImpl();
         SummaryStatisticsReportGenerator ssrg=new SummaryStatisticsReportGenerator();
+        String multipleLgaParams[]=(String[])session.getAttribute("multipleLgas");
         try
         {
             if(type.equals("all"))
-            list=ssrg.getSummaryStatisticList(param, reqparams);
+            {
+                if(multipleLgaParams !=null && multipleLgaParams.length>0)
+                {
+                    for(int i=0; i<multipleLgaParams.length; i++)
+                    {
+                        param[1]=multipleLgaParams[i];
+                        list.addAll(ssrg.getSummaryStatisticList(param, reqparams));
+                    }
+                }
+                else
+                list=(ssrg.getSummaryStatisticList(param, reqparams));
+            }
+            
             
             session.removeAttribute("summaryStatisticsList");
             session.removeAttribute("hhsRecords");

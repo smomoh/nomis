@@ -19,6 +19,7 @@ public class SummaryStatisticsReportForm extends org.apache.struts.action.Action
     
     private String sumstatPerMth_state;
     private String sumstatPerMth_lga;
+    private String[] lgas;
     private String sumstatPerMth_cbo;
     private String orgUnitGroupId;
     private String ward;
@@ -218,6 +219,14 @@ public class SummaryStatisticsReportForm extends org.apache.struts.action.Action
     public void setIndicatorIndexes(String[] indicatorIndexes) {
         this.indicatorIndexes = indicatorIndexes;
     }
+
+    public String[] getLgas() {
+        return lgas;
+    }
+
+    public void setLgas(String[] lgas) {
+        this.lgas = lgas;
+    }
     
     @Override
     public void reset(ActionMapping mapping, HttpServletRequest request)
@@ -243,6 +252,7 @@ public class SummaryStatisticsReportForm extends org.apache.struts.action.Action
         sumstat_year=0;
         reportType="All";
         indicatorIndexes=null;
+        lgas=null;
     }
     /**
      * This is the action called from the Struts framework.

@@ -995,6 +995,7 @@ function openCaregiverForm()
                         </tr>
                       </table></fieldset>                      </td>
                       </tr>
+                      
                       <tr>
                       <td height="52" valign="top">
                      <fieldset>

@@ -61,4 +61,7 @@ public interface HivStatusUpdateDao
     public int updateCaregiverActiveHivStatusWithPreviousHivStatus() throws Exception;
     public List getListOfHivPositiveOvcIdentifiedAndServedWithinTheReportPeriod(String additionalQueryCriteria,String startDate,String endDate,boolean currentlyEnrolled,boolean onTreatment) throws Exception;
     public List getHouseholdAndCaregiverHivStatusRecords(String hivStatus) throws Exception;
+    public int getNumberOfHivPositiveOvcInHousehold(String hhUniqueId) throws Exception;
+    public int getNumberOfHivPositiveCaregiversInHousehold(String hhUniqueId) throws Exception;
+    public int getNumberOfHivPositiveBeneficiariesInHousehold(String hhUniqueId) throws Exception;
 }

@@ -125,4 +125,5 @@ public interface OvcDao {
     public List getListOfOvcWithoutLastServiceDateByCommunity(String communityCode) throws Exception;
     public List getOvcs(String stateCode,int startAge, int endAge) throws Exception;
     public Ovc getOvcWithUpdatedWithdrawalStatus(Ovc ovc) throws Exception;
+    public int getNumberOfOvcAge5To20InHousehold(String hhUniqueId) throws Exception;
 }

@@ -157,6 +157,33 @@ function disableComponents(id)
             
             </tr>
             <tr>
+                <td height="123" valign="top" > </td>
+                <td colspan="3">
+                      <fieldset>
+                        <legend class="fieldset">LGA </legend>
+                        <div style="width:700px; height:120px; overflow:scroll; border:1px silver solid; text-align:left; background-color:#FFFFFF;">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="regsitertable">
+                    <!--DWLayoutTable-->
+                    <tr>
+                      <td width="700" height="102">
+                          <table width="690" border="1" bordercolor="#D7E5F2" class="regsitertable">
+                              <logic:present name="summstatlgaList">
+                                  <logic:iterate name="summstatlgaList" id="lga">
+                                      <tr>
+                                          <td><html:multibox property='lgas' styleId="${lga.lga_code}" value="${lga.lga_code}" styleClass='smallfieldcellselect'/> &nbsp;${lga.lga_name} </td> 
+                                      </tr>
+                                  </logic:iterate>
+                              </logic:present>
+                        </table>
+
+                      </td>
+                      </tr>
+                  </table>
+                </div>
+                  </fieldset></td>
+                            
+            </tr>
+            <tr>
                 <td class="orglabel" align="left"><jsp:include page="../includes/WardName.jsp"/> </td><td align="left">
                     <html:select property="ward" styleId="ward" style="width: 290px;" ><html:option value="All"> </html:option>
                         <logic:present name="sumstatwardList">

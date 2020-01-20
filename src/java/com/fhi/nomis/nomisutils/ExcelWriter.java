@@ -45,6 +45,8 @@ import com.fhi.kidmap.dao.OvcServiceDao;
 import com.fhi.kidmap.dao.OvcServiceDaoImpl;
 import com.fhi.kidmap.report.IndicatorWarehouse;
 import com.fhi.kidmap.report.SummaryStatisticsBean;
+import com.fhi.nomis.OperationsManagement.HivRecordsManager;
+import com.fhi.nomis.OperationsManagement.HouseholdEnrollmentManager;
 import com.nomis.business.ReportTemplate;
 import jxl.write.Label;
 import java.io.Serializable;
@@ -1401,6 +1403,208 @@ public WritableWorkbook writeListOfIndicatorsTableToExcel(OutputStream os, List 
         }
         return wworkbook;
     }
+public WritableWorkbook writeOvcDataFromListOfIndicatorsToExcelForUSAID(String indicatorName,OutputStream os, List ovcList) 
+{
+        WritableWorkbook wworkbook = null;
+        WritableSheet wsheet = null;
+        String sheetName = "Report ";
+        int sheetCount = 0;
+        Label label = null;
+        Number number = null;
+
+        try 
+        {
+            //appUtil.createReportDirectory();
+            wworkbook = Workbook.createWorkbook(os);
+            wsheet = wworkbook.createSheet(sheetName + (sheetCount + 1), sheetCount);
+            //String[] columnHeadings = {"State", "Lga", "CBO", "Ward/Community", "Indicator","HH unique Id", "Caregiver Id","Caregiver HIV status","Caregiver current status","OVC Id", "Day of Enrollment","Month of Enrollment","Year of Enrollment", "Age at baseline", "Age unit", "Current age", "Current age unit","Sex" ,"Eligibility criteria","Baseline Hiv status","Current HIV Status","Date of current Hiv status (yyyy-mm-dd)","In Care","On ART","Facility enrolled","Point of update","Birth Registration status","Risk assessed","At Risk of HIV","Date of last assessment","Baseline school status","Current school status","Household headship","Baseline Household vulnerability status","Current Household vulnerability status","OVC Baseline CSI","OVC Baseline Vulnerability status","OVC Current CSI score","OVC Current CSI status", "OVC Status","Date of current status","HH withdrawn from Program","Reason HH withdrawn","Date of withdrawal","Age category","No. Of OVC","Yrs School age (5 - 20)","Adult FSW [Yes=1, No=0]","Child of FSW[Yes=1, No=0]","AGYW [Yes=1, No=0]","HIV Affected HH","ALHIV+[Yes=1, No=0]","Child of HIV+ Caregiver","CLHIV+[Yes=1, No=0]","HH with CLHIV","HH with AGYW"};
+            String[] columnHeadings = {"State", "Lga", "HH unique Id", "OVC Id","Beneficiary status","Household enrollment status","Sex", "Age", "Age category","Beneficiary type","HIV Status","On ART","School age (5 - 20 Yrs)","Adult FSW [Yes=1, No=0]","Child of FSW[Yes=1, No=0]","AGYW [Yes=1, No=0]","HIV Affected HH","ALHIV+[Yes=1, No=0]","Child of HIV+ Caregiver","CLHIV+[Yes=1, No=0]","HH with CLHIV","HH with AGYW"};
+
+            int t = 0;
+            int row = 1;
+            int cellCount = 0;
+            int cgiverHivStatusNum=0;
+            int adolescentNum=0;
+            int childInSchool=0;
+            int childOfFSWNum=0;
+            int alhivNum=0;
+            int clhivNum=0;
+            int hhclhivNum=0;
+            int hhagywNum=0;
+            String dayOfEnrollment=null;
+            String monthOfEnrollment=null;
+            String yearOfEnrollment=null; 
+            String riskAssessed="No";
+            String atRiskOfHiv=" ";
+            String dateOfRiskAssessed=" ";
+            for (int k = 0; k < columnHeadings.length; k++) 
+            {
+                label = new Label(k, 0, columnHeadings[k]);
+                wsheet.addCell(label);
+            }
+            HouseholdEnrollment hhe = null;
+            HivRiskAssessmentChecklist hrac=null;
+            Caregiver cgiver=null;
+            Ovc ovc = null;
+            String ageCategory="";
+            String cgiverHivStatus=null;       
+            String cgiverCurrentStatus=null;
+            String hhCurrentStatus=null;
+            for (int i = 0; i < ovcList.size(); i++) 
+            {
+                cellCount = 0;
+                cgiverHivStatusNum=0;
+                adolescentNum=0;
+                childInSchool=0;
+                childOfFSWNum=0;
+                alhivNum=0;
+                clhivNum=0;
+                hhclhivNum=0;
+                hhagywNum=0;
+                
+                cgiverHivStatus=null;
+                hhCurrentStatus=null;
+                cgiverCurrentStatus=null;
+                dayOfEnrollment=null;
+                monthOfEnrollment=null;
+                yearOfEnrollment=null; 
+                riskAssessed="No";
+                dateOfRiskAssessed=" ";
+                atRiskOfHiv=" ";
+                ovc = (Ovc) ovcList.get(i);
+                if (ovc == null) {
+                    continue;
+                }
+                ageCategory = appUtil.getOvcAgeCategory(ovc);
+                if(ovc.getDateEnrollment() !=null && ovc.getDateEnrollment().indexOf("-") !=-1)
+                {
+                    String[] dateArray=ovc.getDateEnrollment().split("-");
+                    if(dateArray !=null && dateArray.length==3)
+                    {
+                        yearOfEnrollment=dateArray[0];
+                        monthOfEnrollment=dateArray[1];
+                        dayOfEnrollment=dateArray[2]; 
+                    }
+                }
+                hhe = ovc.getHhe();
+                cgiver=util.getCaregiverDaoInstance().getCaregiverByCaregiverId(ovc.getCaregiverId());
+                hrac=util.getHivRiskAssessmentChecklistDaoInstance().getLastHivRiskAssessmentForOvc(ovc.getOvcId());
+                if(hrac !=null)
+                {
+                    riskAssessed="Yes";  
+                    atRiskOfHiv=hrac.getChildAtRiskQuestion();
+                    dateOfRiskAssessed=hrac.getDateOfAssessment();
+                }
+                if(cgiver !=null)
+                {
+                    cgiverHivStatus=cgiver.getActiveHivStatus().getHivStatus();
+                    cgiverCurrentStatus=cgiver.getReasonForWithdrawal();
+                }
+                if(ovc.getReasonForWithdrawal().equalsIgnoreCase("active"))
+                hhCurrentStatus="active";
+                System.err.println("ovc.getOvcId() is " + ovc.getOvcId()+" "+i);
+                //util.getHouseholdVulnerabilityAssessmentDaoInstance().getMostRecentHvaScore(hhe.getHhUniqueId());
+                
+                label = new Label(cellCount, row, hhe.getStateName());
+                wsheet.addCell(label);
+                label = new Label(++cellCount, row, hhe.getLgaName());
+                wsheet.addCell(label);
+                
+                label = new Label(++cellCount, row, ovc.getHhUniqueId());
+                wsheet.addCell(label);
+                
+                label = new Label(++cellCount, row, ovc.getOvcId());
+                wsheet.addCell(label);
+                label = new Label(++cellCount, row, ovc.getReasonForWithdrawal());
+                wsheet.addCell(label);
+                label = new Label(++cellCount, row, hhCurrentStatus);
+                wsheet.addCell(label);
+                label = new Label(++cellCount, row, ovc.getGender());
+                wsheet.addCell(label);
+                
+                label = new Label(++cellCount, row, ovc.getCurrentAge()+" "+ovc.getCurrentAgeUnit());
+                wsheet.addCell(label);
+                label = new Label(++cellCount, row, ageCategory);
+                wsheet.addCell(label);
+               
+                label = new Label(++cellCount, row, "ovc");
+                wsheet.addCell(label);
+                
+                label = new Label(++cellCount, row, ovc.getActiveHivStatus().getHivStatus());
+                wsheet.addCell(label);
+                
+                label = new Label(++cellCount, row, ovc.getEnrolledOnTreatment());
+                wsheet.addCell(label);
+                                
+                if(cgiverHivStatus !=null && cgiverHivStatus.equalsIgnoreCase("positive"))
+                cgiverHivStatusNum=1;
+                
+                if(ovc.getActiveHivStatus().getHivStatus().equalsIgnoreCase("positive"))
+                {
+                    clhivNum=1;
+                    hhclhivNum=1;
+                }
+                
+                if(ovc.getCurrentAge()>11 && ovc.getCurrentAge()<21 && ovc.getCurrentAgeUnit().equalsIgnoreCase("Year"))
+                {
+                    adolescentNum=1;
+                    hhagywNum=1;
+                    if(ovc.getActiveHivStatus().getHivStatus().equalsIgnoreCase("positive"));
+                    alhivNum=1;
+                }
+                if(ovc.getCurrentAge()>4 && ovc.getCurrentAge()<21 && ovc.getCurrentAgeUnit().equalsIgnoreCase("Year"))
+                {
+                    if((ovc.getSchoolStatus() !=null && ovc.getSchoolStatus().equalsIgnoreCase("Yes")) || (ovc.getCurrentSchoolStatus() !=null && ovc.getCurrentSchoolStatus().equalsIgnoreCase("Yes")))
+                    childInSchool=1;
+                }
+                if(ovc.getEligibility() !=null && (ovc.getEligibility().indexOf("Child of Key Population") !=-1 || ovc.getEligibility().indexOf("Child of FSW") !=-1))
+                childOfFSWNum=1;
+                number = new Number(++cellCount, row,childInSchool);
+                wsheet.addCell(number);
+                label = new Label(++cellCount, row, " ");
+                wsheet.addCell(label);
+                number = new Number(++cellCount, row, childOfFSWNum);
+                wsheet.addCell(number);
+                number = new Number(++cellCount, row, adolescentNum);
+                wsheet.addCell(number);
+                label = new Label(++cellCount, row, " ");
+                wsheet.addCell(label);
+                number = new Number(++cellCount, row, alhivNum);
+                wsheet.addCell(number);
+                number = new Number(++cellCount, row, cgiverHivStatusNum);
+                wsheet.addCell(number);
+                number = new Number(++cellCount, row, clhivNum);
+                wsheet.addCell(number);
+                number = new Number(++cellCount, row, hhclhivNum);
+                wsheet.addCell(number);
+                number = new Number(++cellCount, row, hhagywNum);
+                wsheet.addCell(number);
+                
+                /*If record gets to 50000, create new sheet*/
+                if (t == (49900 * (sheetCount + 1))) {
+                    sheetCount++;
+                    wsheet = wworkbook.createSheet(sheetName + (sheetCount + 1), sheetCount);
+                    row = 0;
+                    for (int k = 0; k < columnHeadings.length; k++) {
+                        label = new Label(k, 0, columnHeadings[k]);
+                        wsheet.addCell(label);
+                    }
+                }
+                row++;
+                t++;
+            }
+
+        } 
+        catch (ClassCastException ex) 
+        {
+            System.err.println("Error: "+ex.getMessage());
+        }
+        catch (Exception ex) 
+        {
+            ex.printStackTrace();
+        }
+        return wworkbook;
+    }
 public WritableWorkbook writeOvcDataFromListOfIndicatorsToExcel(String indicatorName,OutputStream os, List ovcList) 
 {
         WritableWorkbook wworkbook = null;
@@ -1415,11 +1619,16 @@ public WritableWorkbook writeOvcDataFromListOfIndicatorsToExcel(String indicator
             //appUtil.createReportDirectory();
             wworkbook = Workbook.createWorkbook(os);
             wsheet = wworkbook.createSheet(sheetName + (sheetCount + 1), sheetCount);
-            String[] columnHeadings = {"State", "Lga", "CBO", "Ward/Community", "Indicator","HH unique Id", "Caregiver Id","Caregiver HIV status","Caregiver current status","OVC Id", "Day of Enrollment","Month of Enrollment","Year of Enrollment", "Age at baseline", "Age unit", "Current age", "Current age unit","Sex" ,"Eligibility criteria","Baseline Hiv status","Current HIV Status","Date of current Hiv status (yyyy-mm-dd)","In Care","On ART","Facility enrolled","Point of update","Birth Registration status","Risk assessed","At Risk of HIV","Date of last assessment","Baseline school status","Current school status","Household headship","Baseline Household vulnerability status","Current Household vulnerability status","OVC Baseline CSI","OVC Baseline Vulnerability status","OVC Current CSI score","OVC Current CSI status", "OVC Status","Date of current status","HH withdrawn from Program","Reason HH withdrawn","Date of withdrawal","Age category","No. Of OVC"};
+            //String[] columnHeadings = {"State", "Lga", "CBO", "Ward/Community", "Indicator","HH unique Id", "Caregiver Id","Caregiver HIV status","Caregiver current status","OVC Id", "Day of Enrollment","Month of Enrollment","Year of Enrollment", "Age at baseline", "Age unit", "Current age", "Current age unit","Sex" ,"Eligibility criteria","Baseline Hiv status","Current HIV Status","Date of current Hiv status (yyyy-mm-dd)","In Care","On ART","Facility enrolled","Point of update","Birth Registration status","Risk assessed","At Risk of HIV","Date of last assessment","Baseline school status","Current school status","Household headship","Baseline Household vulnerability status","Current Household vulnerability status","OVC Baseline CSI","OVC Baseline Vulnerability status","OVC Current CSI score","OVC Current CSI status", "OVC Status","Date of current status","HH withdrawn from Program","Reason HH withdrawn","Date of withdrawal","Age category","No. Of OVC","Yrs School age (5 - 20)","Adult FSW [Yes=1, No=0]","Child of FSW[Yes=1, No=0]","AGYW [Yes=1, No=0]","HIV Affected HH","ALHIV+[Yes=1, No=0]","Child of HIV+ Caregiver","CLHIV+[Yes=1, No=0]","HH with CLHIV","HH with AGYW"};
+            String[] columnHeadings = {"State", "Lga", "CBO", "Ward/Community", "HH unique Id", "Caregiver current status","OVC Id", "Current age", "Current age unit","Sex" ,"Eligibility criteria","Current HIV Status","In Care","On ART","Facility enrolled","Date of last assessment","Baseline school status","Current school status","OVC Status","Date of current status","HH withdrawn from Program","Reason HH withdrawn","Date of withdrawal","Age category","No. Of OVC","Yrs School age (5 - 20)","Adult FSW [Yes=1, No=0]","Child of FSW[Yes=1, No=0]","AGYW [Yes=1, No=0]","HIV Affected HH","ALHIV+[Yes=1, No=0]","Child of HIV+ Caregiver","CLHIV+[Yes=1, No=0]","HH with CLHIV","HH with AGYW"};
 
             int t = 0;
             int row = 1;
             int cellCount = 0;
+            int cgiverHivStatusNum=0;
+            int adolescentNum=0;
+            int childInSchool=0;
+            int childOfFSWNum=0;
             String dayOfEnrollment=null;
             String monthOfEnrollment=null;
             String yearOfEnrollment=null; 
@@ -1441,6 +1650,11 @@ public WritableWorkbook writeOvcDataFromListOfIndicatorsToExcel(String indicator
             for (int i = 0; i < ovcList.size(); i++) 
             {
                 cellCount = 0;
+                cgiverHivStatusNum=0;
+                adolescentNum=0;
+                childInSchool=0;
+                childOfFSWNum=0;
+                
                 cgiverHivStatus=null;
                 cgiverCurrentStatus=null;
                 dayOfEnrollment=null;
@@ -1489,12 +1703,12 @@ public WritableWorkbook writeOvcDataFromListOfIndicatorsToExcel(String indicator
                 wsheet.addCell(label);
                 label = new Label(++cellCount, row, hhe.getCommunityName());
                 wsheet.addCell(label);
-                label = new Label(++cellCount, row, indicatorName);
-                wsheet.addCell(label);
+                //label = new Label(++cellCount, row, indicatorName);
+                //wsheet.addCell(label);
                 label = new Label(++cellCount, row, ovc.getHhUniqueId());
                 wsheet.addCell(label);
-                label = new Label(++cellCount, row, ovc.getCaregiverId());
-                wsheet.addCell(label);
+                //label = new Label(++cellCount, row, ovc.getCaregiverId());
+                //wsheet.addCell(label);
                 label = new Label(++cellCount, row, cgiverHivStatus);
                 wsheet.addCell(label);
                 label = new Label(++cellCount, row, cgiverCurrentStatus);
@@ -1506,7 +1720,7 @@ public WritableWorkbook writeOvcDataFromListOfIndicatorsToExcel(String indicator
                 //wsheet.addCell(label);
                 //label = new Label(++cellCount, row, ovc.getFirstName());
                 //wsheet.addCell(label);
-                label = new Label(++cellCount, row, dayOfEnrollment);
+                /*label = new Label(++cellCount, row, dayOfEnrollment);
                 wsheet.addCell(label);
                 label = new Label(++cellCount, row, monthOfEnrollment);
                 wsheet.addCell(label);
@@ -1515,7 +1729,7 @@ public WritableWorkbook writeOvcDataFromListOfIndicatorsToExcel(String indicator
                 number = new Number(++cellCount, row, ovc.getAge());
                 wsheet.addCell(number);
                 label = new Label(++cellCount, row, ovc.getAgeUnit());
-                wsheet.addCell(label);
+                wsheet.addCell(label);*/
                 number = new Number(++cellCount, row, ovc.getCurrentAge());
                 wsheet.addCell(number);
                 label = new Label(++cellCount, row, ovc.getCurrentAgeUnit());
@@ -1526,17 +1740,17 @@ public WritableWorkbook writeOvcDataFromListOfIndicatorsToExcel(String indicator
                 //wsheet.addCell(label);
                 label = new Label(++cellCount, row, ovc.getEligibility());
                 wsheet.addCell(label);
-                label = new Label(++cellCount, row, ovc.getHivStatus());
-                wsheet.addCell(label);
+                //label = new Label(++cellCount, row, ovc.getHivStatus());
+                //wsheet.addCell(label);
                 label = new Label(++cellCount, row, ovc.getActiveHivStatus().getHivStatus());
                 wsheet.addCell(label);
-                label = new Label(++cellCount, row, ovc.getActiveHivStatus().getDateOfCurrentStatus());
-                wsheet.addCell(label);
+                //label = new Label(++cellCount, row, ovc.getActiveHivStatus().getDateOfCurrentStatus());
+                //wsheet.addCell(label);
                 label = new Label(++cellCount, row, ovc.getActiveHivStatus().getClientEnrolledInCare());
                 wsheet.addCell(label);
                 label = new Label(++cellCount, row, ovc.getEnrolledOnTreatment());
                 wsheet.addCell(label);
-                label = new Label(++cellCount, row, ovc.getFacility().getFacilityName());
+                /*label = new Label(++cellCount, row, ovc.getFacility().getFacilityName());
                 wsheet.addCell(label);
                 label = new Label(++cellCount, row, ovc.getActiveHivStatus().getPointOfUpdate());
                 wsheet.addCell(label);
@@ -1547,7 +1761,7 @@ public WritableWorkbook writeOvcDataFromListOfIndicatorsToExcel(String indicator
                 label = new Label(++cellCount, row, atRiskOfHiv);
                 wsheet.addCell(label);
                 label = new Label(++cellCount, row, dateOfRiskAssessed);
-                wsheet.addCell(label);
+                wsheet.addCell(label);*/
                 
                 label = new Label(++cellCount, row, ovc.getSchoolStatus());
                 wsheet.addCell(label);
@@ -1558,7 +1772,7 @@ public WritableWorkbook writeOvcDataFromListOfIndicatorsToExcel(String indicator
                 //label = new Label(++cellCount, row, ovc.getCaregiverPhone());
                 //wsheet.addCell(label);
                 
-                number =new Number(++cellCount, row, hhe.getHhHeadship());
+                /*number =new Number(++cellCount, row, hhe.getHhHeadship());
                 wsheet.addCell(number);
                 label = new Label(++cellCount, row, ovc.getHhe().getBaselineVulnerabilityStatus());
                 wsheet.addCell(label);
@@ -1571,7 +1785,7 @@ public WritableWorkbook writeOvcDataFromListOfIndicatorsToExcel(String indicator
                 number =new Number(++cellCount, row, ovc.getCurrentVulnerabilityScore());
                 wsheet.addCell(number);
                 label = new Label(++cellCount, row, ovc.getCurrentVulnerabilityStatus());
-                wsheet.addCell(label);
+                wsheet.addCell(label);*/
                 label = new Label(++cellCount, row, ovc.getReasonForWithdrawal());
                 wsheet.addCell(label);
                 label = new Label(++cellCount, row, ovc.getDateOfWithdrawal());
@@ -1591,6 +1805,35 @@ public WritableWorkbook writeOvcDataFromListOfIndicatorsToExcel(String indicator
                 wsheet.addCell(label);
                 number = new Number(++cellCount, row, 1);
                 wsheet.addCell(number);
+                
+                if(cgiverHivStatus !=null && cgiverHivStatus.equalsIgnoreCase("positive"))
+                cgiverHivStatusNum=1;
+                if(ovc.getCurrentAge()>4 && ovc.getCurrentAge()<21 && ovc.getCurrentAgeUnit().equalsIgnoreCase("Year"))
+                adolescentNum=1;
+                if((ovc.getSchoolStatus() !=null && ovc.getSchoolStatus().equalsIgnoreCase("Yes")) || (ovc.getCurrentSchoolStatus() !=null && ovc.getCurrentSchoolStatus().equalsIgnoreCase("Yes")))
+                childInSchool=1;
+                if(ovc.getEligibility() !=null && (ovc.getEligibility().indexOf("Child of Key Population") !=-1 || ovc.getEligibility().indexOf("Child of FSW") !=-1))
+                childOfFSWNum=1;
+                number = new Number(++cellCount, row,childInSchool);
+                wsheet.addCell(number);
+                label = new Label(++cellCount, row, " ");
+                wsheet.addCell(label);
+                number = new Number(++cellCount, row, childOfFSWNum);
+                wsheet.addCell(number);
+                number = new Number(++cellCount, row, adolescentNum);
+                wsheet.addCell(number);
+                label = new Label(++cellCount, row, " ");
+                wsheet.addCell(label);
+                label = new Label(++cellCount, row, " ");
+                wsheet.addCell(label);
+                number = new Number(++cellCount, row, cgiverHivStatusNum);
+                wsheet.addCell(number);
+                label = new Label(++cellCount, row, " ");
+                wsheet.addCell(label);
+                label = new Label(++cellCount, row, " ");
+                wsheet.addCell(label);
+                label = new Label(++cellCount, row, " ");
+                wsheet.addCell(label);
                 
                 /*If record gets to 50000, create new sheet*/
                 if (t == (49900 * (sheetCount + 1))) {
@@ -1717,6 +1960,153 @@ public WritableWorkbook writeOvcDataFromListOfIndicatorsToExcel(String indicator
             }
 
         } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return wworkbook;
+    }
+    public WritableWorkbook writeCaregiverListToExcelForUSAIDTemplate(String indicatorName,OutputStream os, List list) {
+        WritableWorkbook wworkbook = null;
+        WritableSheet wsheet = null;
+        String sheetName = "Report ";
+        String cgiverHivStatus=null;
+        int cgiverHivStatusNum=0;
+        int hivAffectedNum=0;
+        int hhclhiv=0;
+        int hhagyw=0;
+        int householdHasAGYWNum=0;
+        int recordSize=0;
+        if(list !=null)
+        recordSize=list.size();
+        
+        int count=0;
+        int sheetCount = 0;
+        Label label = null;
+        Number number = null;
+
+        try {
+            //appUtil.createReportDirectory();
+            wworkbook = Workbook.createWorkbook(os);
+            wsheet = wworkbook.createSheet(sheetName + (sheetCount + 1), sheetCount);
+            String[] columnHeadings = {"State", "Lga", "HH unique Id", "OVC Id","Beneficiary status","Household enrollment status","Sex", "Age", "Age category","Beneficiary type","HIV Status","On ART","Yrs School age (5 - 20)","Adult FSW [Yes=1, No=0]","Child of FSW[Yes=1, No=0]","AGYW [Yes=1, No=0]","HIV Affected HH","ALHIV+[Yes=1, No=0]","Child of HIV+ Caregiver","CLHIV+[Yes=1, No=0]","HH with CLHIV","HH with AGYW"};
+
+            int t = 0;
+            int row = 1;
+            int cellCount = 0;
+            String yearOfEnrollment = null;
+            for (int k = 0; k < columnHeadings.length; k++) {
+                label = new Label(k, 0, columnHeadings[k]);
+                wsheet.addCell(label);
+            }
+            
+            //HouseholdService hhs = null;
+            Caregiver cgiver = null;
+            String dateOfEnrollment = null;
+            String ageCategory="";
+            for (int i = 0; i < list.size(); i++) {
+                cellCount = 0;
+                yearOfEnrollment = null;
+                cgiverHivStatus=null;
+                cgiverHivStatusNum=0;
+                hivAffectedNum=0;
+                hhclhiv=0;
+                hhagyw=0;
+                householdHasAGYWNum=0;
+                
+                cgiver = (Caregiver) list.get(i);
+                
+                if (cgiver == null) {
+                    continue;
+                }
+                dateOfEnrollment = cgiver.getDateOfEnrollment();
+                if (dateOfEnrollment != null && dateOfEnrollment.indexOf("/") != -1) {
+                    String[] dateArray = cgiver.getDateOfEnrollment().split("/");
+                    if (dateArray != null && dateArray.length > 2) {
+                        yearOfEnrollment = dateArray[2];
+                    }
+                }
+                count++;
+                System.err.println(count+" of "+recordSize+" processed");
+                boolean isHivAffectedHousehold=HivRecordsManager.isHouseholdAffectedByHiv(cgiver.getHhUniqueId());
+                boolean houseHasHivPositiveCaregiver=HivRecordsManager.isHouseholdWithHivPositiveCaregiver(cgiver.getHhUniqueId());
+                boolean householdHasAGYW=HouseholdEnrollmentManager.householdHasAdolescentsAndYoungWomen(cgiver.getHhUniqueId());
+                ageCategory = appUtil.getOvcAgeCategory(cgiver.getCurrentAge(),"Year");
+                cgiverHivStatus=cgiver.getActiveHivStatus().getHivStatus();
+                
+                label = new Label(cellCount, row, cgiver.getHhe().getStateName());
+                wsheet.addCell(label);
+                label = new Label(++cellCount, row, cgiver.getHhe().getLgaName());
+                wsheet.addCell(label);
+                label = new Label(++cellCount, row, cgiver.getHhUniqueId());
+                wsheet.addCell(label);
+                label = new Label(++cellCount, row, cgiver.getCaregiverId());
+                wsheet.addCell(label);
+                label = new Label(++cellCount, row, cgiver.getReasonForWithdrawal());
+                wsheet.addCell(label);
+                label = new Label(++cellCount, row, cgiver.getHhe().getReasonForWithdrawal());
+                wsheet.addCell(label);
+                label = new Label(++cellCount, row, cgiver.getCaregiverGender());
+                wsheet.addCell(label);
+                number = new Number(++cellCount, row, cgiver.getCaregiverAge());
+                wsheet.addCell(number);
+                label = new Label(++cellCount, row, ageCategory);
+                wsheet.addCell(label);
+                label = new Label(++cellCount, row, NomisConstant.Caregiver_TYPE);
+                wsheet.addCell(label);
+                
+                label = new Label(++cellCount, row, cgiver.getActiveHivStatus().getHivStatus());
+                wsheet.addCell(label);
+                label = new Label(++cellCount, row, cgiver.getActiveHivStatus().getEnrolledOnART());
+                wsheet.addCell(label);
+                
+                if(cgiverHivStatus !=null && cgiverHivStatus.equalsIgnoreCase("positive"))
+                cgiverHivStatusNum=1;
+                if(isHivAffectedHousehold)
+                hivAffectedNum=1;
+                if(houseHasHivPositiveCaregiver)
+                hhclhiv=1;
+                if(householdHasAGYW)
+                householdHasAGYWNum=1;
+                
+                number = new Number(++cellCount, row,0);
+                wsheet.addCell(number);
+                label = new Label(++cellCount, row, " ");
+                wsheet.addCell(label);
+                number = new Number(++cellCount, row, 0);
+                wsheet.addCell(number);
+                number = new Number(++cellCount, row, 0);
+                wsheet.addCell(number);
+                number = new Number(++cellCount, row, hivAffectedNum);
+                wsheet.addCell(number);
+                label = new Label(++cellCount, row, " ");
+                wsheet.addCell(label);
+                number = new Number(++cellCount, row, 0);
+                wsheet.addCell(number);
+                number = new Number(++cellCount, row, cgiverHivStatusNum);
+                wsheet.addCell(number);
+                number = new Number(++cellCount, row, hhclhiv);
+                wsheet.addCell(number);
+                number = new Number(++cellCount, row, householdHasAGYWNum);
+                wsheet.addCell(number);
+                /*If record gets to 50000, create new sheet*/
+                if (t == (49900 * (sheetCount + 1))) {
+                    sheetCount++;
+                    wsheet = wworkbook.createSheet(sheetName + (sheetCount + 1), sheetCount);
+                    row = 0;
+                    for (int k = 0; k < columnHeadings.length; k++) {
+                        label = new Label(k, 0, columnHeadings[k]);
+                        wsheet.addCell(label);
+                    }
+                }
+                row++;
+                t++;
+            }
+
+        }
+        catch (ClassCastException ex) 
+        {
+            System.err.println("Error: "+ex.getMessage());
+        }
+        catch (Exception ex) {
             ex.printStackTrace();
         }
         return wworkbook;

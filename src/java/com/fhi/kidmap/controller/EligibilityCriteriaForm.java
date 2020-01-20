@@ -60,7 +60,7 @@ public class EligibilityCriteriaForm extends org.apache.struts.action.ActionForm
         this.eligibilityList = eligibilityList;
     }
 
-
+@Override
     public void reset(ActionMapping mapping, HttpServletRequest request)
     {
         eligibilityName=null;

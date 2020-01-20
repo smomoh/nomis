@@ -39,6 +39,32 @@ public class OvcDaoImpl implements OvcDao {
     SessionFactory sessions;
     DaoUtil util=new DaoUtil();
     AppUtility appUtil=new AppUtility();
+public int getNumberOfOvcAge5To20InHousehold(String hhUniqueId) throws Exception
+{
+    int count=0;
+    //List list =null;
+    try
+    {
+        //String query="select count(distinct ovc.ovcId) "+util.getHouseholdOvcQueryPart()+"and ovc.hhUniqueId='"+hhUniqueId+"' and (ovc.currentAge>4 and ovc.currentAge<21) and (UPPER(ovc.currentAgeUnit) !='MONTH')";
+        String query="select count(distinct ovc.ovcId) from Ovc ovc where ovc.hhUniqueId='"+hhUniqueId+"' and (ovc.currentAge>4 and ovc.currentAge<21) and (UPPER(ovc.currentAgeUnit) !='MONTH')";
+        System.err.println("query in getListOfOvcAge5To20InHousehold() is "+query);
+        session = HibernateUtil.getSession();
+        tx = session.beginTransaction();
+        List list = session.createQuery(query).list();
+        tx.commit();
+        session.close();
+        if(list !=null && !list.isEmpty())
+        {
+            count=Integer.parseInt(list.get(0).toString());
+        }
+    }
+    catch(Exception ex)
+    {
+        closeSession(session);
+        ex.printStackTrace();
+    }
+    return count;
+}
 public int getNumberOfRecordsWithIncorrectCurrentAgeUnit() throws Exception
 {
     List list =null;

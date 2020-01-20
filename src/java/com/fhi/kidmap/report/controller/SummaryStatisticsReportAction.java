@@ -78,6 +78,7 @@ public class SummaryStatisticsReportAction extends org.apache.struts.action.Acti
         String requiredAction;
         String stateCode=reportForm.getSumstatPerMth_state();
         String lgaCode=reportForm.getSumstatPerMth_lga();
+        String[] multipleLgas=reportForm.getLgas();
         String orgUnitGroupId=reportForm.getOrgUnitGroupId();
         String cboCode=reportForm.getSumstatPerMth_cbo();
         String wardCode=reportForm.getWard();
@@ -370,7 +371,7 @@ public class SummaryStatisticsReportAction extends org.apache.struts.action.Acti
             String userGroupId=null;
             if(user !=null)
             userGroupId=user.getUserGroupId();
-            records.getOvcCount(session, "All", paramList,indicators,userGroupId);
+            records.getOvcCount(session, "All", paramList,multipleLgas,indicators,userGroupId);
             reportForm.reset(mapping, request);
         }
         else if(requiredAction.equals("summstatList"))
@@ -447,12 +448,13 @@ public class SummaryStatisticsReportAction extends org.apache.struts.action.Acti
                         {
                             if(indicatorType.equalsIgnoreCase(NomisConstant.OVC_TYPE))
                             {
-                                wworkbook=ew.writeOvcDataFromListOfIndicatorsToExcel(indicatorName,os,ovcList);
+                                wworkbook=ew.writeOvcDataFromListOfIndicatorsToExcelForUSAID(indicatorName, os, ovcList);
+                                //ew.writeOvcDataFromListOfIndicatorsToExcel(indicatorName,os,ovcList);
                                 type="Ovc";
                             }
                             else if(indicatorType.equalsIgnoreCase(NomisConstant.Caregiver_TYPE))
                             {
-                                wworkbook=ew.writeCaregiverListToExcel(indicatorName,os,ovcList);
+                                wworkbook=ew.writeCaregiverListToExcelForUSAIDTemplate(indicatorName, os, ovcList);//writeCaregiverListToExcel(indicatorName,os,ovcList);
                                 type="Caregiver";
                             }
                             else if(indicatorType.equalsIgnoreCase(NomisConstant.HOUSEHOLD_TYPE))

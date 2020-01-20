@@ -30,6 +30,74 @@ public class HivStatusUpdateDaoImpl implements HivStatusUpdateDao
     SessionFactory sessions;
     AppUtility appUtil=new AppUtility();
     DaoUtil util=new DaoUtil();
+    public int getNumberOfHivPositiveBeneficiariesInHousehold(String hhUniqueId) throws Exception
+    {
+        int count=0;
+        List list=new ArrayList();
+        try 
+        {
+            count=getNumberOfHivPositiveOvcInHousehold(hhUniqueId);
+            count+=getNumberOfHivPositiveCaregiversInHousehold(hhUniqueId);
+           //list.addAll(getListOfHivPositiveCaregiversInHousehold(hhUniqueId));
+           //list.addAll(getListOfHivPositiveOvcInHousehold(hhUniqueId));
+        }
+        catch (Exception ex)
+        {
+            closeSession(session);
+            ex.printStackTrace();
+        }
+         return count;
+    }
+    public int getNumberOfHivPositiveCaregiversInHousehold(String hhUniqueId) throws Exception
+    {
+        int count=0;
+        //List list=null;
+        try 
+        {
+            String query="select count(distinct cgiver.caregiverId) from Caregiver cgiver, HivStatusUpdate hsu where hsu.clientId=cgiver.caregiverId and cgiver.hhUniqueId='"+hhUniqueId+"' and (hsu.hivStatus='positive' and hsu.recordStatus='active')";
+            //System.err.println("query in getListOfHivPositiveCaregiversInHousehold is "+query);
+            session = HibernateUtil.getSession();
+            tx = session.beginTransaction();
+            List list = session.createQuery(query).list();
+            tx.commit();
+            closeSession(session);
+            if(list !=null && !list.isEmpty())
+            {
+                count=Integer.parseInt(list.get(0).toString());
+            }
+        }
+         catch (Exception ex)
+         {
+             closeSession(session);
+             ex.printStackTrace();
+         }
+         return count;
+    }
+    public int getNumberOfHivPositiveOvcInHousehold(String hhUniqueId) throws Exception
+    {
+        int count=0;
+        List list=null;
+        try 
+        {
+            String query="select count(distinct ovc.ovcId) from Ovc ovc, HivStatusUpdate hsu where hsu.clientId=ovc.ovcId and ovc.hhUniqueId='"+hhUniqueId+"' and (hsu.hivStatus='positive' and hsu.recordStatus='active')";
+            //System.err.println("query in getListOfHivPositiveOvcInHousehold is "+query);
+            session = HibernateUtil.getSession();
+            tx = session.beginTransaction();
+            list = session.createQuery(query).list();
+            tx.commit();
+            closeSession(session);
+            if(list !=null && !list.isEmpty())
+            {
+                count=Integer.parseInt(list.get(0).toString());
+            }
+        }
+         catch (Exception ex)
+         {
+             closeSession(session);
+             ex.printStackTrace();
+         }
+        return count;
+    }
     public int updateCaregiverActiveHivStatusWithPreviousHivStatus() throws Exception
     {
         int count=0;

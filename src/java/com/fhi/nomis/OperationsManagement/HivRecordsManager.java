@@ -33,6 +33,44 @@ public class HivRecordsManager
     int hivPosOnTreatmentCount=0;
     List hivOnTreatmentList=new ArrayList();
     HivStatusUpdateDao hsudao=util.getHivStatusUpdateDaoInstance();
+    public static boolean isHouseholdAffectedByHiv(String hhUniqueId)
+    {
+        DaoUtil util=new DaoUtil();
+        HivStatusUpdateDao hsudao=util.getHivStatusUpdateDaoInstance();
+        boolean houseAffectedByHiv=false;
+        try
+        {
+            int count=hsudao.getNumberOfHivPositiveBeneficiariesInHousehold(hhUniqueId);
+            if(count>0)
+            {
+                houseAffectedByHiv=true;
+            }
+        }
+        catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return houseAffectedByHiv;
+    }
+    public static boolean isHouseholdWithHivPositiveCaregiver(String hhUniqueId)
+    {
+        DaoUtil util=new DaoUtil();
+        HivStatusUpdateDao hsudao=util.getHivStatusUpdateDaoInstance();
+        boolean houseHasHivPositiveCaregiver=false;
+        try
+        {
+            int count=hsudao.getNumberOfHivPositiveCaregiversInHousehold(hhUniqueId);
+            if(count>0)
+            {
+                houseHasHivPositiveCaregiver=true;
+            }
+        }
+        catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return houseHasHivPositiveCaregiver;
+    }
     public void updateOvcReferralWithHTCReferralService()
     {
         try
